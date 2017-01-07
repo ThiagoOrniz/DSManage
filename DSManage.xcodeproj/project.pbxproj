@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
-		AFA35B331E180F9A00931A83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B321E180F9A00931A83 /* ViewController.swift */; };
+		AFA35B331E180F9A00931A83 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B321E180F9A00931A83 /* LoginViewController.swift */; };
 		AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B341E180F9A00931A83 /* Main.storyboard */; };
 		AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B371E180F9A00931A83 /* Assets.xcassets */; };
 		AFA35B3B1E180F9A00931A83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B391E180F9A00931A83 /* LaunchScreen.storyboard */; };
-		AFA35B461E180F9B00931A83 /* DSManageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B451E180F9B00931A83 /* DSManageTests.swift */; };
 		AFA35B511E180F9B00931A83 /* DSManageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B501E180F9B00931A83 /* DSManageUITests.swift */; };
 		AFA35B6F1E18208A00931A83 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6A1E18208A00931A83 /* Client.swift */; };
 		AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6B1E18208A00931A83 /* ItemSale.swift */; };
@@ -41,13 +40,12 @@
 /* Begin PBXFileReference section */
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B301E180F9A00931A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFA35B321E180F9A00931A83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AFA35B321E180F9A00931A83 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AFA35B351E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFA35B371E180F9A00931A83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFA35B3A1E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFA35B3C1E180F9A00931A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFA35B411E180F9B00931A83 /* DSManageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSManageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFA35B451E180F9B00931A83 /* DSManageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSManageTests.swift; sourceTree = "<group>"; };
 		AFA35B471E180F9B00931A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFA35B4C1E180F9B00931A83 /* DSManageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSManageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B501E180F9B00931A83 /* DSManageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSManageUITests.swift; sourceTree = "<group>"; };
@@ -109,7 +107,7 @@
 			children = (
 				AFA35B5F1E181C8B00931A83 /* models */,
 				AFA35B5E1E181C6C00931A83 /* supportingFiles */,
-				AFA35B321E180F9A00931A83 /* ViewController.swift */,
+				AFA35B321E180F9A00931A83 /* LoginViewController.swift */,
 				AFA35B341E180F9A00931A83 /* Main.storyboard */,
 			);
 			path = DSManage;
@@ -118,7 +116,6 @@
 		AFA35B441E180F9B00931A83 /* DSManageTests */ = {
 			isa = PBXGroup;
 			children = (
-				AFA35B451E180F9B00931A83 /* DSManageTests.swift */,
 				AFA35B471E180F9B00931A83 /* Info.plist */,
 			);
 			path = DSManageTests;
@@ -292,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */,
-				AFA35B331E180F9A00931A83 /* ViewController.swift in Sources */,
+				AFA35B331E180F9A00931A83 /* LoginViewController.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
@@ -305,7 +302,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA35B461E180F9B00931A83 /* DSManageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +540,7 @@
 				AFA35B571E180F9B00931A83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AFA35B581E180F9B00931A83 /* Build configuration list for PBXNativeTarget "DSManageTests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +549,7 @@
 				AFA35B5A1E180F9B00931A83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AFA35B5B1E180F9B00931A83 /* Build configuration list for PBXNativeTarget "DSManageUITests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +558,7 @@
 				AFA35B5D1E180F9B00931A83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
