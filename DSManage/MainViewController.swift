@@ -44,23 +44,20 @@ class MainViewController: UIViewController {
         
         switch currentView.tag {
         case CLIENTS_TAG:
-            print("client")
             self.performSegue(withIdentifier: "pushClients", sender: self)
             
         case PRODUCTS_TAG:
-            print("product")
             self.performSegue(withIdentifier: "pushProducts", sender: self)
             
         case SALES_TAG:
-            print("sales")
             self.performSegue(withIdentifier: "pushSales", sender: self)
             
         case REPORTS_TAG:
-            print("reports")
             self.performSegue(withIdentifier: "pushReports", sender: self)
 
         default:
             print("error")
+            //add validation
         }
         
 

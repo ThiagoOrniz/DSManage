@@ -10,10 +10,10 @@ import UIKit
 
 class ClientsViewController: UIViewController {
 
+    @IBOutlet weak var clientsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

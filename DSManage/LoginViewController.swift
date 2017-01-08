@@ -27,8 +27,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTouched(_ sender: UIButton) {
         
-        print("oi")
-        
+        // todo: remove push
+        // add validations
     }
     
 
