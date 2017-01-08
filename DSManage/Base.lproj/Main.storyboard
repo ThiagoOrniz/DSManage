@@ -296,6 +296,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="5bN-Mp-2oe" id="w5o-QY-lL1"/>
                         <outlet property="passwordTextField" destination="UKC-cU-9sO" id="FIR-md-ky4"/>
+                        <outlet property="scrollView" destination="d4q-2B-iJt" id="nbm-TZ-5Pn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

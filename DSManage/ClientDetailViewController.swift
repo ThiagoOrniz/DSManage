@@ -25,6 +25,7 @@ UINavigationControllerDelegate {
     
     private var isEditingClient = false
     private var client = Client();
+    private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
 
     
     override func viewDidLoad() {
@@ -35,8 +36,36 @@ UINavigationControllerDelegate {
         let changeAvatarTap = UITapGestureRecognizer(target: self, action: #selector(self.handleChangingAvatarTap(_:)))
         self.avatarImageView.addGestureRecognizer(changeAvatarTap)
         
+        self.tapRecognizer = UITapGestureRecognizer(target: self, action:  #selector(self.hikeKeyboard))
+        self.view.addGestureRecognizer(self.tapRecognizer)
+        
+        setupTextFields()
+        
+        clientScrollView.registerForKeyboardDidShowNotification(scrollView: clientScrollView)
+        clientScrollView.registerForKeyboardWillHideNotification(scrollView: clientScrollView)
+        
     }
 
+    private func setupTextFields(){
+        
+        let emptyTextField = UITextField()
+        emptyTextField.placeholder = "-1"
+        
+        nameTextField.inputAccessoryView = nameTextField.setAccessoryView(textField: nameTextField, nextTextField: phoneTextField)
+        
+        phoneTextField.inputAccessoryView = phoneTextField.setAccessoryView(textField: phoneTextField, nextTextField:emailTextField )
+        
+        
+        emailTextField.inputAccessoryView = emailTextField.setAccessoryView(textField: emailTextField, nextTextField: addressTextField)
+        
+        addressTextField.inputAccessoryView = addressTextField.setAccessoryView(textField: addressTextField, nextTextField:emptyTextField )
+        
+        
+    }
+    
+    func hikeKeyboard(){
+        self.view.endEditing(true)
+    }
     public func setClient(client:Client, isEditingClient:Bool){
         self.client = client
         self.isEditingClient = isEditingClient

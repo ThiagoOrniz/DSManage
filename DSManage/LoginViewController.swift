@@ -10,15 +10,29 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.setupTextFields()
+        scrollView.registerForKeyboardDidShowNotification(scrollView: scrollView)
+        scrollView.registerForKeyboardWillHideNotification(scrollView: scrollView)
     }
 
+    private func setupTextFields(){
+        
+        let emptyTextField = UITextField()
+        emptyTextField.placeholder = "-1"
+        
+        emailTextField.inputAccessoryView = emailTextField.setAccessoryView(textField: emailTextField, nextTextField: passwordTextField)
+        
+        passwordTextField.inputAccessoryView = passwordTextField.setAccessoryView(textField: passwordTextField, nextTextField:emptyTextField )
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
