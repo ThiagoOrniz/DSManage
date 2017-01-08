@@ -18,6 +18,13 @@
 		AFA35B711E18208A00931A83 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6C1E18208A00931A83 /* Product.swift */; };
 		AFA35B721E18208A00931A83 /* Rep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6D1E18208A00931A83 /* Rep.swift */; };
 		AFA35B731E18208A00931A83 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6E1E18208A00931A83 /* Sale.swift */; };
+		AFD60C2B1E21E6A10006FAE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */; };
+		AFD60C2D1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */; };
+		AFD60C2F1E21EB6C0006FAE7 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */; };
+		AFD60C311E21EB9E0006FAE7 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C301E21EB9E0006FAE7 /* ClientsViewController.swift */; };
+		AFD60C351E21F03D0006FAE7 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C341E21F03D0006FAE7 /* Product.storyboard */; };
+		AFD60C371E21F04A0006FAE7 /* Sale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C361E21F04A0006FAE7 /* Sale.storyboard */; };
+		AFD60C391E21F0520006FAE7 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C381E21F0520006FAE7 /* Report.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +62,13 @@
 		AFA35B6C1E18208A00931A83 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = models/Product.swift; sourceTree = "<group>"; };
 		AFA35B6D1E18208A00931A83 /* Rep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rep.swift; path = models/Rep.swift; sourceTree = "<group>"; };
 		AFA35B6E1E18208A00931A83 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sale.swift; path = models/Sale.swift; sourceTree = "<group>"; };
+		AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
+		AFD60C301E21EB9E0006FAE7 /* ClientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientsViewController.swift; sourceTree = "<group>"; };
+		AFD60C341E21F03D0006FAE7 /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
+		AFD60C361E21F04A0006FAE7 /* Sale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sale.storyboard; sourceTree = "<group>"; };
+		AFD60C381E21F0520006FAE7 /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +119,10 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AFD60C291E21E6650006FAE7 /* controllers */,
+				AFD60C281E21DFF20006FAE7 /* views */,
 				AFA35B5F1E181C8B00931A83 /* models */,
 				AFA35B5E1E181C6C00931A83 /* supportingFiles */,
-				AFA35B321E180F9A00931A83 /* LoginViewController.swift */,
-				AFA35B341E180F9A00931A83 /* Main.storyboard */,
 			);
 			path = DSManage;
 			sourceTree = "<group>";
@@ -151,6 +165,29 @@
 				AFA35B6E1E18208A00931A83 /* Sale.swift */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		AFD60C281E21DFF20006FAE7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				AFA35B341E180F9A00931A83 /* Main.storyboard */,
+				AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */,
+				AFD60C341E21F03D0006FAE7 /* Product.storyboard */,
+				AFD60C361E21F04A0006FAE7 /* Sale.storyboard */,
+				AFD60C381E21F0520006FAE7 /* Report.storyboard */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		AFD60C291E21E6650006FAE7 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFA35B321E180F9A00931A83 /* LoginViewController.swift */,
+				AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */,
+				AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */,
+				AFD60C301E21EB9E0006FAE7 /* ClientsViewController.swift */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +299,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA35B3B1E180F9A00931A83 /* LaunchScreen.storyboard in Resources */,
+				AFD60C391E21F0520006FAE7 /* Report.storyboard in Resources */,
+				AFD60C351E21F03D0006FAE7 /* Product.storyboard in Resources */,
 				AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */,
 				AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */,
+				AFD60C2F1E21EB6C0006FAE7 /* Client.storyboard in Resources */,
+				AFD60C371E21F04A0006FAE7 /* Sale.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,10 +332,13 @@
 				AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */,
 				AFA35B331E180F9A00931A83 /* LoginViewController.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
+				AFD60C311E21EB9E0006FAE7 /* ClientsViewController.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
+				AFD60C2D1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift in Sources */,
 				AFA35B6F1E18208A00931A83 /* Client.swift in Sources */,
 				AFA35B731E18208A00931A83 /* Sale.swift in Sources */,
+				AFD60C2B1E21E6A10006FAE7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
