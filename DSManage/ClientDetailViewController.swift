@@ -21,8 +21,7 @@ UINavigationControllerDelegate {
     @IBOutlet weak var numberOfSalesLabel: UILabel!
     @IBOutlet weak var totalOfSalesLabel: UILabel!
     
-    let imagePicker = UIImagePickerController()
-    
+    private let imagePicker = UIImagePickerController()
     private var isEditingClient = false
     private var client = Client();
     private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
@@ -30,67 +29,91 @@ UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         imagePicker.delegate = self
 
-        let changeAvatarTap = UITapGestureRecognizer(target: self, action: #selector(self.handleChangingAvatarTap(_:)))
-        self.avatarImageView.addGestureRecognizer(changeAvatarTap)
+        setupNavigationController()
+        setupTextFields()
+        setupAvatarImage()
+        setupScrollView()
         
         self.tapRecognizer = UITapGestureRecognizer(target: self, action:  #selector(self.hikeKeyboard))
         self.view.addGestureRecognizer(self.tapRecognizer)
-        
-        setupTextFields()
-        
-        clientScrollView.registerForKeyboardDidShowNotification(scrollView: clientScrollView)
-        clientScrollView.registerForKeyboardWillHideNotification(scrollView: clientScrollView)
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(isEditingClient){
+            populateView()
+        }
     }
 
+    private func setupNavigationController(){
+        
+        let saveButtomItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save,target: self,action: #selector(saveButtonTouched))
+        
+        self.navigationItem.setRightBarButton(saveButtomItem, animated: true)
+    }
+    
     private func setupTextFields(){
         
         let emptyTextField = UITextField()
         emptyTextField.placeholder = "-1"
         
         nameTextField.inputAccessoryView = nameTextField.setAccessoryView(textField: nameTextField, nextTextField: phoneTextField)
-        
+       
         phoneTextField.inputAccessoryView = phoneTextField.setAccessoryView(textField: phoneTextField, nextTextField:emailTextField )
-        
         
         emailTextField.inputAccessoryView = emailTextField.setAccessoryView(textField: emailTextField, nextTextField: addressTextField)
         
         addressTextField.inputAccessoryView = addressTextField.setAccessoryView(textField: addressTextField, nextTextField:emptyTextField )
+    }
+    
+    private func setupAvatarImage(){
         
+        let changeAvatarTap = UITapGestureRecognizer(target: self, action: #selector(self.handleAvatarTap(_:)))
+        self.avatarImageView.addGestureRecognizer(changeAvatarTap)
         
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
+        self.avatarImageView.clipsToBounds = true;
+    }
+  
+    private func setupScrollView(){
+        clientScrollView.registerForKeyboardDidShowNotification(scrollView: clientScrollView)
+        clientScrollView.registerForKeyboardWillHideNotification(scrollView: clientScrollView)
     }
     
     func hikeKeyboard(){
         self.view.endEditing(true)
     }
+    
     public func setClient(client:Client, isEditingClient:Bool){
         self.client = client
         self.isEditingClient = isEditingClient
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if(isEditingClient){
-            populateFields()
-        }
-
-    }
     
-    private func populateFields(){
+    private func populateView(){
         self.nameTextField.text = self.client.name
         self.emailTextField.text = self.client.email
         self.phoneTextField.text = self.client.phone
         self.addressTextField.text = self.client.address
     }
     
-    func handleChangingAvatarTap(_ sender: UITapGestureRecognizer){
+    func saveButtonTouched(){
+        print("OI")
+    }
+    
+    func handleAvatarTap(_ sender: UITapGestureRecognizer){
 
         let alert = UIAlertController(title: "Change Profile Picture", message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Show", style: .default) { action in
+            self.showImage()
+        })
+        
         alert.addAction(UIAlertAction(title: "Take Photo", style: .default) { action in
-           
             self.openCamera()
         })
         
@@ -102,8 +125,7 @@ UINavigationControllerDelegate {
         
         self.present(alert,animated: true,completion: nil)
     }
-    
-    //MARK: - Delegates
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -113,21 +135,16 @@ UINavigationControllerDelegate {
         self.dismiss(animated: true, completion: nil);
 
     }
-   
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
-    }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+
         avatarImageView.image = image
         self.dismiss(animated: true, completion: nil);
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    private func showImage(){
+        //todo show image detailed
     }
-    
     
     private func openCamera(){
 
@@ -161,12 +178,15 @@ UINavigationControllerDelegate {
     }
     
     @IBAction func emailButtonTouched(_ sender: UIButton) {
+        //todo email
     }
     
     @IBAction func deleteButtonTouched(_ sender: UIButton) {
+        // todo deletebutton
     }
     
     @IBAction func sellButtonTouched(_ sender: UIButton) {
+        //todo open sell
     }
     
 }
