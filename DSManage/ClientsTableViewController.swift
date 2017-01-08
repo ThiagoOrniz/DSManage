@@ -10,7 +10,9 @@ import UIKit
 
 class ClientsTableViewController: UITableViewController {
 
-    var clients = ["Client 1", "Client 2", "Client 3"]
+    var clients = [Client(name: "Jose",email: "jose@email.com",phone: "1111-1111",address: "rua 1"),
+                   Client(name: "Maria",email: "maria@email.com",phone: "2222-2222",address: "rua 2"),
+                   Client(name: "Joao",email: "joao@email.com",phone: "3333-3333",address: "rua 3")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,7 @@ class ClientsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClientTableViewCell", for: indexPath) as! ClientTableViewCell
 
         
-        cell.clientNameLabel.text = clients[indexPath.row]
+        cell.clientNameLabel.text = clients[indexPath.row].name
     
         return cell
     }
@@ -60,7 +62,7 @@ class ClientsTableViewController: UITableViewController {
     }
     
     func add(){
-        print("add tapped")
+        self.performSegue(withIdentifier: "pushNewClient", sender:self)
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -68,29 +70,15 @@ class ClientsTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        
         let clientDetailViewController = segue.destination as! ClientDetailViewController
         
         var selectedIndexPath = self.tableView.indexPathForSelectedRow
         
-        clientDetailViewController.setClient(client: clients[(selectedIndexPath?.row)!])
+        if(selectedIndexPath != nil){
+            clientDetailViewController.setClient(client: clients[(selectedIndexPath?.row)!],isEditingClient: true)
+        }
     }
-    
-   
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-    
     
 
     override func didReceiveMemoryWarning() {

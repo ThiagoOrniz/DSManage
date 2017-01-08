@@ -8,12 +8,28 @@
 
 import Foundation
 
-class Client {
+class Client : NSObject {
     
     var id: String = ""
     var name: String = ""
     var email: String = ""
+    var phone: String = ""
     var photoURL: String = ""
     var address:String = ""
+    
+    override init(){
+        super.init()
+    }
+    
+    init(name:String, email:String, phone:String, address:String){
+        super.init()
+        
+        self.name = name
+        self.email = email
+        self.phone = phone
+        self.address = address
+        
+    }
+
     
 }
