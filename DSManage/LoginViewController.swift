@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
 
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +31,7 @@ class LoginViewController: UIViewController {
     func hikeKeyboard(){
         self.view.endEditing(true)
     }
+    
     
     private func setupTextFields(){
         

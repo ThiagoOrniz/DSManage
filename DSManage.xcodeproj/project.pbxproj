@@ -22,6 +22,7 @@
 		AFA35B731E18208A00931A83 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6E1E18208A00931A83 /* Sale.swift */; };
 		AFAC64EB1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */; };
 		AFAC64EE1E22C4BB00E57C6D /* UITextField+Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */; };
+		AFAC64F11E22D7DA00E57C6D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F01E22D7DA00E57C6D /* ProductService.swift */; };
 		AFD60C2B1E21E6A10006FAE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */; };
 		AFD60C2D1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */; };
 		AFD60C2F1E21EB6C0006FAE7 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */; };
@@ -78,6 +79,7 @@
 		AFA35B6E1E18208A00931A83 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sale.swift; path = models/Sale.swift; sourceTree = "<group>"; };
 		AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+KeyboardNotification.swift"; sourceTree = "<group>"; };
 		AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Accessory.swift"; sourceTree = "<group>"; };
+		AFAC64F01E22D7DA00E57C6D /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AFAC64EF1E22D7C800E57C6D /* services */,
 				AFAC64EC1E22C3BF00E57C6D /* extensions */,
 				AFD60C291E21E6650006FAE7 /* controllers */,
 				AFD60C281E21DFF20006FAE7 /* views */,
@@ -223,6 +226,14 @@
 				AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		AFAC64EF1E22D7C800E57C6D /* services */ = {
+			isa = PBXGroup;
+			children = (
+				AFAC64F01E22D7DA00E57C6D /* ProductService.swift */,
+			);
+			name = services;
 			sourceTree = "<group>";
 		};
 		AFD60C281E21DFF20006FAE7 /* views */ = {
@@ -550,6 +561,7 @@
 				AFD60C3B1E21F9460006FAE7 /* ClientTableViewCell.swift in Sources */,
 				AFA35B731E18208A00931A83 /* Sale.swift in Sources */,
 				AFD60C2B1E21E6A10006FAE7 /* MainViewController.swift in Sources */,
+				AFAC64F11E22D7DA00E57C6D /* ProductService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 
 class ClientDetailViewController: UIViewController,UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var clientScrollView: UIScrollView!
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -178,7 +179,15 @@ UINavigationControllerDelegate {
     }
     
     @IBAction func emailButtonTouched(_ sender: UIButton) {
-        //todo email
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            let alertVC = UIAlertController(title: "Could Not Send Email",message: "Your device could not send e-mail.  Please check e-mail configuration and try again.",preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
+            alertVC.addAction(okAction)
+            self.present( alertVC,animated: true,completion: nil)
+        }
     }
     
     @IBAction func deleteButtonTouched(_ sender: UIButton) {
@@ -187,6 +196,21 @@ UINavigationControllerDelegate {
     
     @IBAction func sellButtonTouched(_ sender: UIButton) {
         //todo open sell
+    }
+    
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self        
+        mailComposerVC.setToRecipients([self.client.email])
+        mailComposerVC.setMessageBody("", isHTML: false)
+        return mailComposerVC
+    }
+    
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }
