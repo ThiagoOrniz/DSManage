@@ -34,6 +34,7 @@
 		AFAC65121E2314BA00E57C6D /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650E1E2314BA00E57C6D /* Product.storyboard */; };
 		AFAC65131E2314BA00E57C6D /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650F1E2314BA00E57C6D /* Report.storyboard */; };
 		AFAC65141E2314BA00E57C6D /* Sale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC65101E2314BA00E57C6D /* Sale.storyboard */; };
+		AFAC65161E23271200E57C6D /* TextFieldValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */; };
 		F0A16747EE2B8986723E96FD /* Pods_DSManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		AFAC650E1E2314BA00E57C6D /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Product.storyboard; path = views/Product.storyboard; sourceTree = "<group>"; };
 		AFAC650F1E2314BA00E57C6D /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Report.storyboard; path = views/Report.storyboard; sourceTree = "<group>"; };
 		AFAC65101E2314BA00E57C6D /* Sale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Sale.storyboard; path = views/Sale.storyboard; sourceTree = "<group>"; };
+		AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidatorTests.swift; sourceTree = "<group>"; };
 		B607F4E84A2B4C07FDF2EE3F /* Pods-DSManageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageUITests/Pods-DSManageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				AFA35B471E180F9B00931A83 /* Info.plist */,
+				AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */,
 			);
 			path = DSManageTests;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 					};
 					AFA35B401E180F9B00931A83 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AFA35B2C1E180F9A00931A83;
 					};
@@ -585,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFAC65161E23271200E57C6D /* TextFieldValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,10 +763,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DSManageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DSManageTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSManage.app/DSManage";
 			};
@@ -773,6 +780,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DSManageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DSManageTests;
