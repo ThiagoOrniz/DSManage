@@ -10,7 +10,6 @@
 		2721DDB0EF6DDDDDEED8C761 /* Pods_DSManageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */; };
 		87AA9F30DF17E556DF830673 /* Pods_DSManageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */; };
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
-		AFA35B331E180F9A00931A83 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B321E180F9A00931A83 /* LoginViewController.swift */; };
 		AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B341E180F9A00931A83 /* Main.storyboard */; };
 		AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B371E180F9A00931A83 /* Assets.xcassets */; };
 		AFA35B3B1E180F9A00931A83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B391E180F9A00931A83 /* LaunchScreen.storyboard */; };
@@ -20,20 +19,21 @@
 		AFA35B711E18208A00931A83 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6C1E18208A00931A83 /* Product.swift */; };
 		AFA35B721E18208A00931A83 /* Rep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6D1E18208A00931A83 /* Rep.swift */; };
 		AFA35B731E18208A00931A83 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6E1E18208A00931A83 /* Sale.swift */; };
-		AFAC64EB1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */; };
-		AFAC64EE1E22C4BB00E57C6D /* UITextField+Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */; };
-		AFAC64F11E22D7DA00E57C6D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F01E22D7DA00E57C6D /* ProductService.swift */; };
-		AFAC64F41E230EC300E57C6D /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F31E230EC300E57C6D /* TextFieldValidator.swift */; };
-		AFAC64F61E23117600E57C6D /* UIViewController+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F51E23117600E57C6D /* UIViewController+Messages.swift */; };
-		AFD60C2B1E21E6A10006FAE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */; };
-		AFD60C2D1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */; };
-		AFD60C2F1E21EB6C0006FAE7 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */; };
-		AFD60C351E21F03D0006FAE7 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C341E21F03D0006FAE7 /* Product.storyboard */; };
-		AFD60C371E21F04A0006FAE7 /* Sale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C361E21F04A0006FAE7 /* Sale.storyboard */; };
-		AFD60C391E21F0520006FAE7 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C381E21F0520006FAE7 /* Report.storyboard */; };
-		AFD60C3B1E21F9460006FAE7 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C3A1E21F9460006FAE7 /* ClientTableViewCell.swift */; };
-		AFD60C3D1E21FA5B0006FAE7 /* ClientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C3C1E21FA5B0006FAE7 /* ClientsTableViewController.swift */; };
-		AFD60C3F1E2201550006FAE7 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C3E1E2201550006FAE7 /* ClientDetailViewController.swift */; };
+		AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F71E23147D00E57C6D /* ProductService.swift */; };
+		AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */; };
+		AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */; };
+		AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */; };
+		AFAC65001E23149C00E57C6D /* UIViewController+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FD1E23149C00E57C6D /* UIViewController+Messages.swift */; };
+		AFAC65071E2314AB00E57C6D /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65011E2314AB00E57C6D /* ClientDetailViewController.swift */; };
+		AFAC65081E2314AB00E57C6D /* ClientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65021E2314AB00E57C6D /* ClientsTableViewController.swift */; };
+		AFAC65091E2314AB00E57C6D /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65031E2314AB00E57C6D /* ClientTableViewCell.swift */; };
+		AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */; };
+		AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65051E2314AB00E57C6D /* LoginViewController.swift */; };
+		AFAC650C1E2314AB00E57C6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65061E2314AB00E57C6D /* MainViewController.swift */; };
+		AFAC65111E2314BA00E57C6D /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650D1E2314BA00E57C6D /* Client.storyboard */; };
+		AFAC65121E2314BA00E57C6D /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650E1E2314BA00E57C6D /* Product.storyboard */; };
+		AFAC65131E2314BA00E57C6D /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650F1E2314BA00E57C6D /* Report.storyboard */; };
+		AFAC65141E2314BA00E57C6D /* Sale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC65101E2314BA00E57C6D /* Sale.storyboard */; };
 		F0A16747EE2B8986723E96FD /* Pods_DSManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,6 @@
 		94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B301E180F9A00931A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFA35B321E180F9A00931A83 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AFA35B351E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFA35B371E180F9A00931A83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFA35B3A1E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,20 +78,21 @@
 		AFA35B6C1E18208A00931A83 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = models/Product.swift; sourceTree = "<group>"; };
 		AFA35B6D1E18208A00931A83 /* Rep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rep.swift; path = models/Rep.swift; sourceTree = "<group>"; };
 		AFA35B6E1E18208A00931A83 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sale.swift; path = models/Sale.swift; sourceTree = "<group>"; };
-		AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+KeyboardNotification.swift"; sourceTree = "<group>"; };
-		AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Accessory.swift"; sourceTree = "<group>"; };
-		AFAC64F01E22D7DA00E57C6D /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
-		AFAC64F31E230EC300E57C6D /* TextFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidator.swift; sourceTree = "<group>"; };
-		AFAC64F51E23117600E57C6D /* UIViewController+Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Messages.swift"; sourceTree = "<group>"; };
-		AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
-		AFD60C341E21F03D0006FAE7 /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
-		AFD60C361E21F04A0006FAE7 /* Sale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sale.storyboard; sourceTree = "<group>"; };
-		AFD60C381E21F0520006FAE7 /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
-		AFD60C3A1E21F9460006FAE7 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
-		AFD60C3C1E21FA5B0006FAE7 /* ClientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientsTableViewController.swift; sourceTree = "<group>"; };
-		AFD60C3E1E2201550006FAE7 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetailViewController.swift; sourceTree = "<group>"; };
+		AFAC64F71E23147D00E57C6D /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductService.swift; path = services/ProductService.swift; sourceTree = "<group>"; };
+		AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldValidator.swift; path = helpers/TextFieldValidator.swift; sourceTree = "<group>"; };
+		AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+KeyboardNotification.swift"; path = "extensions/UIScrollView+KeyboardNotification.swift"; sourceTree = "<group>"; };
+		AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+Accessory.swift"; path = "extensions/UITextField+Accessory.swift"; sourceTree = "<group>"; };
+		AFAC64FD1E23149C00E57C6D /* UIViewController+Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Messages.swift"; path = "extensions/UIViewController+Messages.swift"; sourceTree = "<group>"; };
+		AFAC65011E2314AB00E57C6D /* ClientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientDetailViewController.swift; path = controllers/ClientDetailViewController.swift; sourceTree = "<group>"; };
+		AFAC65021E2314AB00E57C6D /* ClientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsTableViewController.swift; path = controllers/ClientsTableViewController.swift; sourceTree = "<group>"; };
+		AFAC65031E2314AB00E57C6D /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientTableViewCell.swift; path = controllers/ClientTableViewCell.swift; sourceTree = "<group>"; };
+		AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		AFAC65051E2314AB00E57C6D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = controllers/LoginViewController.swift; sourceTree = "<group>"; };
+		AFAC65061E2314AB00E57C6D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = controllers/MainViewController.swift; sourceTree = "<group>"; };
+		AFAC650D1E2314BA00E57C6D /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Client.storyboard; path = views/Client.storyboard; sourceTree = "<group>"; };
+		AFAC650E1E2314BA00E57C6D /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Product.storyboard; path = views/Product.storyboard; sourceTree = "<group>"; };
+		AFAC650F1E2314BA00E57C6D /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Report.storyboard; path = views/Report.storyboard; sourceTree = "<group>"; };
+		AFAC65101E2314BA00E57C6D /* Sale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Sale.storyboard; path = views/Sale.storyboard; sourceTree = "<group>"; };
 		B607F4E84A2B4C07FDF2EE3F /* Pods-DSManageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageUITests/Pods-DSManageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -227,9 +227,9 @@
 		AFAC64EC1E22C3BF00E57C6D /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */,
-				AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */,
-				AFAC64F51E23117600E57C6D /* UIViewController+Messages.swift */,
+				AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */,
+				AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */,
+				AFAC64FD1E23149C00E57C6D /* UIViewController+Messages.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 		AFAC64EF1E22D7C800E57C6D /* services */ = {
 			isa = PBXGroup;
 			children = (
-				AFAC64F01E22D7DA00E57C6D /* ProductService.swift */,
+				AFAC64F71E23147D00E57C6D /* ProductService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 		AFAC64F21E230DF000E57C6D /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AFAC64F31E230EC300E57C6D /* TextFieldValidator.swift */,
+				AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */,
 			);
 			name = helpers;
 			sourceTree = "<group>";
@@ -253,11 +253,11 @@
 		AFD60C281E21DFF20006FAE7 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				AFAC650D1E2314BA00E57C6D /* Client.storyboard */,
+				AFAC650E1E2314BA00E57C6D /* Product.storyboard */,
+				AFAC650F1E2314BA00E57C6D /* Report.storyboard */,
+				AFAC65101E2314BA00E57C6D /* Sale.storyboard */,
 				AFA35B341E180F9A00931A83 /* Main.storyboard */,
-				AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */,
-				AFD60C341E21F03D0006FAE7 /* Product.storyboard */,
-				AFD60C361E21F04A0006FAE7 /* Sale.storyboard */,
-				AFD60C381E21F0520006FAE7 /* Report.storyboard */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -265,12 +265,12 @@
 		AFD60C291E21E6650006FAE7 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AFA35B321E180F9A00931A83 /* LoginViewController.swift */,
-				AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */,
-				AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */,
-				AFD60C3C1E21FA5B0006FAE7 /* ClientsTableViewController.swift */,
-				AFD60C3E1E2201550006FAE7 /* ClientDetailViewController.swift */,
-				AFD60C3A1E21F9460006FAE7 /* ClientTableViewCell.swift */,
+				AFAC65011E2314AB00E57C6D /* ClientDetailViewController.swift */,
+				AFAC65021E2314AB00E57C6D /* ClientsTableViewController.swift */,
+				AFAC65031E2314AB00E57C6D /* ClientTableViewCell.swift */,
+				AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */,
+				AFAC65051E2314AB00E57C6D /* LoginViewController.swift */,
+				AFAC65061E2314AB00E57C6D /* MainViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -393,12 +393,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA35B3B1E180F9A00931A83 /* LaunchScreen.storyboard in Resources */,
-				AFD60C391E21F0520006FAE7 /* Report.storyboard in Resources */,
-				AFD60C351E21F03D0006FAE7 /* Product.storyboard in Resources */,
+				AFAC65121E2314BA00E57C6D /* Product.storyboard in Resources */,
+				AFAC65131E2314BA00E57C6D /* Report.storyboard in Resources */,
 				AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */,
 				AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */,
-				AFD60C2F1E21EB6C0006FAE7 /* Client.storyboard in Resources */,
-				AFD60C371E21F04A0006FAE7 /* Sale.storyboard in Resources */,
+				AFAC65141E2314BA00E57C6D /* Sale.storyboard in Resources */,
+				AFAC65111E2314BA00E57C6D /* Client.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,23 +561,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFAC64EE1E22C4BB00E57C6D /* UITextField+Accessory.swift in Sources */,
+				AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */,
+				AFAC65081E2314AB00E57C6D /* ClientsTableViewController.swift in Sources */,
 				AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */,
-				AFAC64F41E230EC300E57C6D /* TextFieldValidator.swift in Sources */,
-				AFA35B331E180F9A00931A83 /* LoginViewController.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
-				AFD60C3F1E2201550006FAE7 /* ClientDetailViewController.swift in Sources */,
-				AFAC64F61E23117600E57C6D /* UIViewController+Messages.swift in Sources */,
-				AFD60C3D1E21FA5B0006FAE7 /* ClientsTableViewController.swift in Sources */,
+				AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */,
+				AFAC65071E2314AB00E57C6D /* ClientDetailViewController.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
+				AFAC650C1E2314AB00E57C6D /* MainViewController.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
-				AFD60C2D1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift in Sources */,
 				AFA35B6F1E18208A00931A83 /* Client.swift in Sources */,
-				AFAC64EB1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
-				AFD60C3B1E21F9460006FAE7 /* ClientTableViewCell.swift in Sources */,
+				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,
+				AFAC65091E2314AB00E57C6D /* ClientTableViewCell.swift in Sources */,
+				AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */,
+				AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */,
 				AFA35B731E18208A00931A83 /* Sale.swift in Sources */,
-				AFD60C2B1E21E6A10006FAE7 /* MainViewController.swift in Sources */,
-				AFAC64F11E22D7DA00E57C6D /* ProductService.swift in Sources */,
+				AFAC65001E23149C00E57C6D /* UIViewController+Messages.swift in Sources */,
+				AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
