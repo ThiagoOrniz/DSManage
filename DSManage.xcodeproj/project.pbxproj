@@ -23,6 +23,8 @@
 		AFAC64EB1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */; };
 		AFAC64EE1E22C4BB00E57C6D /* UITextField+Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */; };
 		AFAC64F11E22D7DA00E57C6D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F01E22D7DA00E57C6D /* ProductService.swift */; };
+		AFAC64F41E230EC300E57C6D /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F31E230EC300E57C6D /* TextFieldValidator.swift */; };
+		AFAC64F61E23117600E57C6D /* UIViewController+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F51E23117600E57C6D /* UIViewController+Messages.swift */; };
 		AFD60C2B1E21E6A10006FAE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */; };
 		AFD60C2D1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */; };
 		AFD60C2F1E21EB6C0006FAE7 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */; };
@@ -80,6 +82,8 @@
 		AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+KeyboardNotification.swift"; sourceTree = "<group>"; };
 		AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Accessory.swift"; sourceTree = "<group>"; };
 		AFAC64F01E22D7DA00E57C6D /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		AFAC64F31E230EC300E57C6D /* TextFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidator.swift; sourceTree = "<group>"; };
+		AFAC64F51E23117600E57C6D /* UIViewController+Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Messages.swift"; sourceTree = "<group>"; };
 		AFD60C2A1E21E6A10006FAE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AFD60C2C1E21E8AF0006FAE7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		AFD60C2E1E21EB6C0006FAE7 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AFAC64F21E230DF000E57C6D /* helpers */,
 				AFAC64EF1E22D7C800E57C6D /* services */,
 				AFAC64EC1E22C3BF00E57C6D /* extensions */,
 				AFD60C291E21E6650006FAE7 /* controllers */,
@@ -224,6 +229,7 @@
 			children = (
 				AFAC64EA1E22C39F00E57C6D /* UIScrollView+KeyboardNotification.swift */,
 				AFAC64ED1E22C4BB00E57C6D /* UITextField+Accessory.swift */,
+				AFAC64F51E23117600E57C6D /* UIViewController+Messages.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -234,6 +240,14 @@
 				AFAC64F01E22D7DA00E57C6D /* ProductService.swift */,
 			);
 			name = services;
+			sourceTree = "<group>";
+		};
+		AFAC64F21E230DF000E57C6D /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AFAC64F31E230EC300E57C6D /* TextFieldValidator.swift */,
+			);
+			name = helpers;
 			sourceTree = "<group>";
 		};
 		AFD60C281E21DFF20006FAE7 /* views */ = {
@@ -549,9 +563,11 @@
 			files = (
 				AFAC64EE1E22C4BB00E57C6D /* UITextField+Accessory.swift in Sources */,
 				AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */,
+				AFAC64F41E230EC300E57C6D /* TextFieldValidator.swift in Sources */,
 				AFA35B331E180F9A00931A83 /* LoginViewController.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
 				AFD60C3F1E2201550006FAE7 /* ClientDetailViewController.swift in Sources */,
+				AFAC64F61E23117600E57C6D /* UIViewController+Messages.swift in Sources */,
 				AFD60C3D1E21FA5B0006FAE7 /* ClientsTableViewController.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,

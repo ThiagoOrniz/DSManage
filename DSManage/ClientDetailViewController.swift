@@ -62,11 +62,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         emptyTextField.placeholder = "-1"
         
         nameTextField.inputAccessoryView = nameTextField.setAccessoryView(textField: nameTextField, nextTextField: phoneTextField)
-       
         phoneTextField.inputAccessoryView = phoneTextField.setAccessoryView(textField: phoneTextField, nextTextField:emailTextField )
-        
         emailTextField.inputAccessoryView = emailTextField.setAccessoryView(textField: emailTextField, nextTextField: addressTextField)
-        
         addressTextField.inputAccessoryView = addressTextField.setAccessoryView(textField: addressTextField, nextTextField:emptyTextField )
     }
     
@@ -103,7 +100,12 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     }
     
     func saveButtonTouched(){
-        print("OI")
+        
+        if(!self.validate()){
+            return;
+        }
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     func handleAvatarTap(_ sender: UITapGestureRecognizer){
@@ -155,10 +157,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
             self.present(self.imagePicker, animated: true, completion: nil)
         }
         else{
-            let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
-            alertVC.addAction(okAction)
-            self.present(alertVC, animated: true,completion: nil)
+            
+            self.showOkAlertMessage(withTitle: "No Camera", andBody: "Sorry, this device has no camera")
         }
     }
     
@@ -170,10 +170,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
             self.present(self.imagePicker, animated: true, completion: nil)
         }
         else{
-            let alertVC = UIAlertController(title: "No Library",message: "Sorry, this device couldn't open the library",preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
-            alertVC.addAction(okAction)
-            self.present( alertVC,animated: true,completion: nil)
+            self.showOkAlertMessage(withTitle: "No Library", andBody: "Sorry, this device couldn't open the library")
         }
 
     }
@@ -183,10 +180,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
         } else {
-            let alertVC = UIAlertController(title: "Could Not Send Email",message: "Your device could not send e-mail.  Please check e-mail configuration and try again.",preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
-            alertVC.addAction(okAction)
-            self.present( alertVC,animated: true,completion: nil)
+            
+            self.showOkAlertMessage(withTitle: "Could Not Send Email", andBody: "Your device could not send e-mail.  Please check e-mail configuration and try again.")
         }
     }
     
@@ -211,6 +206,29 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     // MARK: MFMailComposeViewControllerDelegate Method
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    private func validate() -> Bool{
+        if(!TextfieldValidator.validateName(nameTextField.text!)){
+          
+            nameTextField.becomeFirstResponder()
+            self.showOkAlertMessage(withTitle: "Invalid Name", andBody: "Please, type at least 2 characters.")
+        
+            return false
+        }
+        
+        if((emailTextField.text?.characters.count)! > 0){
+           
+            if(!TextfieldValidator.validatePassword(emailTextField.text!)){
+                
+                emailTextField.becomeFirstResponder()
+                self.showOkAlertMessage(withTitle: "Invalid email", andBody: "Please, type a valid email.")
+                
+                return false
+            }
+        }
+        
+        return true
     }
     
 }

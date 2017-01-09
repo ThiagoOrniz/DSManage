@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
         emptyTextField.placeholder = "-1"
         
         emailTextField.inputAccessoryView = emailTextField.setAccessoryView(textField: emailTextField, nextTextField: passwordTextField)
-        
         passwordTextField.inputAccessoryView = passwordTextField.setAccessoryView(textField: passwordTextField, nextTextField:emptyTextField )
     }
     
@@ -51,9 +50,31 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTouched(_ sender: UIButton) {
         
-        // todo: remove push
-        // add validations
+        if(!self.validate()){
+            return;
+        }
+        
     }
+    
+    private func validate() -> Bool{
+        if(!TextfieldValidator.validateEmail(emailTextField.text!)){
+            emailTextField.becomeFirstResponder()
+            self.showOkAlertMessage(withTitle: "Invalid email", andBody: "Please, type a valid email")
+            
+            return false
+        }
+        
+        if(!TextfieldValidator.validatePassword(passwordTextField.text!)){
+            
+            passwordTextField.becomeFirstResponder()
+            self.showOkAlertMessage(withTitle: "Invalid password", andBody: "Please, type a valid password")
+
+            return false
+        }
+        
+        return true
+    }
+
     
 
 }
