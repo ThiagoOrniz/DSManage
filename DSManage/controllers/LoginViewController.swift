@@ -50,9 +50,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTouched(_ sender: UIButton) {
         
-        if(!self.validate()){
-            return;
-        }
+//        if(!self.validate()){
+//            return;
+//        }
         
     }
     
