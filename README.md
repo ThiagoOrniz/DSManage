@@ -1,8 +1,16 @@
 # DSManage
-rewrite an old Objective-C projeto to Swift
+A Swift project from an Objective-C certificate class.
 
-In 2015 I finished a certificate course and it had a final project.
+My main goal is to improve my skills using Swift.
 
-I created an app writen in Objective-C to help resellers of cosmetic products whom work in direct selling.
+• unit/ui tests
 
-This project is an improvement of the old one
+• camera/sharing content
+
+• design patterns
+
+• networking
+
+• test cool libs
+ 
+Content of this project is help resellers of cosmetic products whom work in direct selling.
