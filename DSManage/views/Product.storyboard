@@ -51,9 +51,8 @@
                                                     <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="JRc-Uc-dt4">
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="ic_medal" translatesAutoresizingMaskIntoConstraints="NO" id="JRc-Uc-dt4">
                                                     <rect key="frame" x="16" y="8.5" width="90" height="100"/>
-                                                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="Had-JG-ugE"/>
                                                         <constraint firstAttribute="height" constant="100" id="V5E-b8-KPz"/>
@@ -119,39 +118,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MCf-6o-OQg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhb-uB-Rby">
+                                <rect key="frame" x="0.0" y="181" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="DBN-iN-myX"/>
+                                    <constraint firstAttribute="height" constant="20" id="EaG-ss-8tU"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_medal" translatesAutoresizingMaskIntoConstraints="NO" id="MCf-6o-OQg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.69803921570000005" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="DBN-iN-myX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair Pomade XY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kL-dD-FV1">
-                                <rect key="frame" x="8" y="258" width="359" height="24"/>
+                                <rect key="frame" x="8" y="209" width="359" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D7-MA-jSx">
-                                <rect key="frame" x="8" y="290" width="359" height="48"/>
+                                <rect key="frame" x="8" y="233" width="359" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product description here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-SH-oAu">
-                                <rect key="frame" x="8" y="354" width="359" height="21"/>
+                                <rect key="frame" x="8" y="289" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfU-8j-cxV">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.69803921570000005" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="XQS-ka-o5s"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Sell it!">
-                                    <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="sellButtonTouched:" destination="DfR-iF-Y3r" eventType="touchUpInside" id="74U-HO-2Wj"/>
@@ -161,20 +168,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mCV-SH-oAu" secondAttribute="trailing" constant="8" id="4UD-ke-ENx"/>
+                            <constraint firstItem="4kL-dD-FV1" firstAttribute="top" secondItem="jhb-uB-Rby" secondAttribute="bottom" constant="8" id="69t-m2-8dg"/>
                             <constraint firstItem="4kL-dD-FV1" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" constant="8" id="9a3-SI-SZz"/>
-                            <constraint firstItem="mCV-SH-oAu" firstAttribute="top" secondItem="3D7-MA-jSx" secondAttribute="bottom" constant="16" id="AwF-zF-Zc4"/>
+                            <constraint firstItem="mCV-SH-oAu" firstAttribute="top" secondItem="3D7-MA-jSx" secondAttribute="bottom" constant="8" id="AwF-zF-Zc4"/>
                             <constraint firstAttribute="trailing" secondItem="4kL-dD-FV1" secondAttribute="trailing" constant="8" id="BuC-07-46K"/>
-                            <constraint firstItem="4kL-dD-FV1" firstAttribute="top" secondItem="MCf-6o-OQg" secondAttribute="bottom" constant="8" id="Ieg-eV-fe7"/>
+                            <constraint firstItem="jhb-uB-Rby" firstAttribute="top" secondItem="MCf-6o-OQg" secondAttribute="bottom" constant="-19" id="BxM-0o-sYD"/>
                             <constraint firstItem="MCf-6o-OQg" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" id="KTq-Xo-jdc"/>
+                            <constraint firstAttribute="trailing" secondItem="jhb-uB-Rby" secondAttribute="trailing" id="NQx-yw-0xJ"/>
                             <constraint firstAttribute="trailing" secondItem="MCf-6o-OQg" secondAttribute="trailing" id="Pv6-t6-APt"/>
                             <constraint firstItem="mCV-SH-oAu" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" constant="8" id="Qsi-12-Mbf"/>
                             <constraint firstItem="MCf-6o-OQg" firstAttribute="top" secondItem="MXN-PB-tTS" secondAttribute="top" id="RAZ-MH-1MP"/>
                             <constraint firstItem="1Za-MK-Qs9" firstAttribute="top" secondItem="YfU-8j-cxV" secondAttribute="bottom" id="bHA-PX-gQ1"/>
                             <constraint firstAttribute="trailing" secondItem="YfU-8j-cxV" secondAttribute="trailing" id="blo-bm-0Zd"/>
                             <constraint firstItem="3D7-MA-jSx" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" constant="8" id="hMg-GK-8jx"/>
-                            <constraint firstItem="3D7-MA-jSx" firstAttribute="top" secondItem="4kL-dD-FV1" secondAttribute="bottom" constant="8" id="iNc-dN-SVb"/>
+                            <constraint firstItem="3D7-MA-jSx" firstAttribute="top" secondItem="4kL-dD-FV1" secondAttribute="bottom" id="iNc-dN-SVb"/>
                             <constraint firstItem="YfU-8j-cxV" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" id="lgF-9v-a73"/>
                             <constraint firstAttribute="trailing" secondItem="3D7-MA-jSx" secondAttribute="trailing" constant="8" id="liX-aF-xK5"/>
+                            <constraint firstItem="jhb-uB-Rby" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" id="tII-b7-Vyc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -182,6 +192,7 @@
                         <outlet property="productImageView" destination="MCf-6o-OQg" id="6YF-tL-gxT"/>
                         <outlet property="productNameLabel" destination="4kL-dD-FV1" id="o80-No-yX5"/>
                         <outlet property="productPriceLabel" destination="3D7-MA-jSx" id="ewh-oC-kET"/>
+                        <outlet property="separatorView" destination="jhb-uB-Rby" id="CD6-Mh-uhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhN-iO-Drm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,4 +200,7 @@
             <point key="canvasLocation" x="592.79999999999995" y="-51.724137931034484"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_medal" width="64" height="64"/>
+    </resources>
 </document>

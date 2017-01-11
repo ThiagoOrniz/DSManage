@@ -14,6 +14,7 @@ class ProductDetailViewController: UIViewController {
 
     @IBOutlet weak var productImageView: UIImageView!
     
+    @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productDescriptionLabel: UILabel!
@@ -52,6 +53,14 @@ class ProductDetailViewController: UIViewController {
         self.productDescriptionLabel.text = self.product.desc
     }
     
+    private func setBorderShadow(forView view:UIView, shadowOpacity:Float ){
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = shadowOpacity
+        view.layer.shadowOffset = CGSize(width:0, height:0)
+        view.layer.shadowRadius = 2.0
+        
+    }
+    
     func shareButtonTouched(){
         let alert = UIAlertController(title: "Share This Product", message: "Sharing your products can help improve your sales!", preferredStyle: .actionSheet)
         
@@ -74,7 +83,7 @@ class ProductDetailViewController: UIViewController {
     private func shareWithFacebook(){
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText(self.product.description)
+            facebookSheet.setInitialText(self.product.product)
             self.present(facebookSheet, animated: true, completion: nil)
         } else {
             self.showOkAlertMessage(withTitle: "Couldn't Post it", andBody: "Please login to a Facebook account to share.")

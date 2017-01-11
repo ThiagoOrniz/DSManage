@@ -18,18 +18,12 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        products = [Product(id:"1", product:"Hair Pomade XY", price:31.10, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:""),
-                    
-                    Product(id:"2", product:"Shampoo XY", price:12.00, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:"")
-        
-        ]
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        products = ProductService().getProducts()
+
         let selectedIndexPath = self.productsTableView.indexPathForSelectedRow
         if(selectedIndexPath != nil){
             self.productsTableView.deselectRow(at: selectedIndexPath!, animated: true)

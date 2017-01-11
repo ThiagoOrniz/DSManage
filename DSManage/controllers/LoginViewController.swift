@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    
     private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
 
     
@@ -21,6 +23,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupTextFields()
+        
+        loginButton.layer.cornerRadius = 5
+        
         scrollView.registerForKeyboardDidShowNotification(scrollView: scrollView)
         scrollView.registerForKeyboardWillHideNotification(scrollView: scrollView)
         
@@ -31,7 +36,7 @@ class LoginViewController: UIViewController {
     func hikeKeyboard(){
         self.view.endEditing(true)
     }
-    
+
     
     private func setupTextFields(){
         
