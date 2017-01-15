@@ -41,6 +41,9 @@
 		AFAE5B711E25BB9D005B3606 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAE5B701E25BB9D005B3606 /* ClientService.swift */; };
 		AFE7A1951E2B0998008D42C0 /* ShoppingCart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE7A1941E2B0998008D42C0 /* ShoppingCart.storyboard */; };
 		AFE7A19C1E2B163A008D42C0 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7A19B1E2B163A008D42C0 /* ShoppingCartViewController.swift */; };
+		AFE7A19E1E2B19DA008D42C0 /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7A19D1E2B19DA008D42C0 /* ShoppingCartTableViewCell.swift */; };
+		AFE7A1A01E2B2921008D42C0 /* ShoppingCartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7A19F1E2B2921008D42C0 /* ShoppingCartService.swift */; };
+		AFE7A1A21E2B41FD008D42C0 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7A1A11E2B41FD008D42C0 /* ProductCollectionViewController+DelegateFlowLayout.swift */; };
 		F0A16747EE2B8986723E96FD /* Pods_DSManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +110,9 @@
 		AFAE5B701E25BB9D005B3606 /* ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
 		AFE7A1941E2B0998008D42C0 /* ShoppingCart.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingCart.storyboard; sourceTree = "<group>"; };
 		AFE7A19B1E2B163A008D42C0 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
+		AFE7A19D1E2B19DA008D42C0 /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
+		AFE7A19F1E2B2921008D42C0 /* ShoppingCartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartService.swift; sourceTree = "<group>"; };
+		AFE7A1A11E2B41FD008D42C0 /* ProductCollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductCollectionViewController+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		B607F4E84A2B4C07FDF2EE3F /* Pods-DSManageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageUITests/Pods-DSManageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -243,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */,
+				AFE7A1A11E2B41FD008D42C0 /* ProductCollectionViewController+DelegateFlowLayout.swift */,
 				AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */,
 				AFAC64FD1E23149C00E57C6D /* UIViewController+Messages.swift */,
 			);
@@ -254,6 +261,7 @@
 			children = (
 				AFAC64F71E23147D00E57C6D /* ProductService.swift */,
 				AFAE5B701E25BB9D005B3606 /* ClientService.swift */,
+				AFE7A19F1E2B2921008D42C0 /* ShoppingCartService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -283,10 +291,10 @@
 			isa = PBXGroup;
 			children = (
 				AFE7A19A1E2B1623008D42C0 /* shopping */,
-				AFE7A1991E2B1141008D42C0 /* cells */,
 				AFE7A1981E2B1133008D42C0 /* main */,
 				AFE7A1961E2B1107008D42C0 /* clients */,
 				AFE7A1971E2B111C008D42C0 /* products */,
+				AFE7A1991E2B1141008D42C0 /* cells */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 			children = (
 				AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */,
 				AFAC65031E2314AB00E57C6D /* ClientTableViewCell.swift */,
+				AFE7A19D1E2B19DA008D42C0 /* ShoppingCartTableViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -639,13 +648,16 @@
 				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,
 				AF50589E1E2AA0A800252881 /* ProductCollectionViewController.swift in Sources */,
 				AFAC65091E2314AB00E57C6D /* ClientTableViewCell.swift in Sources */,
+				AFE7A19E1E2B19DA008D42C0 /* ShoppingCartTableViewCell.swift in Sources */,
 				AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */,
 				AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */,
 				AFA35B731E18208A00931A83 /* Sale.swift in Sources */,
 				AF2654A91E2469FF00E702B7 /* ProductDetailViewController.swift in Sources */,
 				AFAC65001E23149C00E57C6D /* UIViewController+Messages.swift in Sources */,
+				AFE7A1A21E2B41FD008D42C0 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */,
 				AFE7A19C1E2B163A008D42C0 /* ShoppingCartViewController.swift in Sources */,
 				AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
+				AFE7A1A01E2B2921008D42C0 /* ShoppingCartService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

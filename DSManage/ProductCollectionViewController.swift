@@ -9,22 +9,28 @@
 import UIKit
 
 private let reuseIdentifier = "ProductCollectionViewCell"
-private let sectionInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-private let itemsPerRow: CGFloat = 2
 
 
 var products:[Product] = []
 
-class ProductCollectionViewController: UICollectionViewController,ProductCollectionViewCellDelegate {
+class ProductCollectionViewController: UICollectionViewController,ProductCollectionViewCellDelegate, ShoppingCartViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        let addButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,target: self,action: #selector(openCart))
 
+        self.navigationItem.rightBarButtonItems = [addButtonItem]
+        
+    }
+    
+    func openCart(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "ShoppingCart", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "shoppingCart") as! ShoppingCartViewController
 
-        // Do any additional setup after loading the view.
+        nextViewController.delegate = self
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,15 +67,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         let product:Product = products[indexPath.row]
         
         cell.populateView(withProduct: product)
-        
         cell.delegate = self
-
-//        cell.productLabel.text = product.product
-//        cell.priceLabel.text = String(format:"%.2f",product.price)
-//        setBorderShadow(forView: cell.wrapperView, shadowOpacity: 0.3)
-        
-        
-
         return cell
     }
     
@@ -81,45 +79,29 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         view.layer.shadowRadius = 1.5
         
     }
-
-}
-
-extension ProductCollectionViewController : UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
-        
-        return CGSize(width: widthPerItem, height: 240 )
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
-    }
     
     func didUpdateQuantity(sender: UIStepper){
-        print("inside protocol")
         print(sender)
         
         let point = sender.convert(CGPoint.zero, to: self.collectionView)
         
         let indexPath = self.collectionView?.indexPathForItem(at: point)!
         
-        let myData = products[(indexPath?.row)!] // or whatever your datasource
-        myData.quantity = String(format: "%.f", sender.value)
-        products[(indexPath?.row)!] = myData
+        let product = products[(indexPath?.row)!] // or whatever your datasource
+        product.quantity = String(format: "%.f", sender.value)
+        products[(indexPath?.row)!] = product
+        
+        ShoppingCartService.productInteracted(product)
         
         // if you need to update the cell
         
     }
+    
+    func didClearShoppingCart(){
+        for i in 0..<products.count{
+            products[i].quantity = "0"
+        }
+        self.collectionView?.reloadData()
+    }
+
 }

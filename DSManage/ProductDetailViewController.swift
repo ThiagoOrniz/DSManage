@@ -1,11 +1,3 @@
-//
-//  ProductDetailViewController.swift
-//  DSManage
-//
-//  Created by Thiago Orniz Martin on 09/01/17.
-//  Copyright © 2017 Thiago Orniz Martin. All rights reserved.
-//
-
 import UIKit
 import Social
 
@@ -26,9 +18,6 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationController()
-
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,14 +42,6 @@ class ProductDetailViewController: UIViewController {
         self.productDescriptionLabel.text = self.product.desc
     }
     
-    private func setBorderShadow(forView view:UIView, shadowOpacity:Float ){
-        view.layer.shadowColor = UIColor.darkGray.cgColor
-        view.layer.shadowOpacity = shadowOpacity
-        view.layer.shadowOffset = CGSize(width:0, height:0)
-        view.layer.shadowRadius = 2.0
-        
-    }
-    
     func shareButtonTouched(){
         let alert = UIAlertController(title: "Share This Product", message: "Sharing your products can help improve your sales!", preferredStyle: .actionSheet)
         
@@ -74,10 +55,6 @@ class ProductDetailViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func sellButtonTouched(_ sender: UIButton) {
     }
     
     private func shareWithFacebook(){

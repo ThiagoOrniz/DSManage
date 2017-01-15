@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product : NSObject {
+class Product : Equatable{
     
     var id: String = ""
     var product: String = ""
@@ -20,12 +20,10 @@ class Product : NSObject {
 
 
     
-    override init(){
-        super.init()
+    init(){
     }
     
     init(id:String, product:String, price:Double, category:String, desc:String, photoURL:String){
-        super.init()
         
         self.id = id
         self.product = product
@@ -37,9 +35,23 @@ class Product : NSObject {
         
     }
     
-    override var description: String {
+     var description: String {
         return "Product \(product)\nPrice \(price)\ndescription \(desc)"
     }
+    
+    func getSubTotal() -> String{
+    
+        return String(format:"%.2f",price * Double(quantity)!)
+    }
+    
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        return
+            lhs.id == rhs.id &&
+                lhs.product == rhs.product &&
+                lhs.category == rhs.category &&
+                lhs.price == rhs.price
+    }
+    
     
 }
 

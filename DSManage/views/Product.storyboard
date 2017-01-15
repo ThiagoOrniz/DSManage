@@ -163,20 +163,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfU-8j-cxV">
-                                <rect key="frame" x="0.0" y="559" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.50588235290000005" green="0.69803921570000005" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="XQS-ka-o5s"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Sell it!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sellButtonTouched:" destination="DfR-iF-Y3r" eventType="touchUpInside" id="74U-HO-2Wj"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_medal" translatesAutoresizingMaskIntoConstraints="NO" id="MCf-6o-OQg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <constraints>
@@ -195,11 +181,8 @@
                             <constraint firstItem="4kL-dD-FV1" firstAttribute="top" secondItem="MCf-6o-OQg" secondAttribute="bottom" constant="8" id="Pen-8o-33x"/>
                             <constraint firstAttribute="trailing" secondItem="MCf-6o-OQg" secondAttribute="trailing" id="Pv6-t6-APt"/>
                             <constraint firstItem="mCV-SH-oAu" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" constant="8" id="Qsi-12-Mbf"/>
-                            <constraint firstItem="1Za-MK-Qs9" firstAttribute="top" secondItem="YfU-8j-cxV" secondAttribute="bottom" id="bHA-PX-gQ1"/>
-                            <constraint firstAttribute="trailing" secondItem="YfU-8j-cxV" secondAttribute="trailing" id="blo-bm-0Zd"/>
                             <constraint firstItem="3D7-MA-jSx" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" constant="8" id="hMg-GK-8jx"/>
                             <constraint firstItem="3D7-MA-jSx" firstAttribute="top" secondItem="4kL-dD-FV1" secondAttribute="bottom" id="iNc-dN-SVb"/>
-                            <constraint firstItem="YfU-8j-cxV" firstAttribute="leading" secondItem="MXN-PB-tTS" secondAttribute="leading" id="lgF-9v-a73"/>
                             <constraint firstAttribute="trailing" secondItem="3D7-MA-jSx" secondAttribute="trailing" constant="8" id="liX-aF-xK5"/>
                         </constraints>
                     </view>
@@ -220,11 +203,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0bY-Gy-y1d" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="ei9-Sk-YQL"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZXK-DB-dxj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ZXK-DB-dxj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.50588235290000005" green="0.69803921570000005" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
