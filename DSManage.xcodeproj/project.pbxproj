@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		2721DDB0EF6DDDDDEED8C761 /* Pods_DSManageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */; };
 		87AA9F30DF17E556DF830673 /* Pods_DSManageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */; };
-		AF2654A51E245B1200E702B7 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2654A41E245B1200E702B7 /* ProductsViewController.swift */; };
-		AF2654A71E245B5E00E702B7 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2654A61E245B5E00E702B7 /* ProductTableViewCell.swift */; };
 		AF2654A91E2469FF00E702B7 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2654A81E2469FF00E702B7 /* ProductDetailViewController.swift */; };
+		AF50589E1E2AA0A800252881 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50589D1E2AA0A800252881 /* ProductCollectionViewController.swift */; };
+		AF5058A01E2AA1F600252881 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */; };
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
 		AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B341E180F9A00931A83 /* Main.storyboard */; };
 		AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B371E180F9A00931A83 /* Assets.xcassets */; };
@@ -67,9 +67,9 @@
 		6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C80719B27CE0CE9D52439CD /* Pods-DSManageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageTests/Pods-DSManageTests.release.xcconfig"; sourceTree = "<group>"; };
 		94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF2654A41E245B1200E702B7 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
-		AF2654A61E245B5E00E702B7 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		AF2654A81E2469FF00E702B7 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		AF50589D1E2AA0A800252881 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
+		AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B301E180F9A00931A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFA35B351E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -283,9 +283,9 @@
 				AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */,
 				AFAC65051E2314AB00E57C6D /* LoginViewController.swift */,
 				AFAC65061E2314AB00E57C6D /* MainViewController.swift */,
-				AF2654A41E245B1200E702B7 /* ProductsViewController.swift */,
-				AF2654A61E245B5E00E702B7 /* ProductTableViewCell.swift */,
 				AF2654A81E2469FF00E702B7 /* ProductDetailViewController.swift */,
+				AF50589D1E2AA0A800252881 /* ProductCollectionViewController.swift */,
+				AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -580,17 +580,17 @@
 				AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */,
 				AFAC65081E2314AB00E57C6D /* ClientsTableViewController.swift in Sources */,
 				AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */,
-				AF2654A71E245B5E00E702B7 /* ProductTableViewCell.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
 				AFAE5B711E25BB9D005B3606 /* ClientService.swift in Sources */,
 				AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */,
 				AFAC65071E2314AB00E57C6D /* ClientDetailViewController.swift in Sources */,
-				AF2654A51E245B1200E702B7 /* ProductsViewController.swift in Sources */,
+				AF5058A01E2AA1F600252881 /* ProductCollectionViewCell.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
 				AFAC650C1E2314AB00E57C6D /* MainViewController.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
 				AFA35B6F1E18208A00931A83 /* Client.swift in Sources */,
 				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,
+				AF50589E1E2AA0A800252881 /* ProductCollectionViewController.swift in Sources */,
 				AFAC65091E2314AB00E57C6D /* ClientTableViewCell.swift in Sources */,
 				AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */,
 				AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */,

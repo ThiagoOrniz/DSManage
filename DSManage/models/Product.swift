@@ -16,6 +16,8 @@ class Product : NSObject {
     var desc: String = ""
     var photoURL: String = ""
     var category: String = ""
+    var quantity: String = ""
+
 
     
     override init(){
@@ -31,6 +33,7 @@ class Product : NSObject {
         self.desc = desc
         self.photoURL = photoURL
         self.category = category
+        self.quantity = "0"
         
     }
     
