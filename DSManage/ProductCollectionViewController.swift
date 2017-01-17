@@ -25,12 +25,18 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
     }
     
     func openCart(){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "ShoppingCart", bundle:nil)
         
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "shoppingCart") as! ShoppingCartViewController
-
-        nextViewController.clearShoppingCartDelegate = self
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        if ShoppingCartService.getProducts().count>0{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "ShoppingCart", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "shoppingCart") as! ShoppingCartViewController
+            
+            nextViewController.clearShoppingCartDelegate = self
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+        else{
+            self.showOkAlertMessage(withTitle: "The products list is empty", andBody: "Select at least one product!")
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

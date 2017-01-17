@@ -88,12 +88,27 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     func clear(){
         
-        ShoppingCartService.clearAll()
-        clearShoppingCartDelegate?.didClearShoppingCart()
-
-        _ = self.navigationController?.popViewController(animated: true)
+        self.alertClearShoppingCart()
+        
 
     }
+    
+    func alertClearShoppingCart() {
+        
+        let alert = UIAlertController(title: "Would you like to clear the shopping cart?", message: "This action can't be undone", preferredStyle: UIAlertControllerStyle.alert)
+       
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        alert.addAction(UIAlertAction(title: "Clear it", style: .default) { action in
+            ShoppingCartService.clearAll()
+            self.clearShoppingCartDelegate?.didClearShoppingCart()
+            
+            _ = self.navigationController?.popViewController(animated: true)
+        })
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -156,7 +171,22 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func confirmButtonTouched(_ sender: UIButton) {
         
+        if ShoppingCartService.getClient().id.characters.count == 0 {
+            self.showOkAlertMessage(withTitle: "There's no client selected!", andBody: "Select a client!")
+            
+            return
+        }
+        
+        if products.count == 0{
+            self.showOkAlertMessage(withTitle: "There's no products in the cart list!", andBody: "Select at least one product!")
+            
+            return
+        }
+    
+        self.showOkAlertMessage(withTitle: "Done", andBody: "")
+
     }
+    
     func didSelectClient(_ client:Client){
         
         clientNameLabel.text = client.name
