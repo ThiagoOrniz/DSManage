@@ -40,6 +40,8 @@ class ProductDetailViewController: UIViewController {
         self.productNameLabel.text = self.product.product
         self.productPriceLabel.text = String(format:"%.2f",self.product.price)
         self.productDescriptionLabel.text = self.product.desc
+        self.productImageView.image = UIImage(named: product.photoURL)
+
     }
     
     func shareButtonTouched(){

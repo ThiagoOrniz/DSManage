@@ -37,6 +37,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productLabel.text = product.product
         priceLabel.text = String(format:"%.2f",product.price)
         quantityStepper.value = Double(product.quantity)!
+        productImageView.image = UIImage(named: product.photoURL)
+
         
     }
  

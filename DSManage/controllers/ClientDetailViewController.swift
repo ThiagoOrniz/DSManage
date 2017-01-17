@@ -97,6 +97,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.emailTextField.text = self.client.email
         self.phoneTextField.text = self.client.phone
         self.addressTextField.text = self.client.address
+        self.avatarImageView.image = UIImage(named: client.photoURL)
+
     }
     
     func saveButtonTouched(){

@@ -21,23 +21,14 @@ class Client : NSObject {
         super.init()
     }
     
-    init(name:String, email:String, phone:String, address:String){
-        super.init()
-        
-        self.name = name
-        self.email = email
-        self.phone = phone
-        self.address = address
-        
-    }
-    
-    init(id:String, name:String, email:String, phone:String, address:String){
+    init(id:String, name:String, email:String, phone:String, address:String, photoURL:String){
         super.init()
         self.id = id
         self.name = name
         self.email = email
         self.phone = phone
         self.address = address
+        self.photoURL = photoURL
         
     }
 

@@ -12,9 +12,9 @@ class ClientService{
     
     func getClients()->[Client]{
         
-        return [Client(id:"01", name: "Jose",email: "jose@email.com",phone: "1111-1111",address: "rua 1"),
-                Client(id:"02", name: "Maria",email: "maria@email.com",phone: "2222-2222",address: "rua 2"),
-                Client(id:"03", name: "Joao",email: "joao@email.com",phone: "3333-3333",address: "rua 3")
+        return [Client(id:"01", name: "R2D2",email: "r2d2@oldrepublic.com",phone: "1111-1111",address: "Tatooine", photoURL:"user_r2d2"),
+                Client(id:"02", name: "Chewie",email: "chewie@rebel.com",phone: "2222-2222",address: "Millennium Falcon", photoURL:"user_chewie"),
+                Client(id:"03", name: "Ewok",email: "ewok@fuffly.endor",phone: "3333-3333",address: "Endor", photoURL:"user_ewok")
         ]
         
     }

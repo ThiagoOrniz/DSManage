@@ -47,7 +47,7 @@ class ClientsTableViewController: UITableViewController {
         
         cell.clientNameLabel.text = clients[indexPath.row].name
         cell.emailLabel.text = clients[indexPath.row].email
-
+        cell.avatarImageView.image = UIImage(named: clients[indexPath.row].photoURL)
     
         return cell
     }

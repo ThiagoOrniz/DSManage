@@ -54,6 +54,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         
         if client.id.characters.count > 0 {
             clientNameLabel.text = client.name
+            clientImageView.image = UIImage(named: client.photoURL)
         }
         
         
@@ -117,6 +118,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         cell.priceLabel.text = String(format:"%.2f",product.price)
         cell.quantityLabel.text = product.quantity + " item(s)"
         cell.subtotalLabel.text = product.getSubTotal()
+        cell.productImageView.image = UIImage(named: product.photoURL)
         
         return cell
     }
