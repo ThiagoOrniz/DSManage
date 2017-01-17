@@ -12,15 +12,18 @@ protocol ShoppingCartViewControllerDelegate: class {
     func didClearShoppingCart()
 }
 
-class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,ClientsTableViewControllerDelegate {
 
     
     @IBOutlet weak var clientImageView: UIImageView!
     @IBOutlet weak var clientNameLabel: UILabel!
     @IBOutlet weak var productsTableView: UITableView!
     
+    @IBOutlet weak var clientView: UIView!
     @IBOutlet weak var totalLabel: UILabel!
-    weak var delegate:ShoppingCartViewControllerDelegate?
+    weak var clearShoppingCartDelegate:ShoppingCartViewControllerDelegate?
+
     
     var products:[Product] = []
     
@@ -35,6 +38,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         
         self.clientImageView.layer.cornerRadius = self.clientImageView.frame.size.width / 2;
         self.clientImageView.clipsToBounds = true;
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.chooseClientTapped))
+        self.clientView.addGestureRecognizer(tapRecognizer)
 
         
         // Do any additional setup after loading the view.
@@ -44,8 +50,27 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         super.viewWillAppear(animated)
         products = ShoppingCartService.getProducts()
         
+        let client = ShoppingCartService.getClient()
+        
+        if client.id.characters.count > 0 {
+            clientNameLabel.text = client.name
+        }
+        
+        
         calculateTotal()
         
+    }
+    
+    func chooseClientTapped(){
+    
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Client", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ClientsTableViewController") as! ClientsTableViewController
+        
+        nextViewController.clientsTableViewControllerDelegate = self
+        nextViewController.isSelectableClient = true
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+
     }
     
     func calculateTotal(){
@@ -63,9 +88,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     func clear(){
         
         ShoppingCartService.clearAll()
-        delegate?.didClearShoppingCart()
+        clearShoppingCartDelegate?.didClearShoppingCart()
 
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
 
     }
 
@@ -125,13 +150,14 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    
-    
-    @IBAction func ChangeClientButtonTouched(_ sender: UIButton) {
-        
-    }
+
     
     @IBAction func confirmButtonTouched(_ sender: UIButton) {
         
+    }
+    func didSelectClient(_ client:Client){
+        
+        clientNameLabel.text = client.name
+        ShoppingCartService.updateClient(client: client)
     }
 }

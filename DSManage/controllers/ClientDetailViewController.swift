@@ -105,7 +105,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
             return;
         }
         
-        self.navigationController?.popViewController(animated: true)
+       _ = self.navigationController?.popViewController(animated: true)
     }
     
     func handleAvatarTap(_ sender: UITapGestureRecognizer){
@@ -190,7 +190,13 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     }
     
     @IBAction func sellButtonTouched(_ sender: UIButton) {
-        //todo open sell
+        ShoppingCartService.updateClient(client: client)
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Product", bundle:nil)
+        
+        let productCollectionViewController = storyBoard.instantiateViewController(withIdentifier: "productCollectionViewController") as! ProductCollectionViewController
+        
+        self.navigationController?.pushViewController(productCollectionViewController, animated: true)
     }
     
     

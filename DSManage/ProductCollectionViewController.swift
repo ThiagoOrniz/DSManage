@@ -29,7 +29,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "shoppingCart") as! ShoppingCartViewController
 
-        nextViewController.delegate = self
+        nextViewController.clearShoppingCartDelegate = self
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
@@ -68,6 +68,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         
         cell.populateView(withProduct: product)
         cell.delegate = self
+        self.setBorderShadow(forView: cell.wrapperView, shadowOpacity: 0.3)
         return cell
     }
     

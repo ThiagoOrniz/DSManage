@@ -13,7 +13,7 @@
         <!--Clients Table View Controller-->
         <scene sceneID="G3j-dM-Qpy">
             <objects>
-                <tableViewController id="v4n-QM-2sK" customClass="ClientsTableViewController" customModule="DSManage" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ClientsTableViewController" id="v4n-QM-2sK" customClass="ClientsTableViewController" customModule="DSManage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" id="H4S-T0-rgE">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,25 +35,33 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6d-bs-o11">
-                                            <rect key="frame" x="76" y="16" width="299" height="56.5"/>
+                                            <rect key="frame" x="76" y="16" width="299" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orm-wF-Mdk">
+                                            <rect key="frame" x="76" y="40" width="291" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Orm-wF-Mdk" firstAttribute="leading" secondItem="vkR-sl-pfq" secondAttribute="trailing" constant="8" id="1ur-9f-fis"/>
                                         <constraint firstItem="a6d-bs-o11" firstAttribute="top" secondItem="scg-SU-G8q" secondAttribute="topMargin" constant="8" id="2Zd-a6-aXs"/>
                                         <constraint firstItem="a6d-bs-o11" firstAttribute="trailing" secondItem="scg-SU-G8q" secondAttribute="trailingMargin" constant="8" id="BSY-rc-NOZ"/>
                                         <constraint firstItem="vkR-sl-pfq" firstAttribute="leading" secondItem="scg-SU-G8q" secondAttribute="leading" constant="8" id="NpM-fi-6Nl"/>
                                         <constraint firstItem="a6d-bs-o11" firstAttribute="leading" secondItem="vkR-sl-pfq" secondAttribute="trailing" constant="8" id="Pid-3A-8bV"/>
-                                        <constraint firstAttribute="bottom" secondItem="a6d-bs-o11" secondAttribute="bottom" constant="8" id="tA4-1k-rmH"/>
+                                        <constraint firstItem="Orm-wF-Mdk" firstAttribute="top" secondItem="a6d-bs-o11" secondAttribute="bottom" id="RI8-bF-WGT"/>
+                                        <constraint firstItem="Orm-wF-Mdk" firstAttribute="trailing" secondItem="scg-SU-G8q" secondAttribute="trailingMargin" id="nUQ-1Z-j9t"/>
                                         <constraint firstItem="vkR-sl-pfq" firstAttribute="centerY" secondItem="scg-SU-G8q" secondAttribute="centerY" id="uSh-Ys-GqS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatarImageView" destination="vkR-sl-pfq" id="24C-bu-G3G"/>
                                     <outlet property="clientNameLabel" destination="a6d-bs-o11" id="fjh-T5-A7t"/>
-                                    <segue destination="ff4-6b-lVe" kind="show" identifier="pushClientDetail" id="HkT-T4-EFb"/>
+                                    <outlet property="emailLabel" destination="Orm-wF-Mdk" id="2Dj-Od-rHo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,7 +83,7 @@
         <!--Client Detail View Controller-->
         <scene sceneID="8rm-vX-Bid">
             <objects>
-                <viewController id="ff4-6b-lVe" customClass="ClientDetailViewController" customModule="DSManage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClientDetailViewController" id="ff4-6b-lVe" customClass="ClientDetailViewController" customModule="DSManage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4DG-Wd-ftS"/>
                         <viewControllerLayoutGuide type="bottom" id="FIO-Je-kjP"/>
@@ -206,11 +214,12 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrN-eX-JRr">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="H8Z-3K-0Zz"/>
                                                             <constraint firstAttribute="width" constant="100" id="eve-Hp-oJs"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <state key="normal" title="Email"/>
                                                         <connections>
                                                             <action selector="emailButtonTouched:" destination="ff4-6b-lVe" eventType="touchUpInside" id="5VW-Pd-RNK"/>
@@ -350,7 +359,4 @@
     <resources>
         <image name="ic_user" width="64" height="64"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="HkT-T4-EFb"/>
-    </inferredMetricsTieBreakers>
 </document>

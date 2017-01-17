@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol ClientsTableViewControllerDelegate: class {
+    func didSelectClient(_ client:Client)
+}
+
 class ClientsTableViewController: UITableViewController {
 
     private var clients:[Client] = []
+    weak var clientsTableViewControllerDelegate:ClientsTableViewControllerDelegate?
+
+    var isSelectableClient:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +46,8 @@ class ClientsTableViewController: UITableViewController {
 
         
         cell.clientNameLabel.text = clients[indexPath.row].name
+        cell.emailLabel.text = clients[indexPath.row].email
+
     
         return cell
     }
@@ -69,21 +78,25 @@ class ClientsTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "pushNewClient", sender:self)
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        
-        let clientDetailViewController = segue.destination as! ClientDetailViewController
-        
-        var selectedIndexPath = self.tableView.indexPathForSelectedRow
-        
-        if(selectedIndexPath != nil){
-            clientDetailViewController.setClient(client: clients[(selectedIndexPath?.row)!],isEditingClient: true)
-        }
-    }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let client:Client = clients[indexPath.row]
+
+        if isSelectableClient{
+            clientsTableViewControllerDelegate?.didSelectClient(client)
+          _ = self.navigationController?.popViewController(animated: true)
+        }
+        else{
+            
+            let clientDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "ClientDetailViewController") as! ClientDetailViewController
+            
+            clientDetailViewController.setClient(client: client,isEditingClient: true)
+            self.navigationController?.pushViewController(clientDetailViewController, animated: true)
+
+        }
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -11,6 +11,15 @@ import Foundation
 class ShoppingCartService{
     
     private static var products:[Product] = []
+    private static var client:Client = Client()
+    
+    static func updateClient(client:Client){
+        self.client = client
+    }
+    
+    static func getClient() ->Client{
+        return client
+    }
     
     static func add(product:Product){
         products.append(product)
@@ -35,6 +44,7 @@ class ShoppingCartService{
     
     static func clearAll(){
         products = []
+        client = Client()
     }
     
     static func productInteracted(_ product:Product){
