@@ -10,6 +10,9 @@
 		2721DDB0EF6DDDDDEED8C761 /* Pods_DSManageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */; };
 		87AA9F30DF17E556DF830673 /* Pods_DSManageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */; };
 		AF2654A91E2469FF00E702B7 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2654A81E2469FF00E702B7 /* ProductDetailViewController.swift */; };
+		AF30AA021E2DB4A9008818C0 /* SalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30AA011E2DB4A9008818C0 /* SalesTableViewController.swift */; };
+		AF30AA051E2DB963008818C0 /* SaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30AA041E2DB963008818C0 /* SaleTableViewCell.swift */; };
+		AF30AA071E2DBA4A008818C0 /* SaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30AA061E2DBA4A008818C0 /* SaleService.swift */; };
 		AF50589E1E2AA0A800252881 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50589D1E2AA0A800252881 /* ProductCollectionViewController.swift */; };
 		AF5058A01E2AA1F600252881 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */; };
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
@@ -73,6 +76,9 @@
 		6C80719B27CE0CE9D52439CD /* Pods-DSManageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageTests/Pods-DSManageTests.release.xcconfig"; sourceTree = "<group>"; };
 		94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2654A81E2469FF00E702B7 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		AF30AA011E2DB4A9008818C0 /* SalesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesTableViewController.swift; sourceTree = "<group>"; };
+		AF30AA041E2DB963008818C0 /* SaleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleTableViewCell.swift; sourceTree = "<group>"; };
+		AF30AA061E2DBA4A008818C0 /* SaleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleService.swift; sourceTree = "<group>"; };
 		AF50589D1E2AA0A800252881 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
 		AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +172,14 @@
 				6A92B459F6ECC0A6AFE7E250 /* Pods-DSManageUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF30AA031E2DB7A3008818C0 /* sales */ = {
+			isa = PBXGroup;
+			children = (
+				AF30AA011E2DB4A9008818C0 /* SalesTableViewController.swift */,
+			);
+			name = sales;
 			sourceTree = "<group>";
 		};
 		AFA35B241E180F9A00931A83 = {
@@ -262,6 +276,7 @@
 				AFAC64F71E23147D00E57C6D /* ProductService.swift */,
 				AFAE5B701E25BB9D005B3606 /* ClientService.swift */,
 				AFE7A19F1E2B2921008D42C0 /* ShoppingCartService.swift */,
+				AF30AA061E2DBA4A008818C0 /* SaleService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -290,6 +305,7 @@
 		AFD60C291E21E6650006FAE7 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF30AA031E2DB7A3008818C0 /* sales */,
 				AFE7A19A1E2B1623008D42C0 /* shopping */,
 				AFE7A1981E2B1133008D42C0 /* main */,
 				AFE7A1961E2B1107008D42C0 /* clients */,
@@ -333,6 +349,7 @@
 				AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */,
 				AFAC65031E2314AB00E57C6D /* ClientTableViewCell.swift */,
 				AFE7A19D1E2B19DA008D42C0 /* ShoppingCartTableViewCell.swift */,
+				AF30AA041E2DB963008818C0 /* SaleTableViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -635,6 +652,7 @@
 			files = (
 				AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */,
 				AFAC65081E2314AB00E57C6D /* ClientsTableViewController.swift in Sources */,
+				AF30AA051E2DB963008818C0 /* SaleTableViewCell.swift in Sources */,
 				AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
 				AFAE5B711E25BB9D005B3606 /* ClientService.swift in Sources */,
@@ -642,6 +660,7 @@
 				AFAC65071E2314AB00E57C6D /* ClientDetailViewController.swift in Sources */,
 				AF5058A01E2AA1F600252881 /* ProductCollectionViewCell.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
+				AF30AA071E2DBA4A008818C0 /* SaleService.swift in Sources */,
 				AFAC650C1E2314AB00E57C6D /* MainViewController.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
 				AFA35B6F1E18208A00931A83 /* Client.swift in Sources */,
@@ -653,6 +672,7 @@
 				AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */,
 				AFA35B731E18208A00931A83 /* Sale.swift in Sources */,
 				AF2654A91E2469FF00E702B7 /* ProductDetailViewController.swift in Sources */,
+				AF30AA021E2DB4A9008818C0 /* SalesTableViewController.swift in Sources */,
 				AFAC65001E23149C00E57C6D /* UIViewController+Messages.swift in Sources */,
 				AFE7A1A21E2B41FD008D42C0 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */,
 				AFE7A19C1E2B163A008D42C0 /* ShoppingCartViewController.swift in Sources */,
