@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Reports View Controller-->
         <scene sceneID="7HQ-n9-kuO">
             <objects>
-                <viewController id="2Rv-6q-pBB" sceneMemberID="viewController">
+                <viewController id="2Rv-6q-pBB" customClass="ReportsViewController" customModule="DSManage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E2q-h0-myP"/>
                         <viewControllerLayoutGuide type="bottom" id="CTs-bI-hl2"/>
@@ -21,18 +21,34 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgp-6j-d04">
-                                <rect key="frame" x="16" y="20" width="283" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgp-6j-d04">
+                                <rect key="frame" x="8" y="16" width="55.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-zW-fKn" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="45" width="359" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="kOz-Wg-qFP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bUX-zW-fKn" firstAttribute="top" secondItem="xgp-6j-d04" secondAttribute="bottom" constant="8" id="YXP-68-LXJ"/>
+                            <constraint firstItem="xgp-6j-d04" firstAttribute="leading" secondItem="pgH-Iq-kce" secondAttribute="leading" constant="8" id="Yxn-uo-aI4"/>
+                            <constraint firstAttribute="trailing" secondItem="bUX-zW-fKn" secondAttribute="trailing" constant="8" id="hkt-hz-yJt"/>
+                            <constraint firstItem="bUX-zW-fKn" firstAttribute="leading" secondItem="pgH-Iq-kce" secondAttribute="leading" constant="8" id="j6A-SU-TNy"/>
+                            <constraint firstItem="xgp-6j-d04" firstAttribute="top" secondItem="E2q-h0-myP" secondAttribute="bottom" constant="16" id="uHr-Bs-4Px"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="miP-vj-c3f"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="chartView" destination="bUX-zW-fKn" id="N1i-ZI-X9q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Suc-jo-KgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
