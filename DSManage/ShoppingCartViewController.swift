@@ -32,6 +32,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
 
+        productsTableView.register(UINib(nibName: "ProductSaleTableViewCell", bundle: nil), forCellReuseIdentifier: "ShoppingCartTableViewCell")
+
+        
         let addButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.trash,target: self,action: #selector(clear))
         
         self.navigationItem.rightBarButtonItems = [addButtonItem]
@@ -126,7 +129,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartTableViewCell", for: indexPath) as! ShoppingCartTableViewCell
-        
+
+
         let product:Product = products[indexPath.row]
         
         cell.productLabel.text = product.product

@@ -15,7 +15,6 @@ class SalesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         let addButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,target: self,action: #selector(add))
         
         self.navigationItem.rightBarButtonItems = [addButtonItem]
@@ -23,6 +22,12 @@ class SalesTableViewController: UITableViewController {
     }
     
     func add(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Product", bundle:nil)
+        
+        let productCollectionViewController = storyBoard.instantiateViewController(withIdentifier: "productCollectionViewController") as! ProductCollectionViewController
+        
+        self.navigationController?.pushViewController(productCollectionViewController, animated: true)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +49,12 @@ class SalesTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SaleTableViewCell", for: indexPath) as! SaleTableViewCell
         
-        cell.clientLabel.text = "oi"
+        
+        let sale:Sale = sales[indexPath.row]
+        
+        cell.clientLabel.text = sale.client.name
+        cell.totalLabel.text = String(format:"%.2f",sale.getTotal())
+        
     
         return cell
     }
@@ -54,6 +64,16 @@ class SalesTableViewController: UITableViewController {
         print(sale)
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let saleDetailViewController = segue.destination as! SaleDetailViewController
+        var selectedIndexPath = self.tableView?.indexPathsForSelectedRows?.first
+        saleDetailViewController.setSale(sale: sales[(selectedIndexPath?.row)!])
+        
+    }
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -15,6 +15,8 @@
 		AF30AA071E2DBA4A008818C0 /* SaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30AA061E2DBA4A008818C0 /* SaleService.swift */; };
 		AF50589E1E2AA0A800252881 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50589D1E2AA0A800252881 /* ProductCollectionViewController.swift */; };
 		AF5058A01E2AA1F600252881 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */; };
+		AF6EF7241E2EE25500A92A31 /* ProductSaleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF6EF7231E2EE25500A92A31 /* ProductSaleTableViewCell.xib */; };
+		AF6EF7261E2EE57A00A92A31 /* SaleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF7251E2EE57A00A92A31 /* SaleDetailViewController.swift */; };
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
 		AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B341E180F9A00931A83 /* Main.storyboard */; };
 		AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B371E180F9A00931A83 /* Assets.xcassets */; };
@@ -81,6 +83,8 @@
 		AF30AA061E2DBA4A008818C0 /* SaleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleService.swift; sourceTree = "<group>"; };
 		AF50589D1E2AA0A800252881 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
 		AF50589F1E2AA1F600252881 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF6EF7231E2EE25500A92A31 /* ProductSaleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductSaleTableViewCell.xib; sourceTree = "<group>"; };
+		AF6EF7251E2EE57A00A92A31 /* SaleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDetailViewController.swift; sourceTree = "<group>"; };
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B301E180F9A00931A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFA35B351E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				AF30AA011E2DB4A9008818C0 /* SalesTableViewController.swift */,
+				AF6EF7251E2EE57A00A92A31 /* SaleDetailViewController.swift */,
 			);
 			name = sales;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				AFAC65101E2314BA00E57C6D /* Sale.storyboard */,
 				AFA35B341E180F9A00931A83 /* Main.storyboard */,
 				AFE7A1941E2B0998008D42C0 /* ShoppingCart.storyboard */,
+				AF6EF7231E2EE25500A92A31 /* ProductSaleTableViewCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -481,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE7A1951E2B0998008D42C0 /* ShoppingCart.storyboard in Resources */,
+				AF6EF7241E2EE25500A92A31 /* ProductSaleTableViewCell.xib in Resources */,
 				AFA35B3B1E180F9A00931A83 /* LaunchScreen.storyboard in Resources */,
 				AFAC65121E2314BA00E57C6D /* Product.storyboard in Resources */,
 				AFAC65131E2314BA00E57C6D /* Report.storyboard in Resources */,
@@ -678,6 +685,7 @@
 				AFE7A19C1E2B163A008D42C0 /* ShoppingCartViewController.swift in Sources */,
 				AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
 				AFE7A1A01E2B2921008D42C0 /* ShoppingCartService.swift in Sources */,
+				AF6EF7261E2EE57A00A92A31 /* SaleDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
