@@ -38,13 +38,13 @@
             </objects>
             <point key="canvasLocation" x="892" y="18.440779610194905"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--reports-->
         <scene sceneID="iQZ-2t-rkC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Vk-Zk-a4N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="MYN-V1-GuA"/>
+                    <tabBarItem key="tabBarItem" title="reports" image="ic_report" selectedImage="ic_report" id="MYN-V1-GuA"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="WET-Pj-U7a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="WET-Pj-U7a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,4 +60,7 @@
             <point key="canvasLocation" x="-47.200000000000003" y="18.440779610194905"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_report" width="32" height="32"/>
+    </resources>
 </document>

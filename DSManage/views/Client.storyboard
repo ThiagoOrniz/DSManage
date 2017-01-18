@@ -299,7 +299,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KKG-q2-fQ4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Delete Client"/>
                                 <connections>
                                     <action selector="deleteButtonTouched:" destination="ff4-6b-lVe" eventType="touchUpInside" id="iP2-L6-A22"/>
@@ -333,11 +333,11 @@
             </objects>
             <point key="canvasLocation" x="2032.8" y="-681.40929535232385"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--clients-->
         <scene sceneID="Lc8-s6-fRt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="slu-c1-Adf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="XSk-dF-lhv"/>
+                    <tabBarItem key="tabBarItem" title="clients" image="ic_client" selectedImage="ic_client" id="XSk-dF-lhv"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0DF-ON-2rJ">
@@ -357,6 +357,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_client" width="24" height="24"/>
         <image name="ic_user" width="64" height="64"/>
     </resources>
 </document>

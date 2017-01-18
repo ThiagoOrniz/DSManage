@@ -18,10 +18,43 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let addButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,target: self,action: #selector(openCart))
-
-        self.navigationItem.rightBarButtonItems = [addButtonItem]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        updateShoppingCartBarButtonItem()
+        
+        products = ProductService().getProducts()
+        
+    
+    }
+    
+    func updateShoppingCartBarButtonItem(){
+        
+        let button: UIButton = UIButton(type: .custom)
+        
+        var image: UIImage = UIImage(named: "ic_shopping_cart")!
+        
+        if !ShoppingCartService.getProducts().isEmpty {
+             image = UIImage(named: "ic_shopping_cart_full")!
+        }
+        
+        button.tintColor = .white
+        //set image for button
+        button.setImage(image, for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(openCart), for: UIControlEvents.touchUpInside)
+        //set frame
+        
+        button.frame = CGRect.init(x: 0, y: 0, width: 44, height: 44)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+        
+        
+
     }
     
     func openCart(){
@@ -39,11 +72,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        products = ProductService().getProducts()
-        
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,7 +117,6 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
     }
     
     func didUpdateQuantity(sender: UIStepper){
-        print(sender)
         
         let point = sender.convert(CGPoint.zero, to: self.collectionView)
         
@@ -100,7 +128,10 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         
         ShoppingCartService.productInteracted(product)
         
+    
         // if you need to update the cell
+        
+        updateShoppingCartBarButtonItem()
         
     }
     

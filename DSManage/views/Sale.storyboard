@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--sales-->
         <scene sceneID="edI-rk-BTf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ty7-85-pGs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="tSK-Wg-Nau"/>
+                    <tabBarItem key="tabBarItem" title="sales" image="ic_sale" selectedImage="ic_sale" id="tSK-Wg-Nau"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="oPz-ar-twM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -56,7 +56,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 oct 2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ym0-oW-gf8">
                                             <rect key="frame" x="272.5" y="8" width="94.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nq5-1b-QBu">
@@ -196,4 +196,7 @@
             <point key="canvasLocation" x="1760.8" y="83.208395802098963"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_sale" width="24" height="24"/>
+    </resources>
 </document>

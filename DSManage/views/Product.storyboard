@@ -14,7 +14,7 @@
         <scene sceneID="1Tp-wP-gMc">
             <objects>
                 <collectionViewController storyboardIdentifier="productCollectionViewController" id="3qE-jv-wae" customClass="ProductCollectionViewController" customModule="DSManage" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="OEO-kN-dSB">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OEO-kN-dSB">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,11 +197,11 @@
             </objects>
             <point key="canvasLocation" x="1532" y="-51.724137931034484"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Products-->
         <scene sceneID="Tiw-Yx-NQa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0bY-Gy-y1d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="ei9-Sk-YQL"/>
+                    <tabBarItem key="tabBarItem" title="Products" image="ic_label" selectedImage="ic_label" id="ei9-Sk-YQL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZXK-DB-dxj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -223,6 +223,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_label" width="44" height="44"/>
         <image name="product_brush" width="640" height="484"/>
     </resources>
 </document>

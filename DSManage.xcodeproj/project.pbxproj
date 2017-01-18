@@ -37,7 +37,6 @@
 		AFAC65091E2314AB00E57C6D /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65031E2314AB00E57C6D /* ClientTableViewCell.swift */; };
 		AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */; };
 		AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65051E2314AB00E57C6D /* LoginViewController.swift */; };
-		AFAC650C1E2314AB00E57C6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65061E2314AB00E57C6D /* MainViewController.swift */; };
 		AFAC65111E2314BA00E57C6D /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650D1E2314BA00E57C6D /* Client.storyboard */; };
 		AFAC65121E2314BA00E57C6D /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650E1E2314BA00E57C6D /* Product.storyboard */; };
 		AFAC65131E2314BA00E57C6D /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650F1E2314BA00E57C6D /* Report.storyboard */; };
@@ -111,7 +110,6 @@
 		AFAC65031E2314AB00E57C6D /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientTableViewCell.swift; path = controllers/ClientTableViewCell.swift; sourceTree = "<group>"; };
 		AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		AFAC65051E2314AB00E57C6D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = controllers/LoginViewController.swift; sourceTree = "<group>"; };
-		AFAC65061E2314AB00E57C6D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = controllers/MainViewController.swift; sourceTree = "<group>"; };
 		AFAC650D1E2314BA00E57C6D /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Client.storyboard; path = views/Client.storyboard; sourceTree = "<group>"; };
 		AFAC650E1E2314BA00E57C6D /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Product.storyboard; path = views/Product.storyboard; sourceTree = "<group>"; };
 		AFAC650F1E2314BA00E57C6D /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Report.storyboard; path = views/Report.storyboard; sourceTree = "<group>"; };
@@ -311,9 +309,9 @@
 		AFD60C291E21E6650006FAE7 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AFE7A1981E2B1133008D42C0 /* main */,
 				AF30AA031E2DB7A3008818C0 /* sales */,
 				AFE7A19A1E2B1623008D42C0 /* shopping */,
-				AFE7A1981E2B1133008D42C0 /* main */,
 				AFE7A1961E2B1107008D42C0 /* clients */,
 				AFE7A1971E2B111C008D42C0 /* products */,
 				AFE7A1991E2B1141008D42C0 /* cells */,
@@ -342,7 +340,6 @@
 		AFE7A1981E2B1133008D42C0 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				AFAC65061E2314AB00E57C6D /* MainViewController.swift */,
 				AFAC65051E2314AB00E57C6D /* LoginViewController.swift */,
 				AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */,
 			);
@@ -668,7 +665,6 @@
 				AF5058A01E2AA1F600252881 /* ProductCollectionViewCell.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
 				AF30AA071E2DBA4A008818C0 /* SaleService.swift in Sources */,
-				AFAC650C1E2314AB00E57C6D /* MainViewController.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
 				AFA35B6F1E18208A00931A83 /* Client.swift in Sources */,
 				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,
