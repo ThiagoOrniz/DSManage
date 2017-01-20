@@ -49,6 +49,7 @@
 		AFAC65131E2314BA00E57C6D /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC650F1E2314BA00E57C6D /* Report.storyboard */; };
 		AFAC65141E2314BA00E57C6D /* Sale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAC65101E2314BA00E57C6D /* Sale.storyboard */; };
 		AFAC65161E23271200E57C6D /* TextFieldValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */; };
+		AFC411661E319004000AD21C /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC411651E319004000AD21C /* ProductViewModel.swift */; };
 		F0A16747EE2B8986723E96FD /* Pods_DSManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		AFAC650F1E2314BA00E57C6D /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Report.storyboard; path = views/Report.storyboard; sourceTree = "<group>"; };
 		AFAC65101E2314BA00E57C6D /* Sale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Sale.storyboard; path = views/Sale.storyboard; sourceTree = "<group>"; };
 		AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidatorTests.swift; sourceTree = "<group>"; };
+		AFC411651E319004000AD21C /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		B607F4E84A2B4C07FDF2EE3F /* Pods-DSManageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageUITests/Pods-DSManageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -220,6 +222,7 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AFC411641E318FEE000AD21C /* viewmodel */,
 				AFAC64F21E230DF000E57C6D /* helpers */,
 				AFAC64EF1E22D7C800E57C6D /* services */,
 				AFAC64EC1E22C3BF00E57C6D /* extensions */,
@@ -300,6 +303,14 @@
 				AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */,
 			);
 			name = helpers;
+			sourceTree = "<group>";
+		};
+		AFC411641E318FEE000AD21C /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				AFC411651E319004000AD21C /* ProductViewModel.swift */,
+			);
+			name = viewmodel;
 			sourceTree = "<group>";
 		};
 		AFD60C281E21DFF20006FAE7 /* views */ = {
@@ -679,6 +690,7 @@
 				AF6EF7361E2F0D1100A92A31 /* SaleDetailViewController.swift in Sources */,
 				AF6EF7451E2F0D3A00A92A31 /* ShoppingCartTableViewCell.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
+				AFC411661E319004000AD21C /* ProductViewModel.swift in Sources */,
 				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
 				AFA35B6F1E18208A00931A83 /* Client.swift in Sources */,
 				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,

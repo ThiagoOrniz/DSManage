@@ -11,9 +11,9 @@ import UIKit
 private let reuseIdentifier = "ProductCollectionViewCell"
 
 
-var products:[Product] = []
-
 class ProductCollectionViewController: UICollectionViewController,ProductCollectionViewCellDelegate, ShoppingCartViewControllerDelegate {
+
+    var productViewModels:[ProductViewModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         
         updateShoppingCartBarButtonItem()
         
-        products = ProductService().getProducts()
+        productViewModels = ProductService().getProducts()
         
     
     }
@@ -82,7 +82,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
 
         let productDetailViewController = segue.destination as! ProductDetailViewController
         var selectedIndexPath = self.collectionView?.indexPathsForSelectedItems?.first
-        productDetailViewController.setProduct(product: products[(selectedIndexPath?.row)!])
+        productDetailViewController.setProductViewModel(productViewModel: productViewModels[(selectedIndexPath?.row)!])
         
     }
     
@@ -92,21 +92,20 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+        return productViewModels.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:ProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ProductCollectionViewCell
         
         
-        let product:Product = products[indexPath.row]
+        let productViewModel:ProductViewModel = productViewModels[indexPath.row]
         
-        cell.populateView(withProduct: product)
+        cell.populateView(with: productViewModel)
         cell.delegate = self
         self.setBorderShadow(forView: cell.wrapperView, shadowOpacity: 0.3)
         return cell
     }
-    
     
     private func setBorderShadow(forView view:UIView, shadowOpacity:Float ){
         view.layer.shadowColor = UIColor.darkGray.cgColor
@@ -122,11 +121,12 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         
         let indexPath = self.collectionView?.indexPathForItem(at: point)!
         
-        let product = products[(indexPath?.row)!] // or whatever your datasource
-        product.quantity = String(format: "%.f", sender.value)
-        products[(indexPath?.row)!] = product
+        let productViewModel = productViewModels[(indexPath?.row)!]
+        productViewModel.quantityText = String(format: "%.f", sender.value)
         
-        ShoppingCartService.productInteracted(product)
+        productViewModels[(indexPath?.row)!] = productViewModel
+        
+//        ShoppingCartService.productInteracted(productViewModel)
         
     
         // if you need to update the cell
@@ -136,10 +136,10 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
     }
     
     func didClearShoppingCart(){
-        for i in 0..<products.count{
-            products[i].quantity = "0"
-        }
-        self.collectionView?.reloadData()
+//        for i in 0..<productViewModels.count{
+//            products[i].quantity = "0"
+//        }
+//        self.collectionView?.reloadData()
     }
 
 }

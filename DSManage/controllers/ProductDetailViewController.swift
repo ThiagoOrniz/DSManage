@@ -11,7 +11,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productDescriptionLabel: UILabel!
     
-    private var product = Product();
+    private var productViewModel: ProductViewModel?
 
     
     override func viewDidLoad() {
@@ -31,16 +31,16 @@ class ProductDetailViewController: UIViewController {
         self.navigationItem.setRightBarButton(shareButtomItem, animated: true)
     }
 
-    public func setProduct(product:Product){
-        self.product = product
+    public func setProductViewModel(productViewModel:ProductViewModel){
+        self.productViewModel = productViewModel
         
     }
     
     private func populateView(){
-        self.productNameLabel.text = self.product.product
-        self.productPriceLabel.text = String(format:"%.2f",self.product.price)
-        self.productDescriptionLabel.text = self.product.desc
-        self.productImageView.image = UIImage(named: product.photoURL)
+        self.productNameLabel.text = self.productViewModel?.productText
+        self.productPriceLabel.text = self.productViewModel?.priceText
+        self.productDescriptionLabel.text = self.productViewModel?.descText
+        self.productImageView.image = UIImage(named: (self.productViewModel?.photoText)!)
 
     }
     
@@ -62,7 +62,7 @@ class ProductDetailViewController: UIViewController {
     private func shareWithFacebook(){
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText(self.product.product)
+            facebookSheet.setInitialText(self.productViewModel?.productText)
             self.present(facebookSheet, animated: true, completion: nil)
         } else {
             self.showOkAlertMessage(withTitle: "Couldn't Post it", andBody: "Please login to a Facebook account to share.")

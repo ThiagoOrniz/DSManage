@@ -21,7 +21,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
     
-    var product:Product = Product()
+    var productViewModel:ProductViewModel?
     weak var delegate:ProductCollectionViewCellDelegate?
 
     
@@ -31,13 +31,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     }
     
-    func populateView(withProduct product:Product){
-        self.product = product
-        quantityLabel.text = product.quantity
-        productLabel.text = product.product
-        priceLabel.text = String(format:"%.2f",product.price)
-        quantityStepper.value = Double(product.quantity)!
-        productImageView.image = UIImage(named: product.photoURL)
+    func populateView(with productViewModel:ProductViewModel){
+        self.productViewModel = productViewModel
+        
+        quantityLabel.text = productViewModel.quantityText
+        productLabel.text = productViewModel.productText
+        priceLabel.text = productViewModel.priceText
+        quantityStepper.value =  Double(productViewModel.quantityText)!
+        productImageView.image = UIImage(named: productViewModel.photoText)
 
         
     }
@@ -46,9 +47,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         print("touched: \(sender.value)")
         quantityLabel.text = String(format:"%.0f",sender.value)
-        
-        product.quantity = String(format:"%.0f",sender.value)
-        
+        productViewModel?.quantityText = String(format:"%.0f",sender.value)
         delegate?.didUpdateQuantity(sender: sender)
         
     
