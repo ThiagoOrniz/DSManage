@@ -6,19 +6,25 @@ target ‘DSManage’ do
   use_frameworks!
 
   pod 'Charts', '~> 3.0.1'
-
+   pod 'RxSwift',    '~> 3.0'
+    pod 'RxCocoa',    '~> 3.0'
 
   # Pods for DSManage
 
 
   target ‘DSManageTests' do
     inherit! :search_paths
+
+
+   pod 'RxBlocking', '~> 3.0'
+    pod 'RxTest',     '~> 3.0'
+
     # Pods for testing
   end
 
   target ‘DSManageUITests' do
     inherit! :search_paths
-    # Pods for testing
+  
   end
 
 end
