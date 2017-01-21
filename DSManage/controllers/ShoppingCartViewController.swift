@@ -191,10 +191,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
 
     }
     
-    func didSelectClient(_ client:Client){
-        
-        clientNameLabel.text = client.name
-        ShoppingCartService.sharedInstance.updateClient(client: client)
+    func didSelectClient(_ client:ClientViewModel){
+        clientNameLabel.text = client.nameText
         
     }
 }

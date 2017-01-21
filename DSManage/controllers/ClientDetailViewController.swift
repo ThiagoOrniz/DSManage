@@ -24,7 +24,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     private let imagePicker = UIImagePickerController()
     private var isEditingClient = false
-    private var client = Client();
+    private var clientViewModel:ClientViewModel?
     private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
 
     
@@ -85,19 +85,19 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.view.endEditing(true)
     }
     
-    public func setClient(client:Client, isEditingClient:Bool){
-        self.client = client
+    public func setClient(client:ClientViewModel, isEditingClient:Bool){
+        self.clientViewModel = client
         self.isEditingClient = isEditingClient
         
     }
     
     
     private func populateView(){
-        self.nameTextField.text = self.client.name
-        self.emailTextField.text = self.client.email
-        self.phoneTextField.text = self.client.phone
-        self.addressTextField.text = self.client.address
-        self.avatarImageView.image = UIImage(named: client.photoURL)
+        self.nameTextField.text = self.clientViewModel?.nameText
+        self.emailTextField.text = self.clientViewModel?.emailText
+        self.phoneTextField.text = self.clientViewModel?.phoneText
+        self.addressTextField.text = self.clientViewModel?.addressText
+        self.avatarImageView.image = UIImage(named: (self.clientViewModel?.photoText)!)
 
     }
     
@@ -192,7 +192,9 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     }
     
     @IBAction func sellButtonTouched(_ sender: UIButton) {
-        ShoppingCartService.sharedInstance.updateClient(client: client)
+        
+        clientViewModel?.updateShoppingCart()
+        
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Product", bundle:nil)
         
@@ -205,7 +207,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self        
-        mailComposerVC.setToRecipients([self.client.email])
+        mailComposerVC.setToRecipients([self.clientViewModel!.emailText])
         mailComposerVC.setMessageBody("", isHTML: false)
         return mailComposerVC
     }

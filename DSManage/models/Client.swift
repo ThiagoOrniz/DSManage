@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Client : NSObject {
+class Client {
     
     var id: String = ""
     var name: String = ""
@@ -17,12 +17,11 @@ class Client : NSObject {
     var photoURL: String = ""
     var address:String = ""
     
-    override init(){
-        super.init()
+     init(){
     }
     
     init(id:String, name:String, email:String, phone:String, address:String, photoURL:String){
-        super.init()
+        
         self.id = id
         self.name = name
         self.email = email

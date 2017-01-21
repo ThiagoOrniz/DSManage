@@ -44,13 +44,16 @@ class ProductViewModel {
     var photoText: String {
         return product.photoURL
     }
+
     
     init(product: Product) {
         self.product = product
     }
     
+    
     func productHasBeenInteracted(){
         ShoppingCartService.sharedInstance.productInteracted(product)
     }
+
     
 }

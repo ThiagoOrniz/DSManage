@@ -14,6 +14,8 @@ class ClientTableViewCell: UITableViewCell {
     @IBOutlet weak var clientNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    private var clientViewModel:ClientViewModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,6 +28,15 @@ class ClientTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func populateView(with clientViewModel:ClientViewModel){
+        self.clientViewModel = clientViewModel
+        
+        clientNameLabel.text = clientViewModel.nameText
+        emailLabel.text = clientViewModel.emailText
+        avatarImageView.image = UIImage(named: clientViewModel.photoText)
+        
     }
 
 }

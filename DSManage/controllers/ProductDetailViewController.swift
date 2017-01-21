@@ -1,6 +1,6 @@
 import UIKit
 import Social
-
+import Alamofire
 
 class ProductDetailViewController: UIViewController {
 
@@ -42,8 +42,19 @@ class ProductDetailViewController: UIViewController {
         self.productDescriptionLabel.text = self.productViewModel?.descText
         self.productImageView.image = UIImage(named: (self.productViewModel?.photoText)!)
 
+        downloadImage()
     }
     
+    func downloadImage(){
+
+        Alamofire.download("https://robohash.org/123.png").responseData { response in
+
+            if let data = response.result.value {
+                self.productImageView.image = UIImage(data: data)
+            }
+        }
+    }
+
     func shareButtonTouched(){
         let alert = UIAlertController(title: "Share This Product", message: "Sharing your products can help improve your sales!", preferredStyle: .actionSheet)
         

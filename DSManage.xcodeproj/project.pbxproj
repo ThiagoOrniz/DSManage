@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2721DDB0EF6DDDDDEED8C761 /* Pods_DSManageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */; };
 		87AA9F30DF17E556DF830673 /* Pods_DSManageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */; };
+		AF474E371E33F8F0009370C1 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF474E361E33F8F0009370C1 /* ShoppingCartViewModel.swift */; };
+		AF474E391E33FEC5009370C1 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF474E381E33FEC5009370C1 /* ClientViewModel.swift */; };
 		AF6EF72D1E2F0CD900A92A31 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF72A1E2F0CD900A92A31 /* ClientService.swift */; };
 		AF6EF72E1E2F0CD900A92A31 /* SaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF72B1E2F0CD900A92A31 /* SaleService.swift */; };
 		AF6EF72F1E2F0CD900A92A31 /* ShoppingCartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */; };
@@ -80,6 +82,8 @@
 		6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C80719B27CE0CE9D52439CD /* Pods-DSManageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageTests/Pods-DSManageTests.release.xcconfig"; sourceTree = "<group>"; };
 		94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF474E361E33F8F0009370C1 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
+		AF474E381E33FEC5009370C1 /* ClientViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		AF6EF72A1E2F0CD900A92A31 /* ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientService.swift; path = services/ClientService.swift; sourceTree = "<group>"; };
 		AF6EF72B1E2F0CD900A92A31 /* SaleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaleService.swift; path = services/SaleService.swift; sourceTree = "<group>"; };
 		AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartService.swift; path = services/ShoppingCartService.swift; sourceTree = "<group>"; };
@@ -315,6 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				AFC411651E319004000AD21C /* ProductViewModel.swift */,
+				AF474E361E33F8F0009370C1 /* ShoppingCartViewModel.swift */,
+				AF474E381E33FEC5009370C1 /* ClientViewModel.swift */,
 			);
 			name = viewmodel;
 			sourceTree = "<group>";
@@ -702,6 +708,7 @@
 				AFA35B6F1E18208A00931A83 /* Client.swift in Sources */,
 				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,
 				AF6EF7431E2F0D3A00A92A31 /* ProductCollectionViewCell.swift in Sources */,
+				AF474E371E33F8F0009370C1 /* ShoppingCartViewModel.swift in Sources */,
 				AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */,
 				AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */,
 				AF6EF7371E2F0D1100A92A31 /* SalesTableViewController.swift in Sources */,
@@ -709,6 +716,7 @@
 				AF6EF7331E2F0CFB00A92A31 /* ReportsViewController.swift in Sources */,
 				AF6EF7441E2F0D3A00A92A31 /* SaleTableViewCell.swift in Sources */,
 				AF6EF72F1E2F0CD900A92A31 /* ShoppingCartService.swift in Sources */,
+				AF474E391E33FEC5009370C1 /* ClientViewModel.swift in Sources */,
 				AFAC65001E23149C00E57C6D /* UIViewController+Messages.swift in Sources */,
 				AF6EF73D1E2F0D2D00A92A31 /* ProductDetailViewController.swift in Sources */,
 				AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */,

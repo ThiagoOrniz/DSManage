@@ -13,7 +13,7 @@ private let reuseIdentifier = "ProductCollectionViewCell"
 
 class ProductCollectionViewController: UICollectionViewController,ProductCollectionViewCellDelegate, ShoppingCartViewControllerDelegate {
 
-    var productsViewModel:[ProductViewModel] = []
+    private var productsViewModel:[ProductViewModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

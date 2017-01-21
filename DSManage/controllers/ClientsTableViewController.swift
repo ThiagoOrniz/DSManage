@@ -8,13 +8,17 @@
 
 import UIKit
 
+private let reuseIdentifier = "ClientTableViewCell"
+
+
 protocol ClientsTableViewControllerDelegate: class {
-    func didSelectClient(_ client:Client)
+    func didSelectClient(_ client:ClientViewModel)
 }
 
 class ClientsTableViewController: UITableViewController {
 
-    private var clients:[Client] = []
+    private var clientsViewModel:[ClientViewModel] = []
+    
     weak var clientsTableViewControllerDelegate:ClientsTableViewControllerDelegate?
 
     var isSelectableClient:Bool = false
@@ -30,7 +34,7 @@ class ClientsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        clients = ClientService().getClients()
+        clientsViewModel =  ClientViewModel.getClients()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,18 +42,15 @@ class ClientsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clients.count
+        return clientsViewModel.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientTableViewCell", for: indexPath) as! ClientTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ClientTableViewCell
 
+        cell.populateView(with: clientsViewModel[indexPath.row])
         
-        cell.clientNameLabel.text = clients[indexPath.row].name
-        cell.emailLabel.text = clients[indexPath.row].email
-        cell.avatarImageView.image = UIImage(named: clients[indexPath.row].photoURL)
-    
         return cell
     }
 
@@ -67,7 +68,7 @@ class ClientsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            clients.remove(at: indexPath.row)
+            clientsViewModel.remove(at: indexPath.row)
 
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -82,17 +83,18 @@ class ClientsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let client:Client = clients[indexPath.row]
+        let clientViewModel = clientsViewModel[indexPath.row]
 
         if isSelectableClient{
-            clientsTableViewControllerDelegate?.didSelectClient(client)
+            clientViewModel.updateShoppingCart()
+            clientsTableViewControllerDelegate?.didSelectClient(clientViewModel)
           _ = self.navigationController?.popViewController(animated: true)
         }
         else{
             
             let clientDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "ClientDetailViewController") as! ClientDetailViewController
             
-            clientDetailViewController.setClient(client: client,isEditingClient: true)
+            clientDetailViewController.setClient(client: clientViewModel,isEditingClient: true)
             self.navigationController?.pushViewController(clientDetailViewController, animated: true)
 
         }

@@ -10,11 +10,13 @@ import Foundation
 
 class ClientService{
     
-    func getClients()->[Client]{
+    func getClients()->[ClientViewModel]{
         
-        return [Client(id:"01", name: "R2D2",email: "r2d2@oldrepublic.com",phone: "1111-1111",address: "Tatooine", photoURL:"user_r2d2"),
-                Client(id:"02", name: "Chewie",email: "chewie@rebel.com",phone: "2222-2222",address: "Millennium Falcon", photoURL:"user_chewie"),
-                Client(id:"03", name: "Ewok",email: "ewok@fuffly.endor",phone: "3333-3333",address: "Endor", photoURL:"user_ewok")
+        return [ClientViewModel(client:Client(id:"01", name: "R2D2",email: "r2d2@oldrepublic.com",phone: "1111-1111",address: "Tatooine", photoURL:"user_r2d2")),
+                
+                ClientViewModel(client:Client(id:"02", name: "Chewie",email: "chewie@rebel.com",phone: "2222-2222",address: "Millennium Falcon", photoURL:"user_chewie")),
+                
+                ClientViewModel(client:Client(id:"03", name: "Ewok",email: "ewok@fuffly.endor",phone: "3333-3333",address: "Endor", photoURL:"user_ewok"))
         ]
         
     }
