@@ -10,27 +10,29 @@ import Foundation
 
 class ShoppingCartService{
     
-    private static var products:[Product] = []
-    private static var client:Client = Client()
+    static let sharedInstance = ShoppingCartService()
     
-    static func updateClient(client:Client){
+    private  var products:[Product] = []
+    private  var client:Client = Client()
+    
+    func updateClient(client:Client){
         self.client = client
     }
     
-    static func getClient() ->Client{
+    func getClient() ->Client{
         return client
     }
     
-    static func add(product:Product){
+    func add(product:Product){
         products.append(product)
     }
     
-    static func update(product:Product){
-       let i =  products.index(of: product)
+    func update(product:Product){
+        let i =  products.index(of: product)
         products[i!] = product
     }
-
-    static func remove(product:Product){
+    
+    func remove(product:Product){
         
         print(products.contains(product))
         products = arrayRemovingObject(object: product, fromArray:products )
@@ -38,16 +40,16 @@ class ShoppingCartService{
         print(products)
     }
     
-    static func getProducts()->[Product]{
+    func getProducts()->[Product]{
         return products
     }
     
-    static func clearAll(){
+    func clearAll(){
         products = []
         client = Client()
     }
     
-    static func productInteracted(_ product:Product){
+    func productInteracted(_ product:Product){
         
         if products.contains(product) {
             
@@ -63,11 +65,15 @@ class ShoppingCartService{
         }
     }
     
-    private static func arrayRemovingObject<U: Equatable>(object: U, fromArray:[U]) -> [U] {
+    func isShoppingCartEmpty() -> Bool{
+        return products.isEmpty
+    }
+    
+    private  func arrayRemovingObject<U: Equatable>(object: U, fromArray:[U]) -> [U] {
         return fromArray.filter { return $0 != object }
     }
     
-    private static func hasProductQuantity(_ product:Product) ->Bool{
+    private  func hasProductQuantity(_ product:Product) ->Bool{
         let qtt:Double = Double(product.quantity)!
         return qtt > 0
     }

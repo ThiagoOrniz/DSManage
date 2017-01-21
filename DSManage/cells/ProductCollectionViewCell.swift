@@ -39,8 +39,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
         priceLabel.text = productViewModel.priceText
         quantityStepper.value =  Double(productViewModel.quantityText)!
         productImageView.image = UIImage(named: productViewModel.photoText)
-
         
+        wrapperView.setBorderShadow(shadowOpacity: 0.3)
     }
  
     @IBAction func stepperTouched(_ sender: UIStepper) {

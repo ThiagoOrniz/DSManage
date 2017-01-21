@@ -51,9 +51,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        products = ShoppingCartService.getProducts()
+        products = ShoppingCartService.sharedInstance.getProducts()
         
-        let client = ShoppingCartService.getClient()
+        let client = ShoppingCartService.sharedInstance.getClient()
         
         if client.id.characters.count > 0 {
             clientNameLabel.text = client.name
@@ -103,7 +103,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         alert.addAction(UIAlertAction(title: "Clear it", style: .default) { action in
-            ShoppingCartService.clearAll()
+            ShoppingCartService.sharedInstance.clearAll()
             self.clearShoppingCartDelegate?.didClearShoppingCart()
             
             _ = self.navigationController?.popViewController(animated: true)
@@ -175,7 +175,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func confirmButtonTouched(_ sender: UIButton) {
         
-        if ShoppingCartService.getClient().id.characters.count == 0 {
+        if ShoppingCartService.sharedInstance.getClient().id.characters.count == 0 {
             self.showOkAlertMessage(withTitle: "There's no client selected!", andBody: "Select a client!")
             
             return
@@ -194,6 +194,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     func didSelectClient(_ client:Client){
         
         clientNameLabel.text = client.name
-        ShoppingCartService.updateClient(client: client)
+        ShoppingCartService.sharedInstance.updateClient(client: client)
+        
     }
 }

@@ -192,7 +192,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     }
     
     @IBAction func sellButtonTouched(_ sender: UIButton) {
-        ShoppingCartService.updateClient(client: client)
+        ShoppingCartService.sharedInstance.updateClient(client: client)
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Product", bundle:nil)
         

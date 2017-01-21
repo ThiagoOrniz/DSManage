@@ -7,13 +7,14 @@
 //
 
 import Foundation
-import RxSwift
-
 
 class ProductViewModel {
     
     private let product: Product
-    let disposeBag = DisposeBag()
+    
+    var id: String {
+        return product.id
+    }
     
     var productText: String {
         return product.product
@@ -37,7 +38,7 @@ class ProductViewModel {
 
         }
         set{
-            product.quantity = quantityText
+            product.quantity = newValue
         }
     }
     
@@ -45,13 +46,14 @@ class ProductViewModel {
         return product.photoURL
     }
     
-
-    
     init(product: Product) {
-        
         self.product = product
-        
     }
+    
+    func productHasBeenInteracted(){
+        ShoppingCartService.sharedInstance.productInteracted(product)
+    }
+
 
     
 }
