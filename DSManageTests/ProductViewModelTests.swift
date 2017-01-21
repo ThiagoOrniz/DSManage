@@ -21,20 +21,18 @@ class ProductViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    // compares if model is equivalent with its view model
     func testValidateProduct() {
         let product = Product(id: "01", product: "name", price: 13.3, category: "cat", desc: "desc", photoURL: "photo")
         
-        var productVIewModel = ProductViewModel(product: product)
+        let productVIewModel = ProductViewModel(product: product)
         
         XCTAssert(productVIewModel.productText == product.product)
-
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssert(productVIewModel.priceText == "13.30")
+        XCTAssert(productVIewModel.categoryText == product.category)
+        XCTAssert(productVIewModel.descText == product.desc)
+        XCTAssert(productVIewModel.photoText == product.photoURL)
+        
     }
     
 }

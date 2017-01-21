@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product : Equatable{
+struct Product : Equatable{
     
     var id: String = ""
     var product: String = ""
@@ -18,8 +18,6 @@ class Product : Equatable{
     var category: String = ""
     var quantity: String = ""
 
-
-    
     init(){
     }
     

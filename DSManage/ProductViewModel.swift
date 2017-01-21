@@ -10,7 +10,7 @@ import Foundation
 
 class ProductViewModel {
     
-    private let product: Product
+    private var product: Product
     
     var id: String {
         return product.id

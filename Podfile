@@ -6,8 +6,9 @@ target ‘DSManage’ do
   use_frameworks!
 
   pod 'Charts', '~> 3.0.1'
-   pod 'RxSwift',    '~> 3.0'
-    pod 'RxCocoa',    '~> 3.0'
+  pod 'RxSwift',    '~> 3.0'
+  pod 'RxCocoa',    '~> 3.0'
+  pod 'Alamofire', '~> 4.3'
 
   # Pods for DSManage
 
