@@ -3,6 +3,8 @@ A Swift project from an Objective-C certificate class.
 
 My main goal is to improve my skills using Swift.
 
+• MVVM
+
 • unit/ui tests
 
 • camera/sharing content
