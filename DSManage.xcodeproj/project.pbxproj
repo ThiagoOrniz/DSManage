@@ -26,6 +26,7 @@
 		AF6EF7481E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF6EF7461E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib */; };
 		AF6EF7491E2F0D4B00A92A31 /* ShoppingCart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */; };
 		AF76CE591E3309F100177F9B /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76CE581E3309F100177F9B /* UIView+Shadow.swift */; };
+		AF76CE5B1E331A0200177F9B /* ProductViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */; };
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
 		AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B341E180F9A00931A83 /* Main.storyboard */; };
 		AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B371E180F9A00931A83 /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		AF6EF7461E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductSaleTableViewCell.xib; path = views/ProductSaleTableViewCell.xib; sourceTree = "<group>"; };
 		AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ShoppingCart.storyboard; path = views/ShoppingCart.storyboard; sourceTree = "<group>"; };
 		AF76CE581E3309F100177F9B /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModelTests.swift; sourceTree = "<group>"; };
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B301E180F9A00931A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFA35B351E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				AFA35B471E180F9B00931A83 /* Info.plist */,
 				AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */,
+				AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */,
 			);
 			path = DSManageTests;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF76CE5B1E331A0200177F9B /* ProductViewModelTests.swift in Sources */,
 				AFAC65161E23271200E57C6D /* TextFieldValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

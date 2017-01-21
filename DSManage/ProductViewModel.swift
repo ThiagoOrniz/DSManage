@@ -35,7 +35,6 @@ class ProductViewModel {
     var quantityText: String {
         get{
             return product.quantity
-
         }
         set{
             product.quantity = newValue
@@ -53,7 +52,5 @@ class ProductViewModel {
     func productHasBeenInteracted(){
         ShoppingCartService.sharedInstance.productInteracted(product)
     }
-
-
     
 }
