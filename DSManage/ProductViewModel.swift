@@ -17,7 +17,7 @@ class ProductViewModel {
     }
     
     var productText: String {
-        return product.product
+        return "\(product.product)"
     }
     
     var priceText: String {

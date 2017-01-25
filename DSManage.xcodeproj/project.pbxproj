@@ -328,13 +328,13 @@
 		AFD60C281E21DFF20006FAE7 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				AF6EF7461E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib */,
-				AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */,
-				AFAC650D1E2314BA00E57C6D /* Client.storyboard */,
-				AFAC650E1E2314BA00E57C6D /* Product.storyboard */,
-				AFAC650F1E2314BA00E57C6D /* Report.storyboard */,
-				AFAC65101E2314BA00E57C6D /* Sale.storyboard */,
 				AFA35B341E180F9A00931A83 /* Main.storyboard */,
+				AFAC650E1E2314BA00E57C6D /* Product.storyboard */,
+				AFAC650D1E2314BA00E57C6D /* Client.storyboard */,
+				AFAC65101E2314BA00E57C6D /* Sale.storyboard */,
+				AFAC650F1E2314BA00E57C6D /* Report.storyboard */,
+				AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */,
+				AF6EF7461E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";

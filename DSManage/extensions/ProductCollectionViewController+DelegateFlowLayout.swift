@@ -12,7 +12,7 @@ extension ProductCollectionViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let availableWidth = view.frame.width - 24
+        let availableWidth = view.frame.width - 8
         let widthPerItem = availableWidth / 2
         
         return CGSize(width: widthPerItem, height: 240 )
@@ -21,14 +21,17 @@ extension ProductCollectionViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+        return UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
 
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8.0
+        return 0.0
     }
+    
+
+    
     
 }
