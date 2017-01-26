@@ -133,11 +133,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
 
         let product:Product = products[indexPath.row]
         
-        cell.productLabel.text = product.product
-        cell.priceLabel.text = String(format:"%.2f",product.price)
-        cell.quantityLabel.text = product.quantity + " item(s)"
-        cell.subtotalLabel.text = product.getSubTotal()
-        cell.productImageView.image = UIImage(named: product.photoURL)
+        cell.populateView(with: ProductViewModel(product: product))
+        
         
         return cell
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingCartTableViewCell: UITableViewCell {
+class ShoppingCartTableViewCell: UITableViewCell, FetchImageDelegate {
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productLabel: UILabel!
@@ -16,7 +16,8 @@ class ShoppingCartTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var subtotalLabel: UILabel!
     
-    
+    var productViewModel:ProductViewModel?
+
     
     
     override func awakeFromNib() {
@@ -29,5 +30,31 @@ class ShoppingCartTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func populateView(with productViewModel:ProductViewModel){
+        self.productViewModel = productViewModel
+        productViewModel.fetchImageDelegate = self
+        
+        
+        setItems()
+        
+    }
+    
+    private func setItems(){
+        
+        productLabel.text = productViewModel?.productText
+        priceLabel.text = productViewModel?.priceText
+        
+        quantityLabel.text = (productViewModel?.quantityText)! + " item(s)"
+        subtotalLabel.text = productViewModel?.getSubTotal()
+        
+        productViewModel?.syncImage()
+        
+    }
+    
+    func fetchImage(data: NSData) {
+        productImageView.image = UIImage(data: data as Data)
+    }
+
 
 }

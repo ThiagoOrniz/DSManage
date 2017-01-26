@@ -54,7 +54,7 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.productLabel.text = product.product
         cell.priceLabel.text = String(format:"%.2f",product.price)
         cell.quantityLabel.text = product.quantity + " item(s)"
-        cell.subtotalLabel.text = product.getSubTotal()
+//        cell.subtotalLabel.text = product.getSubTotal()
         cell.productImageView.image = UIImage(named: product.photoURL)
         
         return cell

@@ -33,18 +33,23 @@ class ProductCollectionViewCell: UICollectionViewCell, FetchImageDelegate {
     
     func populateView(with productViewModel:ProductViewModel){
         self.productViewModel = productViewModel
-        
-        quantityLabel.text = productViewModel.quantityText
-        productLabel.text = productViewModel.productText
-        priceLabel.text = productViewModel.priceText
-        quantityStepper.value =  Double(productViewModel.quantityText)!
-//        productImageView.image = UIImage(named: productViewModel.photoText)
         productViewModel.fetchImageDelegate = self
-       
-        productViewModel.syncImage()
-
         
+        setItems()
+    
         wrapperView.setBorderShadow(shadowOpacity: 0.3)
+    }
+    
+    private func setItems(){
+        quantityLabel.text = productViewModel?.quantityText
+        productLabel.text = productViewModel?.productText
+        priceLabel.text = productViewModel?.priceText
+        
+        //this can go to a protocol
+        quantityStepper.value =  Double((productViewModel?.quantityText)!)!
+        
+        productViewModel?.syncImage()
+
     }
  
     @IBAction func stepperTouched(_ sender: UIStepper) {

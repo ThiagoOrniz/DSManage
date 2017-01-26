@@ -72,6 +72,12 @@ class ProductViewModel {
         }
 
     }
+    
+    func getSubTotal() -> String{
+        
+        return String(format:"%.2f",product.price * Double(product.quantity)!)
+    }
+
 
     
 }

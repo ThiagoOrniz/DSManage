@@ -33,13 +33,8 @@ struct Product : Equatable{
         
     }
     
-     var description: String {
+    var description: String {
         return "Product \(product)\nPrice \(price)\ndescription \(desc)"
-    }
-    
-    func getSubTotal() -> String{
-    
-        return String(format:"%.2f",price * Double(quantity)!)
     }
     
     static func == (lhs: Product, rhs: Product) -> Bool {
