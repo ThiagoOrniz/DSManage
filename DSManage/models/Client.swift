@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Client {
+struct Client {
     
     var id: String = ""
     var name: String = ""

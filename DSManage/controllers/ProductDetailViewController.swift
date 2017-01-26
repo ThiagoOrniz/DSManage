@@ -40,18 +40,23 @@ class ProductDetailViewController: UIViewController {
         self.productNameLabel.text = self.productViewModel?.productText
         self.productPriceLabel.text = self.productViewModel?.priceText
         self.productDescriptionLabel.text = self.productViewModel?.descText
-        self.productImageView.image = UIImage(named: (self.productViewModel?.photoText)!)
+//        self.productImageView.image = UIImage(named: (self.productViewModel?.photoText)!)
 
         downloadImage()
     }
     
     func downloadImage(){
-
-        Alamofire.download("https://robohash.org/123.png").responseData { response in
-
-            if let data = response.result.value {
-                self.productImageView.image = UIImage(data: data)
+        
+        if let url = productViewModel?.photoURL{
+            DispatchQueue.global(qos: .userInitiated).async {
+                let contentOfURL = NSData(contentsOf: url)
+                DispatchQueue.main.async { [weak weakSelf = self] in
+                    if let imageData = contentOfURL {
+                        weakSelf?.productImageView.image = UIImage(data: imageData as Data)
+                    }
+                }
             }
+
         }
     }
 

@@ -12,10 +12,6 @@ class ProductViewModel {
     
     private var product: Product
     
-    var id: String {
-        return product.id
-    }
-    
     var productText: String {
         return "\(product.product)"
     }
@@ -41,8 +37,8 @@ class ProductViewModel {
         }
     }
     
-    var photoText: String {
-        return product.photoURL
+    var photoURL: URL? {
+        return URL(string:product.photoURL)
     }
 
     

@@ -9,12 +9,9 @@
 import Foundation
 
 class ClientViewModel{
+    
     private var client = Client()
 
-    var id: String {
-        return client.id
-    }
-    
     var nameText: String {
         get{
             return client.name

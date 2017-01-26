@@ -38,7 +38,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productLabel.text = productViewModel.productText
         priceLabel.text = productViewModel.priceText
         quantityStepper.value =  Double(productViewModel.quantityText)!
-        productImageView.image = UIImage(named: productViewModel.photoText)
+//        productImageView.image = UIImage(named: productViewModel.photoText)
         
         wrapperView.setBorderShadow(shadowOpacity: 0.3)
     }
