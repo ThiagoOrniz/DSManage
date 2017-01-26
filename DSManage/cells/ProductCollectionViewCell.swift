@@ -12,7 +12,7 @@ protocol ProductCollectionViewCellDelegate: class {
     func didUpdateQuantity(sender: UIStepper)
 }
 
-class ProductCollectionViewCell: UICollectionViewCell {
+class ProductCollectionViewCell: UICollectionViewCell, FetchImageDelegate {
  
     @IBOutlet weak var wrapperView: UIView!
     @IBOutlet weak var quantityStepper: UIStepper!
@@ -39,6 +39,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
         priceLabel.text = productViewModel.priceText
         quantityStepper.value =  Double(productViewModel.quantityText)!
 //        productImageView.image = UIImage(named: productViewModel.photoText)
+        productViewModel.fetchImageDelegate = self
+       
+        productViewModel.syncImage()
+
         
         wrapperView.setBorderShadow(shadowOpacity: 0.3)
     }
@@ -51,6 +55,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
         delegate?.didUpdateQuantity(sender: sender)
         
     
+    }
+    
+    func fetchImage(data: NSData) {
+        productImageView.image = UIImage(data: data as Data)
     }
     
   }

@@ -8,9 +8,14 @@
 
 import Foundation
 
+protocol FetchImageDelegate {
+    func fetchImage(data: NSData)
+}
+
 class ProductViewModel {
     
     private var product: Product
+    var fetchImageDelegate:FetchImageDelegate?
     
     var productText: String {
         return "\(product.product)"
@@ -49,6 +54,23 @@ class ProductViewModel {
     
     func productHasBeenInteracted(){
         ShoppingCartService.sharedInstance.productInteracted(product)
+    }
+    
+    func syncImage(){
+        
+        if let url = photoURL{
+            DispatchQueue.global(qos: .userInitiated).async {
+                let contentOfURL = NSData(contentsOf: url)
+                DispatchQueue.main.async { [weak weakSelf = self] in
+                    
+                    if let imageData = contentOfURL {
+                        weakSelf?.fetchImageDelegate?.fetchImage(data: imageData)
+                    }
+                }
+            }
+            
+        }
+
     }
 
     

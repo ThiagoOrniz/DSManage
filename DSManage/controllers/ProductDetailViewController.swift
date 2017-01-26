@@ -2,7 +2,7 @@ import UIKit
 import Social
 import Alamofire
 
-class ProductDetailViewController: UIViewController {
+class ProductDetailViewController: UIViewController, FetchImageDelegate {
 
     @IBOutlet weak var productImageView: UIImageView!
     
@@ -18,6 +18,7 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationController()
+        productViewModel?.fetchImageDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,26 +41,10 @@ class ProductDetailViewController: UIViewController {
         self.productNameLabel.text = self.productViewModel?.productText
         self.productPriceLabel.text = self.productViewModel?.priceText
         self.productDescriptionLabel.text = self.productViewModel?.descText
-//        self.productImageView.image = UIImage(named: (self.productViewModel?.photoText)!)
+        productViewModel?.syncImage()
 
-        downloadImage()
     }
-    
-    func downloadImage(){
-        
-        if let url = productViewModel?.photoURL{
-            DispatchQueue.global(qos: .userInitiated).async {
-                let contentOfURL = NSData(contentsOf: url)
-                DispatchQueue.main.async { [weak weakSelf = self] in
-                    if let imageData = contentOfURL {
-                        weakSelf?.productImageView.image = UIImage(data: imageData as Data)
-                    }
-                }
-            }
-
-        }
-    }
-
+   
     func shareButtonTouched(){
         let alert = UIAlertController(title: "Share This Product", message: "Sharing your products can help improve your sales!", preferredStyle: .actionSheet)
         
@@ -83,6 +68,10 @@ class ProductDetailViewController: UIViewController {
         } else {
             self.showOkAlertMessage(withTitle: "Couldn't Post it", andBody: "Please login to a Facebook account to share.")
         }
+    }
+    
+    func fetchImage(data: NSData) {
+       productImageView.image = UIImage(data: data as Data)
     }
 
 }
