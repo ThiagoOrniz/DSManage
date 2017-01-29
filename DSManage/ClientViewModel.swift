@@ -10,7 +10,7 @@ import Foundation
 
 class ClientViewModel{
     
-    private var client = Client()
+    private var client = ClientModel()
 
     var nameText: String {
         get{
@@ -52,7 +52,7 @@ class ClientViewModel{
         return client.photoURL
     }
     
-    init(client:Client){
+    init(client:ClientModel){
         self.client = client
     }
     

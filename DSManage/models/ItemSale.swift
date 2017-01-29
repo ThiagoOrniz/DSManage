@@ -11,7 +11,6 @@ import Foundation
 class ItemSale{
     
     var id: String = ""
-    var price: Double = 0.0
     var qtd: Double = 0.0
     var product: Product = Product()
     var sale: Sale = Sale()

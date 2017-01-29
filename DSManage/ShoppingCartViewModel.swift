@@ -25,7 +25,7 @@ class ShoppingCartViewModel{
         
         return productsViewModel
     }
-    
+     
     func getClient() -> ClientViewModel{
         
         clientViewModel = ClientViewModel(client:ShoppingCartService.sharedInstance.getClient())

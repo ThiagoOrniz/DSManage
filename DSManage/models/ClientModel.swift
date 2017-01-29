@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Client {
+struct ClientModel {
     
     var id: String = ""
     var name: String = ""
