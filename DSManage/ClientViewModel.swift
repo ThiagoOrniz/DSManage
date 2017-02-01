@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class ClientViewModel{
     
@@ -63,6 +64,30 @@ class ClientViewModel{
     static func getClients()-> [ClientViewModel]{
         return ClientService().getClients()
     }
+    
+    func saveClient(){
+        
+        CoreDataStack().persistentContainer.viewContext.perform {
+            
+            Client.saveClient(self.client, inManagedObjectContext: CoreDataStack().persistentContainer.viewContext)
+            
+            try? CoreDataStack().persistentContainer.viewContext.save()
+            
+        }
+    }
+    
+    func printStatistics(){
+        
+        let context = CoreDataStack().persistentContainer.viewContext
+        
+        context.perform {
+        
+            let request:NSFetchRequest = Client.fetchRequest()
+            let results = try? context.fetch(request)
+            print("results:")
+            print(results?.count ?? "without results")
 
+        }
+    }
     
 }
