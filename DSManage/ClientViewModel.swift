@@ -66,28 +66,6 @@ class ClientViewModel{
     }
     
     func saveClient(){
-        
-        CoreDataStack().persistentContainer.viewContext.perform {
-            
-            Client.saveClient(self.client, inManagedObjectContext: CoreDataStack().persistentContainer.viewContext)
-            
-            try? CoreDataStack().persistentContainer.viewContext.save()
-            
-        }
+        Client.saveClient(client)
     }
-    
-    func printStatistics(){
-        
-        let context = CoreDataStack().persistentContainer.viewContext
-        
-        context.perform {
-        
-            let request:NSFetchRequest = Client.fetchRequest()
-            let results = try? context.fetch(request)
-            print("results:")
-            print(results?.count ?? "without results")
-
-        }
-    }
-    
 }

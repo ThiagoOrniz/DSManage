@@ -21,5 +21,6 @@ extension Client {
     @NSManaged public var name: String?
     @NSManaged public var phone: String?
     @NSManaged public var photoURL: String?
+    @NSManaged public var id: String?
 
 }

@@ -28,8 +28,8 @@
 		AF6EF7481E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF6EF7461E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib */; };
 		AF6EF7491E2F0D4B00A92A31 /* ShoppingCart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */; };
 		AF702FFC1E415AF8000D864E /* Client+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF702FFA1E415AF8000D864E /* Client+CoreDataClass.swift */; };
-		AF702FFD1E415AF8000D864E /* Client+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF702FFB1E415AF8000D864E /* Client+CoreDataProperties.swift */; };
 		AF702FFF1E415B42000D864E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF702FFE1E415B42000D864E /* CoreDataStack.swift */; };
+		AF7030041E417886000D864E /* Client+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7030031E417886000D864E /* Client+CoreDataProperties.swift */; };
 		AF76CE591E3309F100177F9B /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76CE581E3309F100177F9B /* UIView+Shadow.swift */; };
 		AF76CE5B1E331A0200177F9B /* ProductViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */; };
 		AF9FE0F11E3E6FA3001F3F91 /* DSManage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF9FE0EF1E3E6FA3001F3F91 /* DSManage.xcdatamodeld */; };
@@ -105,8 +105,8 @@
 		AF6EF7461E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductSaleTableViewCell.xib; path = views/ProductSaleTableViewCell.xib; sourceTree = "<group>"; };
 		AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ShoppingCart.storyboard; path = views/ShoppingCart.storyboard; sourceTree = "<group>"; };
 		AF702FFA1E415AF8000D864E /* Client+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataClass.swift"; sourceTree = "<group>"; };
-		AF702FFB1E415AF8000D864E /* Client+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AF702FFE1E415B42000D864E /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		AF7030031E417886000D864E /* Client+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AF76CE581E3309F100177F9B /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModelTests.swift; sourceTree = "<group>"; };
 		AF9FE0F01E3E6FA3001F3F91 /* DSManage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DSManage.xcdatamodel; sourceTree = "<group>"; };
@@ -216,9 +216,9 @@
 		AF7030001E415D06000D864E /* database */ = {
 			isa = PBXGroup;
 			children = (
+				AF7030031E417886000D864E /* Client+CoreDataProperties.swift */,
 				AF702FFE1E415B42000D864E /* CoreDataStack.swift */,
 				AF702FFA1E415AF8000D864E /* Client+CoreDataClass.swift */,
-				AF702FFB1E415AF8000D864E /* Client+CoreDataProperties.swift */,
 				AF9FE0EF1E3E6FA3001F3F91 /* DSManage.xcdatamodeld */,
 			);
 			name = database;
@@ -729,12 +729,12 @@
 				AFA35B6F1E18208A00931A83 /* ClientModel.swift in Sources */,
 				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,
 				AF6EF7431E2F0D3A00A92A31 /* ProductCollectionViewCell.swift in Sources */,
-				AF702FFD1E415AF8000D864E /* Client+CoreDataProperties.swift in Sources */,
 				AF474E371E33F8F0009370C1 /* ShoppingCartViewModel.swift in Sources */,
 				AF9FE0F11E3E6FA3001F3F91 /* DSManage.xcdatamodeld in Sources */,
 				AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */,
 				AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */,
 				AF6EF7371E2F0D1100A92A31 /* SalesTableViewController.swift in Sources */,
+				AF7030041E417886000D864E /* Client+CoreDataProperties.swift in Sources */,
 				AFA35B731E18208A00931A83 /* Sale.swift in Sources */,
 				AF6EF7331E2F0CFB00A92A31 /* ReportsViewController.swift in Sources */,
 				AF6EF7441E2F0D3A00A92A31 /* SaleTableViewCell.swift in Sources */,

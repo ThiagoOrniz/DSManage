@@ -3,11 +3,12 @@
     <entity name="Client" representedClassName="Client" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="phone" attributeType="String" syncable="YES"/>
         <attribute name="photoURL" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="-4023" positionY="-1917" width="128" height="120"/>
+        <element name="Client" positionX="-4023" positionY="-1917" width="128" height="135"/>
     </elements>
 </model>

@@ -32,8 +32,6 @@ class LoginViewController: UIViewController {
         self.tapRecognizer = UITapGestureRecognizer(target: self, action:  #selector(self.hikeKeyboard))
         self.view.addGestureRecognizer(self.tapRecognizer)
         
-               
-        
     }
 
     func hikeKeyboard(){
