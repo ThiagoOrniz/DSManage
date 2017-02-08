@@ -21,30 +21,51 @@ public class Client: NSManagedObject {
             let request:NSFetchRequest = self.fetchRequest()
             request.predicate = NSPredicate(format: "id == %@", clientModel.id)
             
-            do{
-                let queryResults = try context.fetch(request)
+            if let client = (try? context.fetch(request))?.first {
+                print("has client already")
                 
-                if queryResults.first != nil  {// queryResults.first as? ClientModel {
-                    print("has client already")
-                    return
-                }
-                else if let client = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context) as? Client {
-                    print("yay new client")
-                    
-                    client.id = clientModel.id
-                    client.name = clientModel.name
-                    client.address = clientModel.address
-                    client.email = clientModel.email
-                    client.phone = clientModel.phone
-                    
-                }
+            } else if let client = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context) as? Client {
+                print("yay new client")
+                
+                client.id = String(format:"%@",client.objectID)
+                client.name = clientModel.name
+                client.address = clientModel.address
+                client.email = clientModel.email
+                client.phone = clientModel.phone
             }
-            catch let error{
-                print(error)
-            }
-            
+
             try? context.save()
+            
+            retrieveAllClients()
         }
     }
+    
+    
+    class func retrieveAllClients(){
+        
+        let context =  CoreDataStack().persistentContainer.viewContext
+        
+        context.perform {
+            
+            let request:NSFetchRequest = self.fetchRequest()
+            
+            do {
+                let clients = try context.fetch(request) as [Client]
+                
+                for client in clients {
+                    print(client.name)
+                    print(client.id)
+                    print(client.objectID)
+
+                }
+                
+            } catch {
+                let fetchError = error as NSError
+                print(fetchError)
+            }
+            
+        }
+    }
+
 
 }

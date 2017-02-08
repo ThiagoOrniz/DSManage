@@ -106,6 +106,16 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         if(!self.validate()){
             return;
         }
+        if !isEditingClient {
+            self.clientViewModel =  ClientViewModel()
+        }
+        
+        clientViewModel?.nameText = nameTextField.text!
+        clientViewModel?.emailText = emailTextField.text!
+        clientViewModel?.phoneText = phoneTextField.text!
+        clientViewModel?.addressText = addressTextField.text!
+        
+        clientViewModel?.saveClient()
         
        _ = self.navigationController?.popViewController(animated: true)
     }

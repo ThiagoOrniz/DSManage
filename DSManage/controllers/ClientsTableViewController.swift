@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "ClientTableViewCell"
 
@@ -15,7 +16,7 @@ protocol ClientsTableViewControllerDelegate: class {
     func didSelectClient(_ client:ClientViewModel)
 }
 
-class ClientsTableViewController: UITableViewController {
+class ClientsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     private var clientsViewModel:[ClientViewModel] = []
     
@@ -23,18 +24,68 @@ class ClientsTableViewController: UITableViewController {
 
     var isSelectableClient:Bool = false
     
+    let context =  CoreDataStack().persistentContainer.viewContext
+    
+    var fetchedResultsController: NSFetchedResultsController<Client>?
+    
+//    lazy var fetchedResultsController:NSFetchedResultsController = { () -> NSFetchedResultsController<Client> in
+//        let fetchRequest:NSFetchRequest = Client.fetchRequest()
+//        var sortDescriptor:NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//        
+//        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack().persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+//        
+//        frc.delegate = self as! NSFetchedResultsControllerDelegate
+//        return frc
+//    }()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let addButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,target: self,action: #selector(add))
         
         self.navigationItem.rightBarButtonItems = [addButtonItem,self.editButtonItem]
+        
+//        do{
+//            try fetchedResultsController.performFetch()
+//            
+//            
+//        } catch let err{
+//            
+//            print("_________error \(err)")
+//        }
+
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        clientsViewModel =  ClientViewModel.getClients()
+//        clientsViewModel =  ClientViewModel.getClients()
+        
+        print("VIEW WILL APPEAR")
+        
+        
+        setupFetchedResultsController()
+
+       
+    }
+    
+    private func setupFetchedResultsController() {
+        
+        let fetchRequest:NSFetchRequest = Client.fetchRequest()// NSFetchRequest<Month>(entityName: "Month")
+        let dateDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
+        fetchRequest.sortDescriptors = [dateDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchedResultsController?.delegate = self
+        
+        try! fetchedResultsController?.performFetch()
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,18 +93,27 @@ class ClientsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clientsViewModel.count
+        //return clientsViewModel.count
+        if let count = fetchedResultsController?.sections?[section].numberOfObjects {
+            return count
+        }
+        
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ClientTableViewCell
 
-        cell.populateView(with: clientsViewModel[indexPath.row])
+        let client = fetchedResultsController?.object(at: indexPath) 
+        
+        
+//        cell.populateView(with: clientsViewModel[indexPath.row])
+        cell.clientNameLabel.text = client?.name
+
         
         return cell
     }
-
 
     
     // Override to support conditional editing of the table view.
@@ -100,6 +160,45 @@ class ClientsTableViewController: UITableViewController {
         }
 
     }
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        print("OI")
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+      
+        print("oiii")
+        
+//        switch (type) {
+//        case .insert:
+//            if let indexPath = newIndexPath {
+//                tableView.insertRows(at: [indexPath], with: .fade)
+//            }
+//            break;
+//        case .delete:
+//            if let indexPath = indexPath {
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//            }
+//            break;
+//        case .update:
+//            if let indexPath = indexPath {
+//                let cell = tableView.cellForRow(at: indexPath) as! ClientTableViewCell
+//            }
+//            break;
+//        default:
+//            print("default")
+//        
+//        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

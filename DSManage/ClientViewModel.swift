@@ -9,10 +9,16 @@
 import Foundation
 import CoreData
 
-class ClientViewModel{
+protocol FetchClients: class {
+    func didFetchClienta(_ clients:[ClientViewModel])
+}
+
+class ClientViewModel: NSObject, NSFetchedResultsControllerDelegate{
     
     private var client = ClientModel()
-
+    
+    var fetchClients:FetchClients?
+    
     var nameText: String {
         get{
             return client.name
@@ -53,6 +59,12 @@ class ClientViewModel{
         return client.photoURL
     }
     
+    override init(){
+        super.init()
+        
+        self.client = ClientModel()
+    }
+
     init(client:ClientModel){
         self.client = client
     }
@@ -67,5 +79,14 @@ class ClientViewModel{
     
     func saveClient(){
         Client.saveClient(client)
+    
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
     }
 }
