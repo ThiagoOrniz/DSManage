@@ -117,8 +117,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         let clientModel = ClientModel(id: client?.id ?? "",
                                       name: nameTextField.text!,
                                       email: emailTextField.text!,
-                                      phone: nameTextField.text!,
-                                      address: phoneTextField.text!,
+                                      phone: phoneTextField.text!,
+                                      address: addressTextField.text!,
                                       photoURL: "")
         
         Client.saveClient(clientModel)

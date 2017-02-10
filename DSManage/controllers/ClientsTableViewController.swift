@@ -84,12 +84,7 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
       
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ClientTableViewCell
 
-        guard let client = fetchedResultsController.object(at: indexPath) as? Client else {
-            fatalError("Unexpected Object in FetchedResultsController")
-        }
-    
-        cell.clientNameLabel.text = client.name
-        cell.emailLabel.text = client.email
+        configureCell(cell: cell, indexPath: indexPath)
         
         return cell
     }
@@ -134,6 +129,17 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
 
     }
     
+    func configureCell(cell: ClientTableViewCell, indexPath: IndexPath) {
+        
+        guard let client = fetchedResultsController.object(at: indexPath) as? Client else {
+            fatalError("Unexpected Object in FetchedResultsController")
+        }
+        
+        cell.clientNameLabel.text = client.name
+        cell.emailLabel.text = client.email
+        
+    }
+    
   
     
     // MARK: NSFetchedResultsControllerDelegate Methods
@@ -160,7 +166,10 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             break;
-      
+        case .update:
+            if let indexPath = newIndexPath {
+                configureCell(cell: tableView.cellForRow(at: indexPath)! as! ClientTableViewCell, indexPath: indexPath)
+            }
         default:
             print("default")
         
