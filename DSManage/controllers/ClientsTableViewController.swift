@@ -13,91 +13,70 @@ private let reuseIdentifier = "ClientTableViewCell"
 
 
 protocol ClientsTableViewControllerDelegate: class {
-    func didSelectClient(_ client:ClientViewModel)
+    func didSelectClient(_ client:Client)
 }
 
 class ClientsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    private var clientsViewModel:[ClientViewModel] = []
-    
     weak var clientsTableViewControllerDelegate:ClientsTableViewControllerDelegate?
-
     var isSelectableClient:Bool = false
-    
-    let context =  CoreDataStack().persistentContainer.viewContext
-    
-    var fetchedResultsController: NSFetchedResultsController<Client>?
-    
-//    lazy var fetchedResultsController:NSFetchedResultsController = { () -> NSFetchedResultsController<Client> in
-//        let fetchRequest:NSFetchRequest = Client.fetchRequest()
-//        var sortDescriptor:NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//        
-//        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack().persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-//        
-//        frc.delegate = self as! NSFetchedResultsControllerDelegate
-//        return frc
-//    }()
-    
-    
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let addButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,target: self,action: #selector(add))
+        let addButtonItem = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.add,
+                                             target: self,
+                                             action: #selector(addNewClient)
+                                           )
         
         self.navigationItem.rightBarButtonItems = [addButtonItem,self.editButtonItem]
-        
-//        do{
-//            try fetchedResultsController.performFetch()
-//            
-//            
-//        } catch let err{
-//            
-//            print("_________error \(err)")
-//        }
-
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        clientsViewModel =  ClientViewModel.getClients()
-        
-        print("VIEW WILL APPEAR")
-        
-        
         setupFetchedResultsController()
-
-       
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("______Failed to initialize FetchedResultsController: \(error)")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        fetchedResultsController.delegate = nil
     }
     
     private func setupFetchedResultsController() {
         
-        let fetchRequest:NSFetchRequest = Client.fetchRequest()// NSFetchRequest<Month>(entityName: "Month")
-        let dateDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Client")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
         
-        fetchRequest.sortDescriptors = [dateDescriptor]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                              managedObjectContext: CoreDataStack.getContext(),
+                                                              sectionNameKeyPath: nil,
+                                                              cacheName: nil
+                                                             )
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        
-        fetchedResultsController?.delegate = self
-        
-        try! fetchedResultsController?.performFetch()
-        tableView.reloadData()
+        fetchedResultsController.delegate = self
+    }
+
+    func addNewClient(){
+        self.performSegue(withIdentifier: "pushNewClient", sender:self)
     }
     
+    // MARK: TableView Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return clientsViewModel.count
         if let count = fetchedResultsController?.sections?[section].numberOfObjects {
             return count
         }
-        
         return 0
     }
 
@@ -105,62 +84,60 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
       
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ClientTableViewCell
 
-        let client = fetchedResultsController?.object(at: indexPath) 
-        
-        
-//        cell.populateView(with: clientsViewModel[indexPath.row])
-        cell.clientNameLabel.text = client?.name
-
+        guard let client = fetchedResultsController.object(at: indexPath) as? Client else {
+            fatalError("Unexpected Object in FetchedResultsController")
+        }
+    
+        cell.clientNameLabel.text = client.name
+        cell.emailLabel.text = client.email
         
         return cell
     }
 
-    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
  
-
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            clientsViewModel.remove(at: indexPath.row)
-
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+            guard let client = fetchedResultsController.object(at: indexPath) as? Client else {
+                fatalError("Unexpected Object in FetchedResultsController")
+            }
+            CoreDataStack.getContext().delete(client)
+            CoreDataStack.saveContext()
+            
+        }
     }
-    
-    func add(){
-        self.performSegue(withIdentifier: "pushNewClient", sender:self)
-    }
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let clientViewModel = clientsViewModel[indexPath.row]
-
+        guard let client = fetchedResultsController.object(at: indexPath) as? Client else {
+            fatalError("Unexpected Object in FetchedResultsController")
+        }
+        
         if isSelectableClient{
-            clientViewModel.updateShoppingCart()
-            clientsTableViewControllerDelegate?.didSelectClient(clientViewModel)
+            ShoppingCartService.sharedInstance.updateClient(client: client)
+            
+            clientsTableViewControllerDelegate?.didSelectClient(client)
           _ = self.navigationController?.popViewController(animated: true)
         }
         else{
             
             let clientDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "ClientDetailViewController") as! ClientDetailViewController
             
-            clientDetailViewController.setClient(client: clientViewModel,isEditingClient: true)
+            clientDetailViewController.setClient(client: client,isEditingClient: true)
             self.navigationController?.pushViewController(clientDetailViewController, animated: true)
 
         }
 
     }
-
+    
+  
+    
+    // MARK: NSFetchedResultsControllerDelegate Methods
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -169,37 +146,27 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.endUpdates()
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        print("OI")
-    }
-    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-      
-        print("oiii")
         
-//        switch (type) {
-//        case .insert:
-//            if let indexPath = newIndexPath {
-//                tableView.insertRows(at: [indexPath], with: .fade)
-//            }
-//            break;
-//        case .delete:
-//            if let indexPath = indexPath {
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//            }
-//            break;
-//        case .update:
-//            if let indexPath = indexPath {
-//                let cell = tableView.cellForRow(at: indexPath) as! ClientTableViewCell
-//            }
-//            break;
-//        default:
-//            print("default")
-//        
-//        }
+        switch (type) {
+        case .insert:
+            if let indexPath = newIndexPath {
+                
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break;
+      
+        default:
+            print("default")
+        
+        }
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

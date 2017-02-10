@@ -12,14 +12,14 @@ class ShoppingCartService{
     
     static let sharedInstance = ShoppingCartService()
     
-    private  var products:[Product] = []
-    private  var client = ClientModel()
+    private var products:[Product] = []
+    private var client:Client?
     
-    func updateClient(client:ClientModel){
+    func updateClient(client:Client){
         self.client = client
     }
     
-    func getClient() ->ClientModel{
+    func getClient() ->Client?{
         return client
     }
     
@@ -46,7 +46,7 @@ class ShoppingCartService{
     
     func clearAll(){
         products = []
-        client = ClientModel()
+        client = nil
     }
     
     func productInteracted(_ product:Product){

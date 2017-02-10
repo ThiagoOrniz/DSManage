@@ -14,17 +14,21 @@ public class Client: NSManagedObject {
     
     class func saveClient(_ clientModel:ClientModel){
         
-        let context =  CoreDataStack().persistentContainer.viewContext
-        
-        context.perform {
+        CoreDataStack.getContext().perform {
             
             let request:NSFetchRequest = self.fetchRequest()
             request.predicate = NSPredicate(format: "id == %@", clientModel.id)
             
-            if let client = (try? context.fetch(request))?.first {
+            if let client = (try? CoreDataStack.getContext().fetch(request))?.first {
                 print("has client already")
                 
-            } else if let client = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context) as? Client {
+                client.id = String(format:"%@",client.objectID)
+                client.name = clientModel.name
+                client.address = clientModel.address
+                client.email = clientModel.email
+                client.phone = clientModel.phone
+                
+            } else if let client = NSEntityDescription.insertNewObject(forEntityName: "Client", into: CoreDataStack.getContext()) as? Client {
                 print("yay new client")
                 
                 client.id = String(format:"%@",client.objectID)
@@ -32,25 +36,26 @@ public class Client: NSManagedObject {
                 client.address = clientModel.address
                 client.email = clientModel.email
                 client.phone = clientModel.phone
+                
             }
-
-            try? context.save()
             
-            retrieveAllClients()
+       
+            CoreDataStack.saveContext()
+//            try? CoreDataStack.getContext().save()
+            
+            //retrieveAllClients()
         }
     }
     
     
     class func retrieveAllClients(){
         
-        let context =  CoreDataStack().persistentContainer.viewContext
-        
-        context.perform {
+        CoreDataStack.getContext().perform {
             
             let request:NSFetchRequest = self.fetchRequest()
             
             do {
-                let clients = try context.fetch(request) as [Client]
+                let clients = try CoreDataStack.getContext().fetch(request) as [Client]
                 
                 for client in clients {
                     print(client.name)

@@ -11,7 +11,14 @@ import CoreData
 
 class CoreDataStack {
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    private init(){
+        
+    }
+    class func getContext() -> NSManagedObjectContext {
+       return CoreDataStack.persistentContainer.viewContext
+    }
+    
+    static var persistentContainer: NSPersistentContainer = {
        
         let container = NSPersistentContainer(name: "DSManage")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -22,7 +29,7 @@ class CoreDataStack {
         return container
     }()
     
-    func saveContext () {
+   class func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

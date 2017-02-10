@@ -24,7 +24,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     private let imagePicker = UIImagePickerController()
     private var isEditingClient = false
-    private var clientViewModel:ClientViewModel?
+    private var client:Client?
     private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
 
     
@@ -85,20 +85,24 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.view.endEditing(true)
     }
     
-    public func setClient(client:ClientViewModel, isEditingClient:Bool){
-        self.clientViewModel = client
+    public func setClient(client:Client, isEditingClient:Bool){
+        self.client = client
         self.isEditingClient = isEditingClient
         
     }
     
     
     private func populateView(){
-        self.nameTextField.text = self.clientViewModel?.nameText
-        self.emailTextField.text = self.clientViewModel?.emailText
-        self.phoneTextField.text = self.clientViewModel?.phoneText
-        self.addressTextField.text = self.clientViewModel?.addressText
-        self.avatarImageView.image = UIImage(named: (self.clientViewModel?.photoText)!)
-
+    
+        self.nameTextField.text = self.client?.name
+        self.emailTextField.text = self.client?.email
+        self.phoneTextField.text = self.client?.phone
+        self.addressTextField.text = self.client?.address
+        
+        if let photoURL = self.client?.photoURL {
+            self.avatarImageView.image = UIImage(named: photoURL)
+        }
+        
     }
     
     func saveButtonTouched(){
@@ -107,15 +111,17 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
             return;
         }
         if !isEditingClient {
-            self.clientViewModel =  ClientViewModel()
+            self.client = nil
         }
         
-        clientViewModel?.nameText = nameTextField.text!
-        clientViewModel?.emailText = emailTextField.text!
-        clientViewModel?.phoneText = phoneTextField.text!
-        clientViewModel?.addressText = addressTextField.text!
+        let clientModel = ClientModel(id: client?.id ?? "",
+                                      name: nameTextField.text!,
+                                      email: emailTextField.text!,
+                                      phone: nameTextField.text!,
+                                      address: phoneTextField.text!,
+                                      photoURL: "")
         
-        clientViewModel?.saveClient()
+        Client.saveClient(clientModel)
         
        _ = self.navigationController?.popViewController(animated: true)
     }
@@ -199,12 +205,21 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     @IBAction func deleteButtonTouched(_ sender: UIButton) {
         // todo deletebutton
+        
+        if client != nil{
+            CoreDataStack.getContext().delete(client!)
+            CoreDataStack.saveContext()
+            _ = self.navigationController?.popViewController(animated: true)
+
+        }
+        
     }
     
     @IBAction func sellButtonTouched(_ sender: UIButton) {
         
-        clientViewModel?.updateShoppingCart()
-        
+        if client != nil {
+            ShoppingCartService.sharedInstance.updateClient(client: client!)
+        }
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Product", bundle:nil)
         
@@ -216,8 +231,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self        
-        mailComposerVC.setToRecipients([self.clientViewModel!.emailText])
+        mailComposerVC.mailComposeDelegate = self
+        mailComposerVC.setToRecipients([self.client?.email ?? ""])
         mailComposerVC.setMessageBody("", isHTML: false)
         return mailComposerVC
     }

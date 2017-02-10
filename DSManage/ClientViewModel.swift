@@ -13,7 +13,7 @@ protocol FetchClients: class {
     func didFetchClienta(_ clients:[ClientViewModel])
 }
 
-class ClientViewModel: NSObject, NSFetchedResultsControllerDelegate{
+class ClientViewModel: NSObject{
     
     private var client = ClientModel()
     
@@ -69,9 +69,9 @@ class ClientViewModel: NSObject, NSFetchedResultsControllerDelegate{
         self.client = client
     }
     
-    func updateShoppingCart(){
-        ShoppingCartService.sharedInstance.updateClient(client: client)
-    }
+//    func updateShoppingCart(){
+//        ShoppingCartService.sharedInstance.updateClient(client: client)
+//    }
     
     static func getClients()-> [ClientViewModel]{
         return ClientService().getClients()
@@ -82,11 +82,5 @@ class ClientViewModel: NSObject, NSFetchedResultsControllerDelegate{
     
     }
     
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-    }
     
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-    }
 }

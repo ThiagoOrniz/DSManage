@@ -217,8 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				AF7030031E417886000D864E /* Client+CoreDataProperties.swift */,
-				AF702FFE1E415B42000D864E /* CoreDataStack.swift */,
 				AF702FFA1E415AF8000D864E /* Client+CoreDataClass.swift */,
+				AF702FFE1E415B42000D864E /* CoreDataStack.swift */,
 				AF9FE0EF1E3E6FA3001F3F91 /* DSManage.xcdatamodeld */,
 			);
 			name = database;

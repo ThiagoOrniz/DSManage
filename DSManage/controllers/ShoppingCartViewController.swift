@@ -53,14 +53,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         super.viewWillAppear(animated)
         products = ShoppingCartService.sharedInstance.getProducts()
         
-        let client = ShoppingCartService.sharedInstance.getClient()
-        
-        if client.id.characters.count > 0 {
+        if let client = ShoppingCartService.sharedInstance.getClient(){
             clientNameLabel.text = client.name
-            clientImageView.image = UIImage(named: client.photoURL)
+            clientImageView.image = UIImage(named: client.photoURL ?? "")
         }
-        
-        
+    
         calculateTotal()
         
     }
@@ -172,9 +169,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func confirmButtonTouched(_ sender: UIButton) {
         
-        if ShoppingCartService.sharedInstance.getClient().id.characters.count == 0 {
+        if ShoppingCartService.sharedInstance.getClient() == nil {
             self.showOkAlertMessage(withTitle: "There's no client selected!", andBody: "Select a client!")
-            
             return
         }
         
@@ -188,8 +184,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
 
     }
     
-    func didSelectClient(_ client:ClientViewModel){
-        clientNameLabel.text = client.nameText
+    func didSelectClient(_ client:Client){
+        clientNameLabel.text = client.name
         
     }
 }
