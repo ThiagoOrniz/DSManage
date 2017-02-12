@@ -2,7 +2,7 @@
 //  Client+CoreDataProperties.swift
 //  DSManage
 //
-//  Created by Thiago Orniz Martin on 31/01/17.
+//  Created by Thiago Orniz Martin on 11/02/17.
 //  Copyright © 2017 Thiago Orniz Martin. All rights reserved.
 //
 
@@ -18,9 +18,9 @@ extension Client {
 
     @NSManaged public var address: String?
     @NSManaged public var email: String?
+    @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var phone: String?
-    @NSManaged public var photoURL: String?
-    @NSManaged public var id: String?
+    @NSManaged public var avatar: NSData?
 
 }

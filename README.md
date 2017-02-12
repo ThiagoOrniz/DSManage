@@ -3,11 +3,13 @@ A Swift project from an Objective-C certificate class.
 
 My main goal is to improve my skills using Swift.
 
+• CoreData
+
 • MVVM
 
 • unit/ui tests
 
-• camera/sharing content
+• camera
 
 • design patterns
 
