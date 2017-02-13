@@ -55,7 +55,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         
         if let client = ShoppingCartService.sharedInstance.getClient(){
             clientNameLabel.text = client.name
-            clientImageView.image = UIImage(named: client.photoURL ?? "")
+//            clientImageView.image = UIImage(named: client.av ?? "")
         }
     
         calculateTotal()

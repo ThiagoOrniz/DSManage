@@ -27,6 +27,7 @@ public class Client: NSManagedObject {
                 client.address = clientModel.address
                 client.email = clientModel.email
                 client.phone = clientModel.phone
+                client.avatar = clientModel.avatar
                 
             } else if let client = NSEntityDescription.insertNewObject(forEntityName: "Client", into: CoreDataStack.getContext()) as? Client {
                 print("yay new client")
@@ -36,14 +37,12 @@ public class Client: NSManagedObject {
                 client.address = clientModel.address
                 client.email = clientModel.email
                 client.phone = clientModel.phone
+                client.avatar = clientModel.avatar
                 
             }
             
        
             CoreDataStack.saveContext()
-//            try? CoreDataStack.getContext().save()
-            
-            //retrieveAllClients()
         }
     }
     

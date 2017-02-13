@@ -16,7 +16,8 @@ struct ClientModel {
     var phone: String = ""
     var photoURL: String = ""
     var address:String = ""
-    
+   
+    var avatar: NSData = NSData()
      init(){
     }
     

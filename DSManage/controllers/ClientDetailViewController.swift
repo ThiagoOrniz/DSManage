@@ -27,6 +27,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     private var client:Client?
     private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
 
+    private var avatar = NSData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,8 +100,9 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.phoneTextField.text = self.client?.phone
         self.addressTextField.text = self.client?.address
         
-        if let photoURL = self.client?.photoURL {
-            self.avatarImageView.image = UIImage(named: photoURL)
+        if let photo = self.client?.avatar {
+//            selfs.avatarImageView.image = UIIm  UIImage(named: photoURL)
+            self.avatarImageView.image = UIImage(data: (photo as NSData) as Data)
         }
         
     }
@@ -114,12 +116,14 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
             self.client = nil
         }
         
-        let clientModel = ClientModel(id: client?.id ?? "",
+        var clientModel = ClientModel(id: client?.id ?? "",
                                       name: nameTextField.text!,
                                       email: emailTextField.text!,
                                       phone: phoneTextField.text!,
                                       address: addressTextField.text!,
                                       photoURL: "")
+        
+        clientModel.avatar = avatar;
         
         Client.saveClient(clientModel)
         
@@ -153,6 +157,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         avatarImageView.image = image
         
+        self.avatar = (UIImagePNGRepresentation(image) as? NSData)!
+
         self.dismiss(animated: true, completion: nil);
 
     }
@@ -160,6 +166,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 
         avatarImageView.image = image
+        self.avatar = (UIImagePNGRepresentation(image) as? NSData)!
+
         self.dismiss(animated: true, completion: nil);
     }
 

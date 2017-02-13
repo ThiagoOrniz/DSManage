@@ -138,6 +138,13 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
         cell.clientNameLabel.text = client.name
         cell.emailLabel.text = client.email
         
+        if let photo = client.avatar {
+            //            selfs.avatarImageView.image = UIIm  UIImage(named: photoURL)
+            cell.avatarImageView.image = UIImage(data: (photo as NSData) as Data)
+        }
+        
+        
+        
     }
     
   
