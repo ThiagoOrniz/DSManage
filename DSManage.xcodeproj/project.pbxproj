@@ -39,7 +39,7 @@
 		AFA35B511E180F9B00931A83 /* DSManageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B501E180F9B00931A83 /* DSManageUITests.swift */; };
 		AFA35B6F1E18208A00931A83 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6A1E18208A00931A83 /* ClientModel.swift */; };
 		AFA35B701E18208A00931A83 /* ItemSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6B1E18208A00931A83 /* ItemSale.swift */; };
-		AFA35B711E18208A00931A83 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6C1E18208A00931A83 /* Product.swift */; };
+		AFA35B711E18208A00931A83 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6C1E18208A00931A83 /* ProductModel.swift */; };
 		AFA35B721E18208A00931A83 /* Rep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6D1E18208A00931A83 /* Rep.swift */; };
 		AFA35B731E18208A00931A83 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B6E1E18208A00931A83 /* Sale.swift */; };
 		AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F71E23147D00E57C6D /* ProductService.swift */; };
@@ -122,7 +122,7 @@
 		AFA35B521E180F9B00931A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFA35B6A1E18208A00931A83 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientModel.swift; path = models/ClientModel.swift; sourceTree = "<group>"; };
 		AFA35B6B1E18208A00931A83 /* ItemSale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemSale.swift; path = models/ItemSale.swift; sourceTree = "<group>"; };
-		AFA35B6C1E18208A00931A83 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = models/Product.swift; sourceTree = "<group>"; };
+		AFA35B6C1E18208A00931A83 /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductModel.swift; path = models/ProductModel.swift; sourceTree = "<group>"; };
 		AFA35B6D1E18208A00931A83 /* Rep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rep.swift; path = models/Rep.swift; sourceTree = "<group>"; };
 		AFA35B6E1E18208A00931A83 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sale.swift; path = models/Sale.swift; sourceTree = "<group>"; };
 		AFAC64F71E23147D00E57C6D /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductService.swift; path = services/ProductService.swift; sourceTree = "<group>"; };
@@ -216,9 +216,9 @@
 		AF7030001E415D06000D864E /* database */ = {
 			isa = PBXGroup;
 			children = (
+				AF702FFE1E415B42000D864E /* CoreDataStack.swift */,
 				AFAF13031E4FAD60000D3DF9 /* Client+CoreDataProperties.swift */,
 				AF702FFA1E415AF8000D864E /* Client+CoreDataClass.swift */,
-				AF702FFE1E415B42000D864E /* CoreDataStack.swift */,
 				AF9FE0EF1E3E6FA3001F3F91 /* DSManage.xcdatamodeld */,
 			);
 			name = database;
@@ -297,7 +297,7 @@
 			children = (
 				AFA35B6A1E18208A00931A83 /* ClientModel.swift */,
 				AFA35B6B1E18208A00931A83 /* ItemSale.swift */,
-				AFA35B6C1E18208A00931A83 /* Product.swift */,
+				AFA35B6C1E18208A00931A83 /* ProductModel.swift */,
 				AFA35B6D1E18208A00931A83 /* Rep.swift */,
 				AFA35B6E1E18208A00931A83 /* Sale.swift */,
 			);
@@ -725,7 +725,7 @@
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
 				AFC411661E319004000AD21C /* ProductViewModel.swift in Sources */,
 				AF702FFF1E415B42000D864E /* CoreDataStack.swift in Sources */,
-				AFA35B711E18208A00931A83 /* Product.swift in Sources */,
+				AFA35B711E18208A00931A83 /* ProductModel.swift in Sources */,
 				AFA35B6F1E18208A00931A83 /* ClientModel.swift in Sources */,
 				AFAC64F81E23147D00E57C6D /* ProductService.swift in Sources */,
 				AF6EF7431E2F0D3A00A92A31 /* ProductCollectionViewCell.swift in Sources */,

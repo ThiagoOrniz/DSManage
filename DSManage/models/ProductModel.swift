@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Product : Equatable{
+struct ProductModel : Equatable{
     
     var id: String = ""
     var product: String = ""
@@ -37,7 +37,7 @@ struct Product : Equatable{
         return "Product \(product)\nPrice \(price)\ndescription \(desc)"
     }
     
-    static func == (lhs: Product, rhs: Product) -> Bool {
+    static func == (lhs: ProductModel, rhs: ProductModel) -> Bool {
         return
             lhs.id == rhs.id &&
                 lhs.product == rhs.product &&

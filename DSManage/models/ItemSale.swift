@@ -12,7 +12,7 @@ class ItemSale{
     
     var id: String = ""
     var qtd: Double = 0.0
-    var product: Product = Product()
+    var product: ProductModel = ProductModel()
     var sale: Sale = Sale()
 
     

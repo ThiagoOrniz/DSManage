@@ -14,7 +14,7 @@ protocol FetchImageDelegate {
 
 class ProductViewModel {
     
-    private var product: Product
+    private var product: ProductModel
     var fetchImageDelegate:FetchImageDelegate?
     
     var productText: String {
@@ -47,7 +47,7 @@ class ProductViewModel {
     }
 
     
-    init(product: Product) {
+    init(product: ProductModel) {
         self.product = product
     }
     

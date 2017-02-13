@@ -9,6 +9,6 @@
         <attribute name="phone" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="-4023" positionY="-1917" width="128" height="135"/>
+        <element name="Client" positionX="-3782" positionY="-1872" width="128" height="135"/>
     </elements>
 </model>

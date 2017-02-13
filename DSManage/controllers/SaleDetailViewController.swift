@@ -15,7 +15,7 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var clientImageView: UIImageView!
     
-    var products:[Product] = []
+    var products:[ProductModel] = []
     var sale:Sale = Sale()
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartTableViewCell", for: indexPath) as! ShoppingCartTableViewCell
         
         
-        let product:Product = products[indexPath.row]
+        let product:ProductModel = products[indexPath.row]
         
         cell.productLabel.text = product.product
         cell.priceLabel.text = String(format:"%.2f",product.price)

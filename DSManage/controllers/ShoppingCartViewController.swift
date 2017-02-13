@@ -24,8 +24,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var totalLabel: UILabel!
     weak var clearShoppingCartDelegate:ShoppingCartViewControllerDelegate?
 
-    
-    var products:[Product] = []
+    var products:[ProductModel] = []
     
     
     override func viewDidLoad() {
@@ -55,9 +54,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         
         if let client = ShoppingCartService.sharedInstance.getClient(){
             clientNameLabel.text = client.name
-//            clientImageView.image = UIImage(named: client.av ?? "")
+            if let photo = client.avatar {
+                clientImageView.image = UIImage(data: (photo as NSData) as Data)
+            }
         }
-    
+        
         calculateTotal()
         
     }
@@ -128,7 +129,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartTableViewCell", for: indexPath) as! ShoppingCartTableViewCell
 
 
-        let product:Product = products[indexPath.row]
+        let product:ProductModel = products[indexPath.row]
         
         cell.populateView(with: ProductViewModel(product: product))
         
@@ -181,6 +182,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         }
     
         self.showOkAlertMessage(withTitle: "Done", andBody: "")
+        
+
+        
+        
+    
 
     }
     

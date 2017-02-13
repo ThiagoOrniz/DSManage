@@ -14,13 +14,13 @@ class Sale {
      var date: String = ""
      var rep: Rep = Rep()
      var client: ClientModel = ClientModel()
-     var products: [Product] = []
+     var products: [ProductModel] = []
     
     init(){
         
     }
     
-    init(id:String, date:String, rep:Rep, client:ClientModel, products:[Product]){
+    init(id:String, date:String, rep:Rep, client:ClientModel, products:[ProductModel]){
         
         self.id = id
         self.date = date
