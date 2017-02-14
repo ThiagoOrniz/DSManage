@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
-class SalesTableViewController: UITableViewController {
+class SalesTableViewController: UITableViewController,NSFetchedResultsControllerDelegate {
 
     private var sales:[Sale] = []
 
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +37,28 @@ class SalesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        sales =  SaleService().getSales()
+        setupFetchedResultsController()
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("______Failed to initialize FetchedResultsController: \(error)")
+        }
+    }
+    
+    private func setupFetchedResultsController() {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Sale")
+        let sortDescriptor = NSSortDescriptor(key: "client.name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                              managedObjectContext: CoreDataStack.getContext(),
+                                                              sectionNameKeyPath: nil,
+                                                              cacheName: nil
+        )
+        
+        fetchedResultsController.delegate = self
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,7 +66,10 @@ class SalesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sales.count
+        if let count = fetchedResultsController?.sections?[section].numberOfObjects {
+            return count
+        }
+        return 0
     }
 
     
@@ -49,16 +77,27 @@ class SalesTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SaleTableViewCell", for: indexPath) as! SaleTableViewCell
         
+        configureCell(cell: cell, indexPath: indexPath)
+
         
-        let sale:Sale = sales[indexPath.row]
-        
-        cell.clientLabel.text = sale.client.name
-        cell.totalLabel.text = String(format:"%.2f",sale.getTotal())
+//        let sale:Sale = sales[indexPath.row]
+//        
+//        cell.clientLabel.text = sale.client.name
+//        cell.totalLabel.text = String(format:"%.2f",sale.getTotal())
         
     
         return cell
     }
 
+    func configureCell(cell: SaleTableViewCell, indexPath: IndexPath) {
+        
+        guard let sale = fetchedResultsController.object(at: indexPath) as? Sale else {
+            fatalError("Unexpected Object in FetchedResultsController")
+        }
+        
+        cell.clientLabel.text = sale.client?.name
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sale:Sale = sales[indexPath.row]
         print(sale)
@@ -78,5 +117,38 @@ class SalesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: NSFetchedResultsControllerDelegate Methods
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch (type) {
+        case .insert:
+            if let indexPath = newIndexPath {
+                
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .update:
+            if let indexPath = newIndexPath {
+                configureCell(cell: tableView.cellForRow(at: indexPath)! as! SaleTableViewCell, indexPath: indexPath)
+            }
+        default:
+            print("default")
+            
+        }
+    }
 
 }

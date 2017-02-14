@@ -53,7 +53,7 @@ class ProductViewModel {
     
     
     func productHasBeenInteracted(){
-        ShoppingCartService.sharedInstance.productInteracted(product)
+//        ShoppingCartService.sharedInstance.productInteracted(product)
     }
     
     func syncImage(){

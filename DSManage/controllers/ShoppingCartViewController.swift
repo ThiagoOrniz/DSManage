@@ -24,7 +24,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var totalLabel: UILabel!
     weak var clearShoppingCartDelegate:ShoppingCartViewControllerDelegate?
 
-    var products:[ProductModel] = []
+    var products:[Product] = []
+    var client:Client?
     
     
     override func viewDidLoad() {
@@ -53,6 +54,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         products = ShoppingCartService.sharedInstance.getProducts()
         
         if let client = ShoppingCartService.sharedInstance.getClient(){
+            self.client = client
             clientNameLabel.text = client.name
             if let photo = client.avatar {
                 clientImageView.image = UIImage(data: (photo as NSData) as Data)
@@ -80,7 +82,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         var total:Double = 0.0
         
         for i in 0..<products.count{
-            total += products[i].price * Double(products[i].quantity)!
+            total += products[i].price * Double(products[i].quantity)
         }
         
         totalLabel.text = String(format: "%.2f", total)
@@ -129,9 +131,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartTableViewCell", for: indexPath) as! ShoppingCartTableViewCell
 
 
-        let product:ProductModel = products[indexPath.row]
+        let product:Product = products[indexPath.row]
         
-        cell.populateView(with: ProductViewModel(product: product))
+//        cell.populateView(with: ProductViewModel(product: product))
+        cell.productLabel.text = product.name
+        
         
         
         return cell
@@ -184,9 +188,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         self.showOkAlertMessage(withTitle: "Done", andBody: "")
         
 
+        let sale:Sale = Sale(context: CoreDataStack.getContext())
+        sale.client = client
+        sale.products = Set(products) as NSSet?
         
-        
-    
+        CoreDataStack.saveContext()
 
     }
     

@@ -13,7 +13,7 @@ private let reuseIdentifier = "ProductCollectionViewCell"
 
 class ProductCollectionViewController: UICollectionViewController,ProductCollectionViewCellDelegate, ShoppingCartViewControllerDelegate {
 
-    private var productsViewModel:[ProductViewModel] = []
+    private var products:[Product] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         super.viewWillAppear(animated)
         
         updateShoppingCartBarButtonItem()
-        productsViewModel = ProductService().getProducts()
+        products = ProductService().getProducts()
     }
     
     func updateShoppingCartBarButtonItem(){
@@ -68,7 +68,8 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
 
         let productDetailViewController = segue.destination as! ProductDetailViewController
         var selectedIndexPath = self.collectionView?.indexPathsForSelectedItems?.first
-        productDetailViewController.setProductViewModel(productViewModel: productsViewModel[(selectedIndexPath?.row)!])
+       
+//        productDetailViewController.setProductViewModel(productViewModel: productsViewModel[(selectedIndexPath?.row)!])
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -76,43 +77,48 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productsViewModel.count
+        return products.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         let cell:ProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ProductCollectionViewCell
         
-        let productViewModel:ProductViewModel = productsViewModel[indexPath.row]
+        let product:Product = products[indexPath.row]
         
-        cell.populateView(with: productViewModel)
+//        cell.populateView(with: productViewModel)
+        
+        cell.productLabel.text = product.name ?? "name"
+        cell.priceLabel.text = String(format:"%.2f",product.price)
+
         cell.delegate = self
         return cell
     }
     
     func didUpdateQuantity(sender: UIStepper){
-        
         let point = sender.convert(CGPoint.zero, to: self.collectionView)
         let indexPath = self.collectionView?.indexPathForItem(at: point)!
         
-        let productViewModel = productsViewModel[(indexPath?.row)!]
-        productViewModel.quantityText = String(format: "%.f", sender.value)
+        let product = products[(indexPath?.row)!]
+        product.quantity = Int16(sender.value)
         
-        productsViewModel[(indexPath?.row)!] = productViewModel
-        
-        productViewModel.productHasBeenInteracted()
+        products[(indexPath?.row)!] = product
+
+        ShoppingCartService.sharedInstance.productInteracted(product)
+
+//        productViewModel.productHasBeenInteracted()
 
         updateShoppingCartBarButtonItem()
     }
     
     func didClearShoppingCart(){
         
-       productsViewModel = productsViewModel.map { (productViewModel) -> ProductViewModel in
-            productViewModel.quantityText  = "0"
-            return productViewModel
-        }
-        
-        self.collectionView?.reloadData()
+//       productsViewModel = productsViewModel.map { (productViewModel) -> ProductViewModel in
+//            productViewModel.quantityText  = "0"
+//            return productViewModel
+//        }
+//        
+//        self.collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

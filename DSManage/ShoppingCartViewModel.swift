@@ -17,13 +17,13 @@ class ShoppingCartViewModel{
         
     }
     
-    func getProducts() -> [ProductViewModel] {
+    func getProducts() -> [Product] {
         
-        for product in ShoppingCartService.sharedInstance.getProducts() {
-            productsViewModel.append(ProductViewModel(product: product))
-        }
+//        for product in ShoppingCartService.sharedInstance.getProducts() {
+//            productsViewModel.append(Product(product: product))
+//        }
         
-        return productsViewModel
+        return ShoppingCartService.sharedInstance.getProducts()
     }
      
 //    func getClient() -> ClientViewModel{

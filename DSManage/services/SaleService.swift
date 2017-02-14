@@ -10,21 +10,21 @@ import Foundation
 
 class SaleService {
     
-    func getSales()->[Sale]{
-        
-       let client =  ClientModel(id: "1", name: "R2D2", email: "", phone: "", address: "", photoURL: "user_r2d2")
-        
-        
-        var products = [ProductModel(id:"1", product:"Brush", price:11.10, category:"beaulty", desc:"", photoURL:"product_brush"),
-                        ProductModel(id:"2", product:"Lipstick", price:12.30, category:"beaulty", desc:"", photoURL:"product_lip_colour")
-                    ]
-        
-        products[0].quantity = "2"
-        products[1].quantity = "3"
-
-        
-
-        return [ Sale(id: "1", date: "23 oct, 2017", rep: Rep(), client: client, products: products)
-            ]
-    }
+//    func getSales()->[Sale]{
+//        
+//       let client =  ClientModel(id: "1", name: "R2D2", email: "", phone: "", address: "", photoURL: "user_r2d2")
+//        
+//        
+//        var products = [ProductModel(id:"1", product:"Brush", price:11.10, category:"beaulty", desc:"", photoURL:"product_brush"),
+//                        ProductModel(id:"2", product:"Lipstick", price:12.30, category:"beaulty", desc:"", photoURL:"product_lip_colour")
+//                    ]
+//        
+//        products[0].quantity = "2"
+//        products[1].quantity = "3"
+//
+//        
+//
+//        return [ Sale(id: "1", date: "23 oct, 2017", rep: Rep(), client: client, products: products)
+//            ]
+//    }
 }

@@ -12,7 +12,7 @@ class ShoppingCartService{
     
     static let sharedInstance = ShoppingCartService()
     
-    private var products:[ProductModel] = []
+    private var products:[Product] = []
     private var client:Client?
     
     func updateClient(client:Client){
@@ -23,16 +23,16 @@ class ShoppingCartService{
         return client
     }
     
-    func add(product:ProductModel){
+    func add(product:Product){
         products.append(product)
     }
     
-    func update(product:ProductModel){
+    func update(product:Product){
         let i =  products.index(of: product)
         products[i!] = product
     }
     
-    func remove(product:ProductModel){
+    func remove(product:Product){
         
         print(products.contains(product))
         products = arrayRemovingObject(object: product, fromArray:products )
@@ -40,7 +40,7 @@ class ShoppingCartService{
         print(products)
     }
     
-    func getProducts()->[ProductModel]{
+    func getProducts()->[Product]{
         return products
     }
     
@@ -49,11 +49,11 @@ class ShoppingCartService{
         client = nil
     }
     
-    func productInteracted(_ product:ProductModel){
+    func productInteracted(_ product:Product){
         
         if products.contains(product) {
             
-            if hasProductQuantity(product) {
+            if product.quantity > 0 {
                 update(product:product)
             }
             else{
