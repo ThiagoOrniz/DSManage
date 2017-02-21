@@ -69,7 +69,8 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         let productDetailViewController = segue.destination as! ProductDetailViewController
         var selectedIndexPath = self.collectionView?.indexPathsForSelectedItems?.first
        
-//        productDetailViewController.setProductViewModel(productViewModel: productsViewModel[(selectedIndexPath?.row)!])
+        productDetailViewController.setProduct(product: products[(selectedIndexPath?.row)!])
+
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -86,7 +87,7 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
         
         let product:Product = products[indexPath.row]
         
-//        cell.populateView(with: productViewModel)
+        cell.populateView(with: product)
         
         cell.productLabel.text = product.name ?? "name"
         cell.priceLabel.text = String(format:"%.2f",product.price)
@@ -106,19 +107,17 @@ class ProductCollectionViewController: UICollectionViewController,ProductCollect
 
         ShoppingCartService.sharedInstance.productInteracted(product)
 
-//        productViewModel.productHasBeenInteracted()
-
         updateShoppingCartBarButtonItem()
     }
     
     func didClearShoppingCart(){
         
-//       productsViewModel = productsViewModel.map { (productViewModel) -> ProductViewModel in
-//            productViewModel.quantityText  = "0"
-//            return productViewModel
-//        }
-//        
-//        self.collectionView?.reloadData()
+       products = products.map { (product) -> Product in
+            product.quantity  = 0
+            return product
+        }
+        
+        self.collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

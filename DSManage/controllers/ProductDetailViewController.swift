@@ -11,14 +11,13 @@ class ProductDetailViewController: UIViewController, FetchImageDelegate {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productDescriptionLabel: UILabel!
     
-    private var productViewModel: ProductViewModel?
+    private var product: Product?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationController()
-        productViewModel?.fetchImageDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,16 +31,14 @@ class ProductDetailViewController: UIViewController, FetchImageDelegate {
         self.navigationItem.setRightBarButton(shareButtomItem, animated: true)
     }
 
-    public func setProductViewModel(productViewModel:ProductViewModel){
-        self.productViewModel = productViewModel
-        
+    public func setProduct(product:Product){
+        self.product = product
     }
     
     private func populateView(){
-        self.productNameLabel.text = self.productViewModel?.productText
-        self.productPriceLabel.text = self.productViewModel?.priceText
-        self.productDescriptionLabel.text = self.productViewModel?.descText
-        productViewModel?.syncImage()
+        self.productNameLabel.text = self.product?.name ?? ""
+        self.productPriceLabel.text = String(format:"%.2f",self.product?.price ?? 0)
+        self.productDescriptionLabel.text = self.product?.desc ?? ""
 
     }
    
@@ -63,7 +60,7 @@ class ProductDetailViewController: UIViewController, FetchImageDelegate {
     private func shareWithFacebook(){
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText(self.productViewModel?.productText)
+            facebookSheet.setInitialText(self.product?.name)
             self.present(facebookSheet, animated: true, completion: nil)
         } else {
             self.showOkAlertMessage(withTitle: "Couldn't Post it", andBody: "Please login to a Facebook account to share.")

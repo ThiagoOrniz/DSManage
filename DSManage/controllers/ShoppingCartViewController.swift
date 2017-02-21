@@ -92,7 +92,6 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     func clear(){
         
         self.alertClearShoppingCart()
-        
 
     }
     
@@ -132,10 +131,10 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
 
 
         let product:Product = products[indexPath.row]
-        
-//        cell.populateView(with: ProductViewModel(product: product))
         cell.productLabel.text = product.name
-        
+        cell.quantityLabel.text = "\(product.quantity)"
+        cell.priceLabel.text = "\(product.price)"
+        cell.subtotalLabel.text = "\((product.price * Double(product.quantity)))"
         
         
         return cell
@@ -184,8 +183,6 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
             
             return
         }
-    
-        self.showOkAlertMessage(withTitle: "Done", andBody: "")
         
 
         let sale:Sale = Sale(context: CoreDataStack.getContext())
@@ -193,7 +190,12 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         sale.products = Set(products) as NSSet?
         
         CoreDataStack.saveContext()
-
+        
+        showOkAlertMessage(withTitle: "Saved", andBody: "")
+        ShoppingCartService.sharedInstance.clearAll()
+        self.clearShoppingCartDelegate?.didClearShoppingCart()
+        
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func didSelectClient(_ client:Client){

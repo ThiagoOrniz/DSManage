@@ -12,7 +12,7 @@ protocol ProductCollectionViewCellDelegate: class {
     func didUpdateQuantity(sender: UIStepper)
 }
 
-class ProductCollectionViewCell: UICollectionViewCell, FetchImageDelegate {
+class ProductCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var wrapperView: UIView!
     @IBOutlet weak var quantityStepper: UIStepper!
@@ -21,7 +21,7 @@ class ProductCollectionViewCell: UICollectionViewCell, FetchImageDelegate {
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
     
-    var productViewModel:ProductViewModel?
+    var product:Product?
     weak var delegate:ProductCollectionViewCellDelegate?
 
     
@@ -31,9 +31,8 @@ class ProductCollectionViewCell: UICollectionViewCell, FetchImageDelegate {
 
     }
     
-    func populateView(with productViewModel:ProductViewModel){
-        self.productViewModel = productViewModel
-        productViewModel.fetchImageDelegate = self
+    func populateView(with product:Product){
+        self.product = product
         
         setItems()
     
@@ -41,29 +40,21 @@ class ProductCollectionViewCell: UICollectionViewCell, FetchImageDelegate {
     }
     
     private func setItems(){
-        quantityLabel.text = productViewModel?.quantityText
-        productLabel.text = productViewModel?.productText
-        priceLabel.text = productViewModel?.priceText
+        quantityLabel.text = String(format:"%d",product?.quantity ?? 0)
+        productLabel.text = product?.name ?? ""
+        priceLabel.text = String(format:"%.2f", product?.price ?? 0.00)
         
         //this can go to a protocol
-        quantityStepper.value =  Double((productViewModel?.quantityText)!)!
-        
-        productViewModel?.syncImage()
-
+        quantityStepper.value =  Double(product?.quantity ?? 0 )
     }
  
     @IBAction func stepperTouched(_ sender: UIStepper) {
         
         print("touched: \(sender.value)")
         quantityLabel.text = String(format:"%.0f",sender.value)
-        productViewModel?.quantityText = String(format:"%.0f",sender.value)
+        product?.quantity =  Int16(sender.value)
         delegate?.didUpdateQuantity(sender: sender)
-        
     
     }
-    
-    func fetchImage(data: NSData) {
-        productImageView.image = UIImage(data: data as Data)
-    }
-    
+
   }

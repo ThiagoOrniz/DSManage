@@ -19,17 +19,18 @@ class ShoppingCartService{
         self.client = client
     }
     
-    func getClient() ->Client?{
+    func getClient() -> Client? {
         return client
     }
     
-    func add(product:Product){
+    func add(product:Product) {
         products.append(product)
     }
     
     func update(product:Product){
-        let i =  products.index(of: product)
-        products[i!] = product
+        if let i = products.index(where: { $0.name == product.name }){
+            products[i] = product
+        }
     }
     
     func remove(product:Product){
@@ -51,16 +52,13 @@ class ShoppingCartService{
     
     func productInteracted(_ product:Product){
         
-        if products.contains(product) {
-            
+        if products.contains(where: { $0.name == product.name }) {
             if product.quantity > 0 {
                 update(product:product)
-            }
-            else{
+            } else{
                 remove(product: product)
             }
-        }
-        else{
+        } else {
             add(product:product)
         }
     }

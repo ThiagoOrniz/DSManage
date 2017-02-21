@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2721DDB0EF6DDDDDEED8C761 /* Pods_DSManageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */; };
 		87AA9F30DF17E556DF830673 /* Pods_DSManageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */; };
-		AF6EF72D1E2F0CD900A92A31 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF72A1E2F0CD900A92A31 /* ClientService.swift */; };
-		AF6EF72E1E2F0CD900A92A31 /* SaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF72B1E2F0CD900A92A31 /* SaleService.swift */; };
 		AF6EF72F1E2F0CD900A92A31 /* ShoppingCartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */; };
 		AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */; };
 		AF6EF7331E2F0CFB00A92A31 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF7321E2F0CFB00A92A31 /* ReportsViewController.swift */; };
@@ -85,8 +83,6 @@
 		6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C80719B27CE0CE9D52439CD /* Pods-DSManageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageTests/Pods-DSManageTests.release.xcconfig"; sourceTree = "<group>"; };
 		94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF6EF72A1E2F0CD900A92A31 /* ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientService.swift; path = services/ClientService.swift; sourceTree = "<group>"; };
-		AF6EF72B1E2F0CD900A92A31 /* SaleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaleService.swift; path = services/SaleService.swift; sourceTree = "<group>"; };
 		AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartService.swift; path = services/ShoppingCartService.swift; sourceTree = "<group>"; };
 		AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ProductCollectionViewController+DelegateFlowLayout.swift"; path = "extensions/ProductCollectionViewController+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		AF6EF7321E2F0CFB00A92A31 /* ReportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportsViewController.swift; path = controllers/ReportsViewController.swift; sourceTree = "<group>"; };
@@ -316,8 +312,6 @@
 		AFAC64EF1E22D7C800E57C6D /* services */ = {
 			isa = PBXGroup;
 			children = (
-				AF6EF72A1E2F0CD900A92A31 /* ClientService.swift */,
-				AF6EF72B1E2F0CD900A92A31 /* SaleService.swift */,
 				AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */,
 				AFAC64F71E23147D00E57C6D /* ProductService.swift */,
 			);
@@ -705,9 +699,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF6EF72D1E2F0CD900A92A31 /* ClientService.swift in Sources */,
 				AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */,
-				AF6EF72E1E2F0CD900A92A31 /* SaleService.swift in Sources */,
 				AFAD26C51E5BC8CD001C19E9 /* UIView+Shadow.swift in Sources */,
 				AFAC65081E2314AB00E57C6D /* ClientsTableViewController.swift in Sources */,
 				AF6EF73C1E2F0D2D00A92A31 /* ProductCollectionViewController.swift in Sources */,

@@ -69,18 +69,7 @@ class ClientViewModel: NSObject{
         self.client = client
     }
     
-//    func updateShoppingCart(){
-//        ShoppingCartService.sharedInstance.updateClient(client: client)
-//    }
-    
-    static func getClients()-> [ClientViewModel]{
-        return ClientService().getClients()
-    }
-    
     func saveClient(){
         Client.saveClient(client)
-    
     }
-    
-    
 }
