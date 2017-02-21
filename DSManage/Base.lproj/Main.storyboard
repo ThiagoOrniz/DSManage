@@ -109,7 +109,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="zOl-GA-DE0"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <state key="normal" title="Log in">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -154,7 +154,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="5bN-Mp-2oe" secondAttribute="trailing" constant="16" id="y6a-0e-gS7"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_medal" translatesAutoresizingMaskIntoConstraints="NO" id="aoS-UP-6Us">
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dsmanagewhite" translatesAutoresizingMaskIntoConstraints="NO" id="aoS-UP-6Us">
                                                 <rect key="frame" x="8" y="20" width="398" height="200"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -304,6 +304,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_medal" width="64" height="64"/>
+        <image name="dsmanagewhite" width="180" height="180"/>
     </resources>
 </document>
