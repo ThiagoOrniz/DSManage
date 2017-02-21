@@ -98,17 +98,18 @@ class SalesTableViewController: UITableViewController,NSFetchedResultsController
         cell.clientLabel.text = sale.client?.name
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sale:Sale = sales[indexPath.row]
-        print(sale)
-    }
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let saleDetailViewController = segue.destination as! SaleDetailViewController
-        var selectedIndexPath = self.tableView?.indexPathsForSelectedRows?.first
-        saleDetailViewController.setSale(sale: sales[(selectedIndexPath?.row)!])
+        let selectedIndexPath = self.tableView?.indexPathsForSelectedRows?.first
+        
+        guard let sale = fetchedResultsController.object(at: selectedIndexPath!) as? Sale else {
+            fatalError("Unexpected Object in FetchedResultsController")
+        }
+        
+        saleDetailViewController.setSale(sale: sale)
         
     }
     

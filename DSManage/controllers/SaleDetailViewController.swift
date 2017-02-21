@@ -9,18 +9,16 @@
 import UIKit
 import CoreData
 
-class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var clientImageView: UIImageView!
     
-    var products:[ProductModel] = []
-    var sale:Sale = Sale()
+    var products:[Product] = []
+    var sale:Sale?
     
-    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,37 +29,22 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         populateView()
-        setupFetchedResultsController()
         
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("______Failed to initialize FetchedResultsController: \(error)")
-        }
-
     }
     
-    private func setupFetchedResultsController() {
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Sale")
-        let sortDescriptor = NSSortDescriptor(key: "client.name", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
-                                                              managedObjectContext: CoreDataStack.getContext(),
-                                                              sectionNameKeyPath: nil,
-                                                              cacheName: nil
-        )
-        
-        fetchedResultsController.delegate = self
-    }
-
     
     
     private func populateView(){
-//        self.clientLabel.text = self.sale.client.name
-//        self.clientImageView.image = UIImage(named: self.sale.client.photoURL)
-//        self.products = self.sale.products
+        self.clientLabel.text = sale?.client?.name
+        
+        self.products = sale?.products?.allObjects as! [Product]
+        
+        
+        if let photo = self.sale?.client?.avatar {
+            self.clientImageView.image = UIImage(data: (photo as NSData) as Data)
+        }
+
+        
 //        self.totalLabel.text = String(format:"%.2f",sale.getTotal())
     }
     
@@ -70,10 +53,7 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = fetchedResultsController?.sections?[section].numberOfObjects {
-            return count
-        }
-        return 0
+       return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,11 +78,9 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func configureCell(cell: ShoppingCartTableViewCell, indexPath: IndexPath) {
         
-        guard let sale = fetchedResultsController.object(at: indexPath) as? Sale else {
-            fatalError("Unexpected Object in FetchedResultsController")
-        }
+        cell.priceLabel.text = String(format:"%.2f",products[indexPath.row].price)
+        cell.productLabel.text = products[indexPath.row].name
         
-        cell.priceLabel.text = sale.client?.name
     }
 
     
@@ -116,40 +94,6 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: NSFetchedResultsControllerDelegate Methods
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.productsTableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.productsTableView.endUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        switch (type) {
-        case .insert:
-            if let indexPath = newIndexPath {
-                
-                productsTableView.insertRows(at: [indexPath], with: .fade)
-            }
-            break;
-        case .delete:
-            if let indexPath = indexPath {
-                productsTableView.deleteRows(at: [indexPath], with: .fade)
-            }
-            break;
-        case .update:
-            if let indexPath = newIndexPath {
-                configureCell(cell: productsTableView.cellForRow(at: indexPath)! as! ShoppingCartTableViewCell, indexPath: indexPath)
-            }
-        default:
-            print("default")
-            
-        }
-    }
 
-    
 
 }
