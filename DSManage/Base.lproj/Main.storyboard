@@ -90,7 +90,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-ey-RUM">
-                                                <rect key="frame" x="0.0" y="232" width="414" height="165"/>
+                                                <rect key="frame" x="0.0" y="226" width="414" height="165"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5bN-Mp-2oe">
                                                         <rect key="frame" x="16" y="8" width="382" height="44"/>
@@ -154,15 +154,15 @@
                                                     <constraint firstAttribute="trailing" secondItem="5bN-Mp-2oe" secondAttribute="trailing" constant="16" id="y6a-0e-gS7"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dsmanagewhite" translatesAutoresizingMaskIntoConstraints="NO" id="aoS-UP-6Us">
-                                                <rect key="frame" x="8" y="20" width="398" height="200"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dsmanagewhite" translatesAutoresizingMaskIntoConstraints="NO" id="aoS-UP-6Us">
+                                                <rect key="frame" x="8" y="64" width="398" height="150"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="2e8-DN-OFM"/>
+                                                    <constraint firstAttribute="height" constant="150" id="2e8-DN-OFM"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS6-l7-i2D">
-                                                <rect key="frame" x="120" y="405" width="174" height="32"/>
+                                                <rect key="frame" x="120" y="399" width="174" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <state key="normal" title="Forgot your password?">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,7 +179,7 @@
                                             <constraint firstItem="xwD-ey-RUM" firstAttribute="leading" secondItem="oiw-9D-3wC" secondAttribute="leading" id="XFb-0J-i6e"/>
                                             <constraint firstAttribute="trailing" secondItem="aoS-UP-6Us" secondAttribute="trailing" constant="8" id="a7I-Wk-fDF"/>
                                             <constraint firstItem="HS6-l7-i2D" firstAttribute="centerX" secondItem="oiw-9D-3wC" secondAttribute="centerX" id="cTQ-Kj-oWg"/>
-                                            <constraint firstItem="aoS-UP-6Us" firstAttribute="top" secondItem="oiw-9D-3wC" secondAttribute="top" constant="20" id="h3K-1b-Ml3"/>
+                                            <constraint firstItem="aoS-UP-6Us" firstAttribute="top" secondItem="oiw-9D-3wC" secondAttribute="top" constant="64" id="h3K-1b-Ml3"/>
                                             <constraint firstAttribute="trailing" secondItem="xwD-ey-RUM" secondAttribute="trailing" id="p66-IO-aq7"/>
                                             <constraint firstItem="HS6-l7-i2D" firstAttribute="top" secondItem="xwD-ey-RUM" secondAttribute="bottom" constant="8" id="xgT-fz-iER"/>
                                         </constraints>

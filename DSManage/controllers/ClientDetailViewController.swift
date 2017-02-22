@@ -21,6 +21,9 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var numberOfSalesLabel: UILabel!
     @IBOutlet weak var totalOfSalesLabel: UILabel!
+    @IBOutlet weak var statusView: UIView!
+    @IBOutlet weak var sellButton: UIButton!
+    @IBOutlet weak var emailButton: UIButton!
     
     private let imagePicker = UIImagePickerController()
     private var isEditingClient = false
@@ -45,8 +48,12 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if(isEditingClient){
+        if isEditingClient {
             populateView()
+        } else {
+            statusView.isHidden = true
+            emailButton.isHidden = true
+            sellButton.isHidden = true
         }
     }
 
@@ -101,7 +108,6 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.addressTextField.text = self.client?.address
         
         if let photo = self.client?.avatar {
-//            selfs.avatarImageView.image = UIIm  UIImage(named: photoURL)
             self.avatarImageView.image = UIImage(data: (photo as NSData) as Data)
         }
         
@@ -213,6 +219,10 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     @IBAction func deleteButtonTouched(_ sender: UIButton) {
         // todo deletebutton
+        
+        if !isEditingClient {
+            _ = self.navigationController?.popViewController(animated: true)
+        }
         
         if client != nil{
             CoreDataStack.getContext().delete(client!)

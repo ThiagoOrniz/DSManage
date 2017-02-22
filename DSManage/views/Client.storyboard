@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mec-yA-qdI" id="scg-SU-G8q">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user" translatesAutoresizingMaskIntoConstraints="NO" id="vkR-sl-pfq">
@@ -321,11 +321,14 @@
                         <outlet property="addressTextField" destination="Sb3-SP-zQg" id="2BP-TT-nLk"/>
                         <outlet property="avatarImageView" destination="2JN-rq-WuK" id="UY2-1T-lE1"/>
                         <outlet property="clientScrollView" destination="BfE-kt-9u4" id="kfA-z9-Nlx"/>
+                        <outlet property="emailButton" destination="IrN-eX-JRr" id="iP1-aq-8Dg"/>
                         <outlet property="emailTextField" destination="Za5-vI-qUy" id="jgh-9Q-xqi"/>
                         <outlet property="nameTextField" destination="ude-kx-1Dl" id="bjt-FO-Rd3"/>
                         <outlet property="numberOfSalesLabel" destination="sPI-U7-spp" id="yxu-Br-cLA"/>
                         <outlet property="phoneTextField" destination="rYn-M7-8uo" id="Jjl-gw-ETD"/>
+                        <outlet property="sellButton" destination="Ufl-6I-i2t" id="xe5-xJ-vpJ"/>
                         <outlet property="statusLabel" destination="KSC-Vt-KiW" id="A6e-uK-l55"/>
+                        <outlet property="statusView" destination="PhJ-EL-r63" id="HOn-TT-pvj"/>
                         <outlet property="totalOfSalesLabel" destination="AkO-dh-MGc" id="75e-FE-daV"/>
                     </connections>
                 </viewController>

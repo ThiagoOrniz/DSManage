@@ -16,8 +16,12 @@ protocol ClientsTableViewControllerDelegate: class {
     func didSelectClient(_ client:Client)
 }
 
-class ClientsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+class ClientsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating
+{
+    
+    var filteredData:[Client] = []
+    var resultSearchController:UISearchController!
+    
     weak var clientsTableViewControllerDelegate:ClientsTableViewControllerDelegate?
     var isSelectableClient:Bool = false
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
@@ -31,6 +35,16 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
                                            )
         
         self.navigationItem.rightBarButtonItems = [addButtonItem,self.editButtonItem]
+        
+        
+        resultSearchController = UISearchController(searchResultsController: nil)
+        resultSearchController.searchResultsUpdater = self
+        resultSearchController.hidesNavigationBarDuringPresentation = false
+        resultSearchController.dimsBackgroundDuringPresentation = false
+        resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.prominent
+        resultSearchController.searchBar.sizeToFit()
+
+        self.tableView.tableHeaderView = resultSearchController.searchBar
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +60,7 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        fetchedResultsController.delegate = nil
+        fetchedResultsController.delegate = nil
     }
     
     private func setupFetchedResultsController() {
@@ -68,16 +82,24 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
         self.performSegue(withIdentifier: "pushNewClient", sender:self)
     }
     
+    
     // MARK: TableView Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        if resultSearchController.isActive {
+            return filteredData.count
+        }
+        else {
+        
         if let count = fetchedResultsController?.sections?[section].numberOfObjects {
             return count
         }
         return 0
+    }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,7 +111,6 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
         return cell
     }
 
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -131,6 +152,17 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
     
     func configureCell(cell: ClientTableViewCell, indexPath: IndexPath) {
         
+        if resultSearchController.isActive {
+            let c = filteredData[indexPath.row]
+            cell.clientNameLabel.text = c.name
+            cell.emailLabel.text = c.email
+            
+            if let photo = c.avatar {
+                cell.avatarImageView.image = UIImage(data: (photo as NSData) as Data)
+            }
+            
+        }
+        else {
         guard let client = fetchedResultsController.object(at: indexPath) as? Client else {
             fatalError("Unexpected Object in FetchedResultsController")
         }
@@ -140,6 +172,7 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
         
         if let photo = client.avatar {
             cell.avatarImageView.image = UIImage(data: (photo as NSData) as Data)
+        }
         }
     }
     
@@ -179,8 +212,24 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func filterContentForSearchText(_ searchText: String) {
+        
+        let searchPredicate = NSPredicate(format: "name contains[c] %@", searchText)
+        
+        filteredData = (self.fetchedResultsController.fetchedObjects?.filter() {
+            return searchPredicate.evaluate(with: $0)
+        } as! [Client]?)!
+        
+        self.tableView.reloadData()
+        print(searchPredicate)
+    }
+
+    public func updateSearchResults(for searchController: UISearchController) {
+
+        if (searchController.searchBar.text?.characters.count)! > 0 {
+            filterContentForSearchText(searchController.searchBar.text!)
+        } else {
+            filterContentForSearchText("")
+        }
     }
 }
