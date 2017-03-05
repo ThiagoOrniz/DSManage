@@ -55,6 +55,7 @@
 		AFAD26C31E5BC8B6001C19E9 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAD26C01E5BC8B6001C19E9 /* ShoppingCartViewModel.swift */; };
 		AFAD26C51E5BC8CD001C19E9 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAD26C41E5BC8CD001C19E9 /* UIView+Shadow.swift */; };
 		AFBC83261E51550E0094C075 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC83251E51550E0094C075 /* Calculations.swift */; };
+		AFEB27331E6C797300356B79 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEB27321E6C797300356B79 /* LoginViewModel.swift */; };
 		F0A16747EE2B8986723E96FD /* Pods_DSManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,7 @@
 		AFAD26C01E5BC8B6001C19E9 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartViewModel.swift; path = viewmodels/ShoppingCartViewModel.swift; sourceTree = "<group>"; };
 		AFAD26C41E5BC8CD001C19E9 /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Shadow.swift"; path = "extensions/UIView+Shadow.swift"; sourceTree = "<group>"; };
 		AFBC83251E51550E0094C075 /* Calculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
+		AFEB27321E6C797300356B79 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B607F4E84A2B4C07FDF2EE3F /* Pods-DSManageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageUITests/Pods-DSManageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -332,6 +334,7 @@
 				AFAD26BE1E5BC8B6001C19E9 /* ClientViewModel.swift */,
 				AFAD26BF1E5BC8B6001C19E9 /* ProductViewModel.swift */,
 				AFAD26C01E5BC8B6001C19E9 /* ShoppingCartViewModel.swift */,
+				AFEB27321E6C797300356B79 /* LoginViewModel.swift */,
 			);
 			name = viewmodel;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */,
 				AFAC65071E2314AB00E57C6D /* ClientDetailViewController.swift in Sources */,
 				AF6EF7361E2F0D1100A92A31 /* SaleDetailViewController.swift in Sources */,
+				AFEB27331E6C797300356B79 /* LoginViewModel.swift in Sources */,
 				AFAD26BB1E5BC8A6001C19E9 /* Client+CoreDataProperties.swift in Sources */,
 				AF6EF7451E2F0D3A00A92A31 /* ShoppingCartTableViewCell.swift in Sources */,
 				AFA35B721E18208A00931A83 /* Rep.swift in Sources */,
