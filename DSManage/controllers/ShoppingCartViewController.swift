@@ -39,8 +39,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         
         self.navigationItem.rightBarButtonItems = [addButtonItem]
         
-        self.clientImageView.layer.cornerRadius = self.clientImageView.frame.size.width / 2;
-        self.clientImageView.clipsToBounds = true;
+        self.clientImageView.layer.cornerRadius = self.clientImageView.frame.size.width / 2
+        self.clientImageView.clipsToBounds = true
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.chooseClientTapped))
         self.clientView.addGestureRecognizer(tapRecognizer)

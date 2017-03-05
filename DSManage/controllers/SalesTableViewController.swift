@@ -136,12 +136,12 @@ class SalesTableViewController: UITableViewController,NSFetchedResultsController
                 
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
-            break;
+            break
         case .delete:
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
-            break;
+            break
         case .update:
             if let indexPath = newIndexPath {
                 configureCell(cell: tableView.cellForRow(at: indexPath)! as! SaleTableViewCell, indexPath: indexPath)

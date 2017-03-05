@@ -64,15 +64,12 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.navigationItem.setRightBarButton(saveButtomItem, animated: true)
     }
     
-    private func setupTextFields(){
+    private func setupTextFields() {
         
-        let emptyTextField = UITextField()
-        emptyTextField.placeholder = "-1"
-        
-        nameTextField.inputAccessoryView = nameTextField.setAccessoryView(textField: nameTextField, nextTextField: phoneTextField)
-        phoneTextField.inputAccessoryView = phoneTextField.setAccessoryView(textField: phoneTextField, nextTextField:emailTextField )
-        emailTextField.inputAccessoryView = emailTextField.setAccessoryView(textField: emailTextField, nextTextField: addressTextField)
-        addressTextField.inputAccessoryView = addressTextField.setAccessoryView(textField: addressTextField, nextTextField:emptyTextField )
+        nameTextField.setAccessoryBar(with: phoneTextField)
+        phoneTextField.setAccessoryBar(with: emailTextField)
+        emailTextField.setAccessoryBar(with: addressTextField)
+        addressTextField.setAccessoryBar(with: nil)
     }
     
     private func setupAvatarImage(){
@@ -80,8 +77,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         let changeAvatarTap = UITapGestureRecognizer(target: self, action: #selector(self.handleAvatarTap(_:)))
         self.avatarImageView.addGestureRecognizer(changeAvatarTap)
         
-        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
-        self.avatarImageView.clipsToBounds = true;
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2
+        self.avatarImageView.clipsToBounds = true
     }
   
     private func setupScrollView(){
@@ -116,7 +113,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     func saveButtonTouched(){
         
         if(!self.validate()){
-            return;
+            return
         }
         if !isEditingClient {
             self.client = nil
@@ -129,7 +126,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
                                       address: addressTextField.text!,
                                       photoURL: "")
         
-        clientModel.avatar = avatar;
+        clientModel.avatar = avatar
         
         Client.saveClient(clientModel)
         
@@ -165,7 +162,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         
         self.avatar = (UIImagePNGRepresentation(image) as? NSData)!
 
-        self.dismiss(animated: true, completion: nil);
+        self.dismiss(animated: true, completion: nil)
 
     }
     
@@ -174,7 +171,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         avatarImageView.image = image
         self.avatar = (UIImagePNGRepresentation(image) as? NSData)!
 
-        self.dismiss(animated: true, completion: nil);
+        self.dismiss(animated: true, completion: nil)
     }
 
     private func showImage(){
@@ -184,7 +181,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     private func openCamera(){
 
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             self.imagePicker.allowsEditing = false
             self.present(self.imagePicker, animated: true, completion: nil)
         }
@@ -197,7 +194,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     private func openLibrary(){
 
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-            self.imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            self.imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             self.imagePicker.allowsEditing = true
             self.present(self.imagePicker, animated: true, completion: nil)
         }

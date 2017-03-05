@@ -1,18 +1,10 @@
-//
-//  UITextField+Accessory.swift
-//  DSManage
-//
-//  Created by Thiago Orniz Martin on 08/01/17.
-//  Copyright © 2017 Thiago Orniz Martin. All rights reserved.
-//
-
 import UIKit
 
-private var nextTextFieldKey: UInt8 = 0 // We still need this boilerplate
+private var nextTextFieldKey: UInt8 = 0
 
-extension UITextField{
+extension UITextField {
     
-    var nextTextField: UITextField! {
+   private var nextTextField: UITextField! {
         get {
             return objc_getAssociatedObject(self, &nextTextFieldKey) as? UITextField
         }
@@ -21,27 +13,37 @@ extension UITextField{
         }
     }
     
-    func setAccessoryView(textField:UITextField, nextTextField:UITextField) ->UIView{
+    func setAccessoryBar(with nextTextField: UITextField?) {
         
         self.nextTextField = nextTextField
+        self.inputAccessoryView = createToolbar()
+    }
+    
+    func doneBarButtonItemTouched() {
         
-        let toolbar:UIToolbar = UIToolbar()
-        let rect = CGRect(x: textField.frame.origin.x, y: textField.frame.origin.y, width: UIScreen.main.bounds.size.width, height: 44)
+        if self.nextTextField == nil {
+            self.resignFirstResponder()
+            
+        } else {
+            self.nextTextField.becomeFirstResponder()
+        }
+    }
+    
+    private func createToolbar() -> UIView {
         
+        let toolbar = UIToolbar()
+        let rect = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: UIScreen.main.bounds.size.width, height: 44)
         toolbar.frame = rect
-        
         toolbar.backgroundColor = .white
         
-        let title:UILabel = self.setLabelWithTitle(title: textField.placeholder!)
+        let title:UILabel = self.setLabelWithTitle(title: self.placeholder ?? "")
         
-        let doneBarButtonItem:UIBarButtonItem = UIBarButtonItem()
+        let doneBarButtonItem: UIBarButtonItem = UIBarButtonItem()
         doneBarButtonItem.target = self
         doneBarButtonItem.action = #selector(doneBarButtonItemTouched)
-        
-        doneBarButtonItem.title = nextTextField.placeholder != "-1" ? "Next":"Done"
+        doneBarButtonItem.title = nextTextField == nil ? "Done" : "Next"
         
         let flexible:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        
         
         var items = [UIBarButtonItem]()
         items.append(flexible)
@@ -52,31 +54,18 @@ extension UITextField{
         toolbar.sizeToFit()
         
         return toolbar
-        
     }
     
-    func doneBarButtonItemTouched(){
-        
-        if(self.nextTextField.placeholder == "-1"){
-            self.resignFirstResponder()
-        }
-        else{
-            self.nextTextField.becomeFirstResponder()
-        }
-    }
-    
-    func setLabelWithTitle(title:String) -> UILabel{
+    private func setLabelWithTitle(title: String) -> UILabel {
         
         let titleLabel:UILabel = UILabel()
         let rect = CGRect(x: 16, y: 0, width: 200, height: 40)
         
         titleLabel.frame = rect
-        titleLabel.text = title;
+        titleLabel.text = title
         titleLabel.textAlignment = NSTextAlignment.left
         titleLabel.textColor = .darkGray
         
-        return titleLabel;
-        
+        return titleLabel
     }
-    
 }

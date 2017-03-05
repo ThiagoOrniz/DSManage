@@ -20,8 +20,8 @@ class ClientTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
-        self.avatarImageView.clipsToBounds = true;
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2
+        self.avatarImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
