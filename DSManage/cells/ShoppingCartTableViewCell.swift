@@ -33,7 +33,7 @@ class ShoppingCartTableViewCell: UITableViewCell, FetchImageDelegate {
     
     func populateView(with productViewModel:ProductViewModel){
         self.productViewModel = productViewModel
-        productViewModel.fetchImageDelegate = self
+//        productViewModel.fetchImageDelegate = self
         
         
         setItems()
@@ -42,13 +42,13 @@ class ShoppingCartTableViewCell: UITableViewCell, FetchImageDelegate {
     
     private func setItems(){
         
-        productLabel.text = productViewModel?.productText
-        priceLabel.text = productViewModel?.priceText
-        
-        quantityLabel.text = (productViewModel?.quantityText)! + " item(s)"
-        subtotalLabel.text = productViewModel?.getSubTotal()
-        
-        productViewModel?.syncImage()
+//        productLabel.text = productViewModel?.productText
+//        priceLabel.text = productViewModel?.priceText
+//        
+//        quantityLabel.text = (productViewModel?.quantityText)! + " item(s)"
+//        subtotalLabel.text = productViewModel?.getSubTotal()
+//        
+//        productViewModel?.syncImage()
         
     }
     

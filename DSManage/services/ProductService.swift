@@ -35,12 +35,14 @@ class ProductService {
         p1.price = 10.10
         p1.desc = "oi"
         p1.quantity = 0
+        p1.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_brush.imageset/makeup-brush-png-2.png")
         
         let p2:Product = Product(context: CoreDataStack.getContext())
         p2.name = "Lipstick"
         p2.price = 12.10
         p2.desc = "description"
         p2.quantity = 0
+        p2.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
         
         CoreDataStack.saveContext()
         

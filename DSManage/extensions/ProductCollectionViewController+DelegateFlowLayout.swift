@@ -15,7 +15,7 @@ extension ProductCollectionViewController : UICollectionViewDelegateFlowLayout {
         let availableWidth = view.frame.width - 8
         let widthPerItem = availableWidth / 2
         
-        return CGSize(width: widthPerItem, height: 240 )
+        return CGSize(width: widthPerItem, height: 220 )
     }
     
     func collectionView(_ collectionView: UICollectionView,

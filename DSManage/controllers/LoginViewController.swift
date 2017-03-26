@@ -102,9 +102,5 @@ class LoginViewController: UIViewController {
         showOkAlertMessage(withTitle: "Senha inválida", andBody: "Senha deve conter no mínimo 6 caracteres.")
         
     }
-    
-
-    
-
 }
 
