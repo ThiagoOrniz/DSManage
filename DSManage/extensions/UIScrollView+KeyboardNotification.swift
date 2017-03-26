@@ -9,26 +9,43 @@
 import UIKit
 
 extension UIScrollView {
-    func registerForKeyboardDidShowNotification(scrollView: UIScrollView, usingBlock block: ((CGSize?) -> Void)? = nil) {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardDidShow, object: nil, queue: nil, using: { (notification) -> Void in
-            let userInfo = notification.userInfo!
-            let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
-            let contentInsets = UIEdgeInsetsMake(scrollView.contentInset.top, scrollView.contentInset.left, keyboardSize.height, scrollView.contentInset.right)
+    
+    func registerForKeyboardNotifications() {
+        keyboardDidShow()
+        keyboardWillHide()
+    }
+    
+    private func keyboardDidShow() {
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.UIKeyboardDidShow,
+            object: nil,
+            queue: nil,
+            using: { [weak self] (notification) -> Void in
+                let userInfo = notification.userInfo!
+                let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
+                let contentInsets = UIEdgeInsetsMake(self?.contentInset.top ?? 0, self?.contentInset.left ?? 0, keyboardSize.height, self?.contentInset.right ?? 0)
             
-            scrollView.setContentInsetAndScrollIndicatorInsets(edgeInsets: contentInsets)
-            block?(keyboardSize)
-        })
+                self?.setContentInsetAndScrollIndicatorInsets(edgeInsets: contentInsets)
+            }
+        )
     }
     
-    func registerForKeyboardWillHideNotification(scrollView: UIScrollView, usingBlock block: ((Void) -> Void)? = nil) {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil, using: { (notification) -> Void in
-            let contentInsets = UIEdgeInsetsMake(scrollView.contentInset.top, scrollView.contentInset.left, 0, scrollView.contentInset.right)
-            scrollView.setContentInsetAndScrollIndicatorInsets(edgeInsets: contentInsets)
-            block?()
-        })
+    private func keyboardWillHide() {
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.UIKeyboardWillHide,
+            object: nil,
+            queue: nil,
+            using: { [weak self] (notification) -> Void in
+                let contentInsets = UIEdgeInsetsMake(self?.contentInset.top ?? 0, self?.contentInset.left ?? 0, 0, self?.contentInset.right ?? 0)
+                self?.setContentInsetAndScrollIndicatorInsets(edgeInsets: contentInsets)
+            }
+        )
     }
     
-    func setContentInsetAndScrollIndicatorInsets(edgeInsets: UIEdgeInsets) {
+    private func setContentInsetAndScrollIndicatorInsets(edgeInsets: UIEdgeInsets)
+    {
         self.contentInset = edgeInsets
         self.scrollIndicatorInsets = edgeInsets
     }

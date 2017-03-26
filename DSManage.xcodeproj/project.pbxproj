@@ -36,7 +36,7 @@
 		AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */; };
 		AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */; };
 		AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */; };
-		AFAC65001E23149C00E57C6D /* UIViewController+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FD1E23149C00E57C6D /* UIViewController+Messages.swift */; };
+		AFAC65001E23149C00E57C6D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FD1E23149C00E57C6D /* UIViewControllerExtensions.swift */; };
 		AFAC65071E2314AB00E57C6D /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65011E2314AB00E57C6D /* ClientDetailViewController.swift */; };
 		AFAC65081E2314AB00E57C6D /* ClientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65021E2314AB00E57C6D /* ClientsTableViewController.swift */; };
 		AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */; };
@@ -117,7 +117,7 @@
 		AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldValidator.swift; path = helpers/TextFieldValidator.swift; sourceTree = "<group>"; };
 		AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+KeyboardNotification.swift"; path = "extensions/UIScrollView+KeyboardNotification.swift"; sourceTree = "<group>"; };
 		AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+Accessory.swift"; path = "extensions/UITextField+Accessory.swift"; sourceTree = "<group>"; };
-		AFAC64FD1E23149C00E57C6D /* UIViewController+Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Messages.swift"; path = "extensions/UIViewController+Messages.swift"; sourceTree = "<group>"; };
+		AFAC64FD1E23149C00E57C6D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = extensions/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		AFAC65011E2314AB00E57C6D /* ClientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientDetailViewController.swift; path = controllers/ClientDetailViewController.swift; sourceTree = "<group>"; };
 		AFAC65021E2314AB00E57C6D /* ClientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsTableViewController.swift; path = controllers/ClientsTableViewController.swift; sourceTree = "<group>"; };
 		AFAC65041E2314AB00E57C6D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -212,8 +212,6 @@
 		AF7030001E415D06000D864E /* database */ = {
 			isa = PBXGroup;
 			children = (
-				AFAD26B51E5BC8A6001C19E9 /* Client+CoreDataClass.swift */,
-				AFAD26B61E5BC8A6001C19E9 /* Client+CoreDataProperties.swift */,
 				AFAD26B71E5BC8A6001C19E9 /* CoreDataStack.swift */,
 				AFAD26B81E5BC8A6001C19E9 /* DSManage.xcdatamodeld */,
 			);
@@ -245,6 +243,8 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AFEB27351E6CA79C00356B79 /* product */,
+				AFEB27341E6CA6FF00356B79 /* client */,
 				AF7030001E415D06000D864E /* database */,
 				AFC411641E318FEE000AD21C /* viewmodel */,
 				AFAC64F21E230DF000E57C6D /* helpers */,
@@ -291,7 +291,6 @@
 		AFA35B5F1E181C8B00931A83 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				AFA35B6A1E18208A00931A83 /* ClientModel.swift */,
 				AFA35B6C1E18208A00931A83 /* ProductModel.swift */,
 				AFA35B6D1E18208A00931A83 /* Rep.swift */,
 			);
@@ -305,7 +304,7 @@
 				AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */,
 				AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */,
 				AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */,
-				AFAC64FD1E23149C00E57C6D /* UIViewController+Messages.swift */,
+				AFAC64FD1E23149C00E57C6D /* UIViewControllerExtensions.swift */,
 				AFBC83251E51550E0094C075 /* Calculations.swift */,
 			);
 			name = extensions;
@@ -315,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */,
-				AFAC64F71E23147D00E57C6D /* ProductService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -331,8 +329,6 @@
 		AFC411641E318FEE000AD21C /* viewmodel */ = {
 			isa = PBXGroup;
 			children = (
-				AFAD26BE1E5BC8B6001C19E9 /* ClientViewModel.swift */,
-				AFAD26BF1E5BC8B6001C19E9 /* ProductViewModel.swift */,
 				AFAD26C01E5BC8B6001C19E9 /* ShoppingCartViewModel.swift */,
 				AFEB27321E6C797300356B79 /* LoginViewModel.swift */,
 			);
@@ -343,8 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				AFA35B341E180F9A00931A83 /* Main.storyboard */,
-				AFAC650E1E2314BA00E57C6D /* Product.storyboard */,
-				AFAC650D1E2314BA00E57C6D /* Client.storyboard */,
 				AFAC65101E2314BA00E57C6D /* Sale.storyboard */,
 				AFAC650F1E2314BA00E57C6D /* Report.storyboard */,
 				AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */,
@@ -360,29 +354,28 @@
 				AFE7A1981E2B1133008D42C0 /* main */,
 				AF30AA031E2DB7A3008818C0 /* sales */,
 				AFE7A19A1E2B1623008D42C0 /* shopping */,
-				AFE7A1961E2B1107008D42C0 /* clients */,
-				AFE7A1971E2B111C008D42C0 /* products */,
 				AFE7A1991E2B1141008D42C0 /* cells */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
 		};
-		AFE7A1961E2B1107008D42C0 /* clients */ = {
+		AFE7A1961E2B1107008D42C0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				AF6EF73E1E2F0D3A00A92A31 /* ClientTableViewCell.swift */,
 				AFAC65021E2314AB00E57C6D /* ClientsTableViewController.swift */,
 				AFAC65011E2314AB00E57C6D /* ClientDetailViewController.swift */,
 			);
-			name = clients;
+			name = controller;
 			sourceTree = "<group>";
 		};
-		AFE7A1971E2B111C008D42C0 /* products */ = {
+		AFE7A1971E2B111C008D42C0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				AF6EF73A1E2F0D2D00A92A31 /* ProductCollectionViewController.swift */,
 				AF6EF73B1E2F0D2D00A92A31 /* ProductDetailViewController.swift */,
 			);
-			name = products;
+			name = controller;
 			sourceTree = "<group>";
 		};
 		AFE7A1981E2B1133008D42C0 /* main */ = {
@@ -397,7 +390,6 @@
 		AFE7A1991E2B1141008D42C0 /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				AF6EF73E1E2F0D3A00A92A31 /* ClientTableViewCell.swift */,
 				AF6EF73F1E2F0D3A00A92A31 /* ProductCollectionViewCell.swift */,
 				AF6EF7401E2F0D3A00A92A31 /* SaleTableViewCell.swift */,
 				AF6EF7411E2F0D3A00A92A31 /* ShoppingCartTableViewCell.swift */,
@@ -411,6 +403,30 @@
 				AF6EF7381E2F0D1C00A92A31 /* ShoppingCartViewController.swift */,
 			);
 			name = shopping;
+			sourceTree = "<group>";
+		};
+		AFEB27341E6CA6FF00356B79 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				AFE7A1961E2B1107008D42C0 /* controller */,
+				AFA35B6A1E18208A00931A83 /* ClientModel.swift */,
+				AFAC650D1E2314BA00E57C6D /* Client.storyboard */,
+				AFAD26BE1E5BC8B6001C19E9 /* ClientViewModel.swift */,
+				AFAD26B51E5BC8A6001C19E9 /* Client+CoreDataClass.swift */,
+				AFAD26B61E5BC8A6001C19E9 /* Client+CoreDataProperties.swift */,
+			);
+			name = client;
+			sourceTree = "<group>";
+		};
+		AFEB27351E6CA79C00356B79 /* product */ = {
+			isa = PBXGroup;
+			children = (
+				AFAC650E1E2314BA00E57C6D /* Product.storyboard */,
+				AFE7A1971E2B111C008D42C0 /* controller */,
+				AFAC64F71E23147D00E57C6D /* ProductService.swift */,
+				AFAD26BF1E5BC8B6001C19E9 /* ProductViewModel.swift */,
+			);
+			name = product;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,7 +506,7 @@
 				TargetAttributes = {
 					AFA35B2C1E180F9A00931A83 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SVMRB674Q7;
+						DevelopmentTeam = MA49NRE9BA;
 						ProvisioningStyle = Automatic;
 					};
 					AFA35B401E180F9B00931A83 = {
@@ -733,7 +749,7 @@
 				AF6EF7441E2F0D3A00A92A31 /* SaleTableViewCell.swift in Sources */,
 				AF6EF72F1E2F0CD900A92A31 /* ShoppingCartService.swift in Sources */,
 				AFAD26BA1E5BC8A6001C19E9 /* Client+CoreDataClass.swift in Sources */,
-				AFAC65001E23149C00E57C6D /* UIViewController+Messages.swift in Sources */,
+				AFAC65001E23149C00E57C6D /* UIViewControllerExtensions.swift in Sources */,
 				AF6EF73D1E2F0D2D00A92A31 /* ProductDetailViewController.swift in Sources */,
 				AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */,
 				AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
@@ -890,7 +906,7 @@
 			baseConfigurationReference = 529987A62F7C5E2E9C72FAC9 /* Pods-DSManage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SVMRB674Q7;
+				DEVELOPMENT_TEAM = MA49NRE9BA;
 				INFOPLIST_FILE = DSManage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DSManage;
@@ -904,7 +920,7 @@
 			baseConfigurationReference = 35E3C7BE4AB33C814EBFF489 /* Pods-DSManage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SVMRB674Q7;
+				DEVELOPMENT_TEAM = MA49NRE9BA;
 				INFOPLIST_FILE = DSManage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DSManage;

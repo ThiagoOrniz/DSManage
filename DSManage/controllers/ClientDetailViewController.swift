@@ -82,8 +82,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     }
   
     private func setupScrollView(){
-        clientScrollView.registerForKeyboardDidShowNotification(scrollView: clientScrollView)
-        clientScrollView.registerForKeyboardWillHideNotification(scrollView: clientScrollView)
+        clientScrollView.registerForKeyboardNotifications()
     }
     
     func hikeKeyboard(){

@@ -17,28 +17,21 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    
-    var viewModel = LoginViewModel()
+    var loginViewModel = LoginViewModel()
     var disposeBag = DisposeBag()
+    private lazy var loadingAlertController = UIAlertController()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupTextFields()
-        
+        setupTextFields()
         loginButton.layer.cornerRadius = 5
-        
-        scrollView.registerForKeyboardDidShowNotification(scrollView: scrollView)
-        scrollView.registerForKeyboardWillHideNotification(scrollView: scrollView)
-    
-        let tapRecognizer = UITapGestureRecognizer(target: self, action:  #selector(self.hikeKeyboard))
-        self.view.addGestureRecognizer(tapRecognizer)
-        
-        setupRxObjects()
-    }
+        addHideKeyboardWhenTapped()
+        scrollView.registerForKeyboardNotifications()
 
-    func hikeKeyboard(){
-        self.view.endEditing(true)
+        setupRxObjects()
     }
 
     private func setupTextFields(){
@@ -49,29 +42,68 @@ class LoginViewController: UIViewController {
     
     private func setupRxObjects(){
         
+        
         passwordTextField.rx.text.map{$0}
-            .bindNext({ (password) in
-                self.viewModel.password.value = password ?? ""
+            .bindNext({ [weak self] password in
+                self?.loginViewModel.password.value = password ?? ""
             })
             .addDisposableTo(disposeBag)
         
         emailTextField.rx.text.map{$0}
-            .bindNext({ (email) in
-                self.viewModel.email.value = email ?? ""
+            .bindNext({ [weak self] email in
+                self?.loginViewModel.email.value = email ?? ""
             })
             .addDisposableTo(disposeBag)
         
-        viewModel.isValid
-            .asObservable()
-            .map{ $0 }
-            .bindTo(self.loginButton.rx.isEnabled)
+        
+        loginViewModel.error
+            .bindNext({ [weak self] error in
+                
+                self?.loadingAlertController.dismiss(animated: true, completion: {
+                    self?.showOkAlertMessage(withTitle: "Não foi possível entrar no sistema", andBody: error)
+                })
+            })
             .addDisposableTo(disposeBag)
 
     }
     
     @IBAction func loginButtonTouched(_ sender: UIButton) {
+     
+        _ = loginViewModel.isValid
+            .observeOn(MainScheduler.instance)
+            .take(1)
+            .subscribe(onNext: { [weak self] (email, password) in
+                
+                if !email {
+                    self?.showMessageInvalidEmail()
+                    return
+                } else if !password {
+                    self?.showMessageInvalidPassword()
+                    return
+                }
+                
+                
+                
+            }, onError: { (error) in
+                    print(error)
+            }, onCompleted: {
+                print("complete")
+            })
+    }
+    
+    
+    private func showMessageInvalidEmail() {
+        emailTextField.becomeFirstResponder()
+        showOkAlertMessage(withTitle: "Email inválido", andBody: "Por favor, digite um email válido.")
+    }
+    
+    private func showMessageInvalidPassword() {
+        passwordTextField.becomeFirstResponder()
+        showOkAlertMessage(withTitle: "Senha inválida", andBody: "Senha deve conter no mínimo 6 caracteres.")
         
     }
+    
+
     
 
 }
