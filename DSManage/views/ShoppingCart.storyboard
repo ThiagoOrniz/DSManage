@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,6 +73,68 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-CR-nRM">
                                 <rect key="frame" x="0.0" y="92" width="375" height="525"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingCartProductTableViewCell" id="m9y-i2-eTS" customClass="ShoppingCartProductTableViewCell" customModule="DSManage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="77"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m9y-i2-eTS" id="cgh-bL-0NH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8H-Gg-Bt9">
+                                                    <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="13k-at-qmT"/>
+                                                        <constraint firstAttribute="height" constant="60" id="zKw-FG-Cl8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4x-tC-03K">
+                                                    <rect key="frame" x="76" y="8" width="108" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 34,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epd-fi-F0W">
+                                                    <rect key="frame" x="76" y="37" width="75" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCo-NN-6y8">
+                                                    <rect key="frame" x="309" y="8" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aGZ-Cv-sFb">
+                                                    <rect key="frame" x="257" y="29" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="stepperTouched:" destination="m9y-i2-eTS" eventType="valueChanged" id="zBi-MO-NZ6"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="epd-fi-F0W" firstAttribute="top" secondItem="r4x-tC-03K" secondAttribute="bottom" constant="8" id="8Sz-qf-vKb"/>
+                                                <constraint firstItem="Z8H-Gg-Bt9" firstAttribute="centerY" secondItem="cgh-bL-0NH" secondAttribute="centerY" id="9ej-ce-oG4"/>
+                                                <constraint firstItem="XCo-NN-6y8" firstAttribute="top" secondItem="cgh-bL-0NH" secondAttribute="topMargin" id="H3e-8E-qR4"/>
+                                                <constraint firstItem="r4x-tC-03K" firstAttribute="top" secondItem="cgh-bL-0NH" secondAttribute="topMargin" id="TG0-SU-4ic"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XCo-NN-6y8" secondAttribute="trailing" constant="16" id="ZIZ-tb-0ky"/>
+                                                <constraint firstItem="Z8H-Gg-Bt9" firstAttribute="leading" secondItem="cgh-bL-0NH" secondAttribute="leadingMargin" id="hee-Cc-qD1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="aGZ-Cv-sFb" secondAttribute="trailing" constant="16" id="pHv-Sr-AJc"/>
+                                                <constraint firstItem="epd-fi-F0W" firstAttribute="leading" secondItem="Z8H-Gg-Bt9" secondAttribute="trailing" constant="8" id="qQ4-nL-DkQ"/>
+                                                <constraint firstItem="aGZ-Cv-sFb" firstAttribute="top" secondItem="XCo-NN-6y8" secondAttribute="bottom" id="t1c-DL-S7L"/>
+                                                <constraint firstItem="r4x-tC-03K" firstAttribute="leading" secondItem="Z8H-Gg-Bt9" secondAttribute="trailing" constant="8" id="xR4-jI-mNe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productImageView" destination="Z8H-Gg-Bt9" id="3yC-VA-nYi"/>
+                                            <outlet property="productNameLabel" destination="r4x-tC-03K" id="py0-lM-1a1"/>
+                                            <outlet property="productPriceLabel" destination="epd-fi-F0W" id="e1m-xF-KXd"/>
+                                            <outlet property="quantityLabel" destination="XCo-NN-6y8" id="SpJ-fs-smq"/>
+                                            <outlet property="quantityStepper" destination="aGZ-Cv-sFb" id="qr0-35-fS1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="zie-Fd-kju" id="JNE-6m-rlz"/>
                                     <outlet property="delegate" destination="zie-Fd-kju" id="kdr-Mc-UsJ"/>

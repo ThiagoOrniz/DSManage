@@ -24,15 +24,14 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var totalLabel: UILabel!
     weak var clearShoppingCartDelegate:ShoppingCartViewControllerDelegate?
 
-    var products:[Product] = []
-    var client:Client?
+    var shoppingCarViewModel: ShoppingCartViewModel?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
-        productsTableView.register(UINib(nibName: "ProductSaleTableViewCell", bundle: nil), forCellReuseIdentifier: "ShoppingCartTableViewCell")
+//        productsTableView.register(UINib(nibName: "ShoppingCartProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ShoppingCartProductTableViewCell")
 
         
         let addButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.trash,target: self,action: #selector(clear))
@@ -51,13 +50,12 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        products = ShoppingCartService.sharedInstance.getProducts()
         
         if let client = ShoppingCartService.sharedInstance.getClient(){
             self.client = client
             clientNameLabel.text = client.name
             if let photo = client.avatar {
-                clientImageView.image = UIImage(data: (photo as NSData) as Data)
+                clientImage View.image = UIImage(data: (photo as NSData) as Data)
             }
         }
         
@@ -127,10 +125,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartTableViewCell", for: indexPath) as! ShoppingCartTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartProductTableViewCell", for: indexPath) as! ShoppingCartProductTableViewCell
 
 
-        let product:Product = products[indexPath.row]
         cell.productLabel.text = product.name
         cell.quantityLabel.text = "\(product.quantity)"
         cell.priceLabel.text = "\(product.price)"

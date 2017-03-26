@@ -123,7 +123,20 @@
                             <outlet property="delegate" destination="3qE-jv-wae" id="7kJ-DT-4Mg"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="y5p-NS-EiD"/>
+                    <navigationItem key="navigationItem" id="y5p-NS-EiD">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" id="fgf-Nh-NWf">
+                            <rect key="frame" x="88" y="7" width="200" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchTextField" destination="fgf-Nh-NWf" id="sin-q8-7H6"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2RR-KV-zBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

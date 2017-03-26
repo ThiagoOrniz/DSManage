@@ -85,6 +85,7 @@
                 <outlet property="quantityLabel" destination="iR2-8F-6oP" id="QRn-SI-RAZ"/>
                 <outlet property="subtotalLabel" destination="9cr-LG-f8D" id="gxu-hS-Q8C"/>
             </connections>
+            <point key="canvasLocation" x="62.5" y="54.5"/>
         </tableViewCell>
     </objects>
     <resources>

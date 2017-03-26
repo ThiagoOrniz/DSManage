@@ -28,10 +28,24 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productLabel.text = productViewModel?.productText
         priceLabel.text = productViewModel?.priceText
         productImageView.image = UIImage(data: productViewModel?.imageData as! Data)
+        
+       updateCart()
     }
     
     @IBAction func addProductButtonTouched() {
         print("add to shopping cart touched")
+        productViewModel!.addToShoppingCart()
+        updateCart()
+    }
+    
+    private func updateCart() {
+        
+        if productViewModel!.hasSelected {
+            addProductButton.setBackgroundImage(#imageLiteral(resourceName: "ic_shopping_cart_full"), for: .normal)
+        } else {
+            addProductButton.setBackgroundImage(#imageLiteral(resourceName: "ic_shopping_cart"), for: .normal)
+        }
+      
     }
 
 }

@@ -24,6 +24,9 @@ class ShoppingCartService{
     }
     
     func add(product:Product) {
+        if products.index(where: { $0.name == product.name }) != nil{
+            return
+        }
         products.append(product)
     }
     

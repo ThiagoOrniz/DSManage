@@ -12,6 +12,8 @@ class ProductViewModel {
     
     private var product: Product
     
+    var hasSelected: Bool = false
+    
     init(product: Product) {
         self.product = product
     }
@@ -39,6 +41,18 @@ class ProductViewModel {
     
     var imageData: NSData {
         return product.image ?? NSData()
+    }
+    
+    func addToShoppingCart() {
+        
+        if hasSelected {
+            ShoppingCartService.sharedInstance.remove(product: product)
+        } else {
+            ShoppingCartService.sharedInstance.add(product: product)
+        }
+        
+        hasSelected = !hasSelected
+        
     }
 
     

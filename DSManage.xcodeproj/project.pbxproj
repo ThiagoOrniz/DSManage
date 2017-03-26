@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2721DDB0EF6DDDDDEED8C761 /* Pods_DSManageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */; };
 		87AA9F30DF17E556DF830673 /* Pods_DSManageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */; };
+		AF2AD6201E886CD000D46D96 /* ShoppingCartProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2AD61F1E886CD000D46D96 /* ShoppingCartProductTableViewCell.swift */; };
 		AF2B384B1E876340001B7D4A /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B384A1E876340001B7D4A /* ProductViewModel.swift */; };
 		AF6EF72F1E2F0CD900A92A31 /* ShoppingCartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */; };
 		AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */; };
@@ -85,6 +86,7 @@
 		6A99CA748558E54A93C062EB /* Pods_DSManageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C80719B27CE0CE9D52439CD /* Pods-DSManageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageTests/Pods-DSManageTests.release.xcconfig"; sourceTree = "<group>"; };
 		94B9EC35466ACA7D95C2989F /* Pods_DSManageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2AD61F1E886CD000D46D96 /* ShoppingCartProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartProductTableViewCell.swift; sourceTree = "<group>"; };
 		AF2B384A1E876340001B7D4A /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		AF6EF72C1E2F0CD900A92A31 /* ShoppingCartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartService.swift; path = services/ShoppingCartService.swift; sourceTree = "<group>"; };
 		AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ProductCollectionViewController+DelegateFlowLayout.swift"; path = "extensions/ProductCollectionViewController+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
@@ -194,6 +196,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AF2AD61E1E88610400D46D96 /* Shopping Cart */ = {
+			isa = PBXGroup;
+			children = (
+				AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */,
+				AFE7A19A1E2B1623008D42C0 /* controllers */,
+				AFAD26C01E5BC8B6001C19E9 /* ShoppingCartViewModel.swift */,
+			);
+			name = "Shopping Cart";
+			sourceTree = "<group>";
+		};
 		AF30AA031E2DB7A3008818C0 /* sales */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,12 +257,13 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AFAC64EF1E22D7C800E57C6D /* services */,
+				AF2AD61E1E88610400D46D96 /* Shopping Cart */,
 				AFEB27351E6CA79C00356B79 /* Product */,
 				AFEB27341E6CA6FF00356B79 /* Client */,
 				AF7030001E415D06000D864E /* database */,
 				AFC411641E318FEE000AD21C /* viewmodel */,
 				AFAC64F21E230DF000E57C6D /* helpers */,
-				AFAC64EF1E22D7C800E57C6D /* services */,
 				AFAC64EC1E22C3BF00E57C6D /* extensions */,
 				AFD60C291E21E6650006FAE7 /* controllers */,
 				AFD60C281E21DFF20006FAE7 /* views */,
@@ -331,7 +344,6 @@
 		AFC411641E318FEE000AD21C /* viewmodel */ = {
 			isa = PBXGroup;
 			children = (
-				AFAD26C01E5BC8B6001C19E9 /* ShoppingCartViewModel.swift */,
 				AFEB27321E6C797300356B79 /* LoginViewModel.swift */,
 			);
 			name = viewmodel;
@@ -343,7 +355,6 @@
 				AFA35B341E180F9A00931A83 /* Main.storyboard */,
 				AFAC65101E2314BA00E57C6D /* Sale.storyboard */,
 				AFAC650F1E2314BA00E57C6D /* Report.storyboard */,
-				AF6EF7471E2F0D4B00A92A31 /* ShoppingCart.storyboard */,
 				AF6EF7461E2F0D4B00A92A31 /* ProductSaleTableViewCell.xib */,
 			);
 			name = views;
@@ -355,7 +366,6 @@
 				AF6EF7271E2F093600A92A31 /* reports */,
 				AFE7A1981E2B1133008D42C0 /* main */,
 				AF30AA031E2DB7A3008818C0 /* sales */,
-				AFE7A19A1E2B1623008D42C0 /* shopping */,
 				AFE7A1991E2B1141008D42C0 /* cells */,
 			);
 			name = controllers;
@@ -394,17 +404,18 @@
 			isa = PBXGroup;
 			children = (
 				AF6EF7401E2F0D3A00A92A31 /* SaleTableViewCell.swift */,
-				AF6EF7411E2F0D3A00A92A31 /* ShoppingCartTableViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
 		};
-		AFE7A19A1E2B1623008D42C0 /* shopping */ = {
+		AFE7A19A1E2B1623008D42C0 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
 				AF6EF7381E2F0D1C00A92A31 /* ShoppingCartViewController.swift */,
+				AF6EF7411E2F0D3A00A92A31 /* ShoppingCartTableViewCell.swift */,
+				AF2AD61F1E886CD000D46D96 /* ShoppingCartProductTableViewCell.swift */,
 			);
-			name = shopping;
+			name = controllers;
 			sourceTree = "<group>";
 		};
 		AFEB27341E6CA6FF00356B79 /* Client */ = {
@@ -748,6 +759,7 @@
 				AFAC650A1E2314AB00E57C6D /* ForgotPasswordViewController.swift in Sources */,
 				AFAC650B1E2314AB00E57C6D /* LoginViewController.swift in Sources */,
 				AF6EF7371E2F0D1100A92A31 /* SalesTableViewController.swift in Sources */,
+				AF2AD6201E886CD000D46D96 /* ShoppingCartProductTableViewCell.swift in Sources */,
 				AFAD26BD1E5BC8A6001C19E9 /* DSManage.xcdatamodeld in Sources */,
 				AF6EF7331E2F0CFB00A92A31 /* ReportsViewController.swift in Sources */,
 				AF6EF7441E2F0D3A00A92A31 /* SaleTableViewCell.swift in Sources */,

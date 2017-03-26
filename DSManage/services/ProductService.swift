@@ -11,23 +11,6 @@ import CoreData
 
 class ProductService {
     
-//    func getProducts()->[ProductViewModel]{
-//        
-//        let p1 = ProductModel(id:"1", product:"Brush", price:11.10, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:"http://media3.onsugar.com/files/2013/09/05/148/n/4981324/ef96f097b7426d72_main.xxxlarge/i/Spring-Beauty-Product-Swaps.jpg")
-//        
-//        
-//        let p2 = ProductModel(id:"2", product:"Diorette 10", price:22.00, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:"http://qbbr.vteximg.com.br/arquivos/ids/155690-292-292/batom-mate-quem-disse-berenice_1_802060.jpg")
-//        
-//        
-//        let p3 = ProductModel(id:"3", product:"Lipstick", price:13.54, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:"https://boots.scene7.com/is/image/Boots/10106880?id=oLSaD3&fmt=jpg&fit=constrain,1&wid=504&hei=548")
-//        
-//        
-//        return [ProductViewModel(product: p1),
-//                ProductViewModel(product: p2),
-//                ProductViewModel(product: p3)]
-//
-//    }
-    
     func getProducts()->[Product]{
         
         let p1:Product = Product(context: CoreDataStack.getContext())
@@ -44,17 +27,41 @@ class ProductService {
         p2.quantity = 0
         p2.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
         
-        CoreDataStack.saveContext()
+        let p3:Product = Product(context: CoreDataStack.getContext())
+        p3.name = "Lipstick 2"
+        p3.price = 12.10
+        p3.desc = "description"
+        p3.quantity = 0
+        p3.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
+
         
-//        
-//        let p1 = ProductModel(id:"1", product:"Brush", price:11.10, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:"http://media3.onsugar.com/files/2013/09/05/148/n/4981324/ef96f097b7426d72_main.xxxlarge/i/Spring-Beauty-Product-Swaps.jpg")
-//        
-//        
-//        let p2 = ProductModel(id:"2", product:"Diorette 10", price:22.00, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:"http://qbbr.vteximg.com.br/arquivos/ids/155690-292-292/batom-mate-quem-disse-berenice_1_802060.jpg")
-//        
-//        
-//        let p3 = ProductModel(id:"3", product:"Lipstick", price:13.54, category:"beaulty", desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum hendrerit arcu, et efficitur ipsum cursus vel. Sed velit justo, varius eu odio eu, sollicitudin auctor dui", photoURL:"https://boots.scene7.com/is/image/Boots/10106880?id=oLSaD3&fmt=jpg&fit=constrain,1&wid=504&hei=548")
-//        
-        return [p1,p2]
+        let p4:Product = Product(context: CoreDataStack.getContext())
+        p4.name = "Lipstick 3"
+        p4.price = 12.10
+        p4.desc = "description"
+        p4.quantity = 0
+        p4.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
+
+        
+        let p5:Product = Product(context: CoreDataStack.getContext())
+        p5.name = "Lipstick 4"
+        p5.price = 12.10
+        p5.desc = "description"
+        p5.quantity = 0
+        p5.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
+
+
+        
+        let p6:Product = Product(context: CoreDataStack.getContext())
+        p6.name = "Lipstick 5"
+        p6.price = 12.10
+        p6.desc = "description"
+        p6.quantity = 0
+        p6.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
+
+        
+        CoreDataStack.saveContext()
+      
+        return [p1,p2,p3,p4,p5,p6]
     }
 }

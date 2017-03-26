@@ -10,17 +10,30 @@ import UIKit
 
 private let reuseIdentifier = "ProductCollectionViewCell"
 
-class ProductCollectionViewController: UICollectionViewController  {
+class ProductCollectionViewController: UICollectionViewController, UITextFieldDelegate  {
+    
+    @IBOutlet weak var searchTextField: UITextField!
     
     private var productsCollectionViewModel = ProductsCollectionViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        updateShoppingCartBarButtonItem()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(string)
+        productsCollectionViewModel.search(for: string)
+        collectionView?.reloadData()
+        
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -58,6 +71,42 @@ class ProductCollectionViewController: UICollectionViewController  {
         return cell
     }
  
+    
+    func updateShoppingCartBarButtonItem(){
+        
+        let button: UIButton = UIButton(type: .custom)
+        
+        var image: UIImage = UIImage(named: "ic_shopping_cart")!
+        
+        if !ShoppingCartService.sharedInstance.isShoppingCartEmpty(){
+            image = UIImage(named: "ic_shopping_cart_full")!
+        }
+        
+        button.tintColor = .white
+        button.setImage(image, for: UIControlState.normal)
+        button.addTarget(self, action: #selector(openCart), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 44, height: 44)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    func openCart(){
+        
+        if ShoppingCartService.sharedInstance.isShoppingCartEmpty(){
+            
+            self.showOkAlertMessage(withTitle: "The products list is empty", andBody: "Select at least one product!")
+        }
+        else{
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "ShoppingCart", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "shoppingCart") as! ShoppingCartViewController
+            
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
+
 
 }
 
@@ -89,39 +138,4 @@ class ProductCollectionViewController: UICollectionViewController  {
 //    }
 
 
-//    func updateShoppingCartBarButtonItem(){
-//
-//        let button: UIButton = UIButton(type: .custom)
-//
-//        var image: UIImage = UIImage(named: "ic_shopping_cart")!
-//
-//        if !ShoppingCartService.sharedInstance.isShoppingCartEmpty(){
-//            image = UIImage(named: "ic_shopping_cart_full")!
-//        }
-//
-//        button.tintColor = .white
-//        button.setImage(image, for: UIControlState.normal)
-//        button.addTarget(self, action: #selector(openCart), for: UIControlEvents.touchUpInside)
-//        button.frame = CGRect.init(x: 0, y: 0, width: 44, height: 44)
-//
-//        let barButton = UIBarButtonItem(customView: button)
-//        //assign button to navigationbar
-//        self.navigationItem.rightBarButtonItem = barButton
-//    }
-//
-//    func openCart(){
-//
-//        if ShoppingCartService.sharedInstance.isShoppingCartEmpty(){
-//
-//            self.showOkAlertMessage(withTitle: "The products list is empty", andBody: "Select at least one product!")
-//        }
-//        else{
-//
-//            let storyBoard : UIStoryboard = UIStoryboard(name: "ShoppingCart", bundle:nil)
-//            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "shoppingCart") as! ShoppingCartViewController
-//
-//            nextViewController.clearShoppingCartDelegate = self
-//            self.navigationController?.pushViewController(nextViewController, animated: true)
-//        }
-//    }
 //
