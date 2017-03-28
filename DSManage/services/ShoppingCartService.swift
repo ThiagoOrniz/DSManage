@@ -12,51 +12,39 @@ class ShoppingCartService{
     
     static let sharedInstance = ShoppingCartService()
     
-    private var products:[Product] = []
-    private var client:Client?
+    private var products = [ProductViewModel]()
+    private var client: ClientViewModel?
     
-    func updateClient(client:Client){
+    func updateClient(client:ClientViewModel){
         self.client = client
     }
     
-    func getClient() -> Client? {
+    func getClient() -> ClientViewModel? {
         return client
     }
     
-    func add(product:Product) {
-        if products.index(where: { $0.name == product.name }) != nil{
+    func add(product:ProductViewModel) {
+        if products.index(where: { $0.productText == product.productText }) != nil{
             return
         }
         products.append(product)
     }
     
-    func update(product:Product){
-        if let i = products.index(where: { $0.name == product.name }){
+    func update(product:ProductViewModel){
+        if let i = products.index(where: { $0.productText == product.productText }){
             products[i] = product
         }
     }
     
-    func remove(product:Product){
+    func remove(product: ProductViewModel){
         
-        print(products.contains(product))
-        products = arrayRemovingObject(object: product, fromArray:products )
-        
-        print(products)
-    }
-    
-    func getProducts()->[Product]{
-        return products
-    }
-    
-    func getProductsViewModel() -> [ProductViewModel] {
-    
-        var productsViewModel = [ProductViewModel]()
-        
-        for product in products {
-            productsViewModel.append(ProductViewModel(product: product))
+        if let i = products.index(where: { $0.productText == product.productText }){
+            products.remove(at: i)
         }
+    }
     
-        return productsViewModel
+    func getProducts() -> [ProductViewModel] {
+        return products
     }
     
     func clearAll(){
@@ -64,16 +52,12 @@ class ShoppingCartService{
         client = nil
     }
     
-    func productInteracted(_ product:Product){
+    func productInteracted(_ product:ProductViewModel){
         
-        if products.contains(where: { $0.name == product.name }) {
-            if product.quantity > 0 {
-                update(product:product)
-            } else{
-                remove(product: product)
-            }
+        if let i = products.index(where: { $0.productText == product.productText }){
+            products.remove(at: i)
         } else {
-            add(product:product)
+            products.append(product)
         }
     }
     
@@ -81,12 +65,4 @@ class ShoppingCartService{
         return products.isEmpty
     }
     
-    private  func arrayRemovingObject<U: Equatable>(object: U, fromArray:[U]) -> [U] {
-        return fromArray.filter { return $0 != object }
-    }
-    
-    private  func hasProductQuantity(_ product:ProductModel) ->Bool{
-        let qtt:Double = Double(product.quantity)!
-        return qtt > 0
-    }
 }

@@ -16,7 +16,7 @@ class ShoppingCartViewModel{
     init() {
         
 //        clientViewModel = ClientViewModel(ShoppingCartService.sharedInstance.getClient())
-        productsViewModel = ShoppingCartService.sharedInstance.getProductsViewModel()
+        productsViewModel = ShoppingCartService.sharedInstance.getProducts()
     }
     
     var clientName: String {
@@ -33,14 +33,6 @@ class ShoppingCartViewModel{
         return productsViewModel[row]
     }
     
-    func getProducts() -> [Product] {
-        
-//        for product in ShoppingCartService.sharedInstance.getProducts() {
-//            productsViewModel.append(Product(product: product))
-//        }
-        
-        return ShoppingCartService.sharedInstance.getProducts()
-    }
      
 //    func getClient() -> ClientViewModel{
 //        

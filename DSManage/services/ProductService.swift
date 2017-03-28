@@ -17,21 +17,21 @@ class ProductService {
         p1.name = "Brush"
         p1.price = 10.10
         p1.desc = "oi"
-        p1.quantity = 0
+        p1.quantity = 1
         p1.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_brush.imageset/makeup-brush-png-2.png")
         
         let p2:Product = Product(context: CoreDataStack.getContext())
         p2.name = "Lipstick"
         p2.price = 12.10
         p2.desc = "description"
-        p2.quantity = 0
+        p2.quantity = 1
         p2.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
         
         let p3:Product = Product(context: CoreDataStack.getContext())
         p3.name = "Lipstick 2"
         p3.price = 12.10
         p3.desc = "description"
-        p3.quantity = 0
+        p3.quantity = 1
         p3.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
 
         
@@ -39,7 +39,7 @@ class ProductService {
         p4.name = "Lipstick 3"
         p4.price = 12.10
         p4.desc = "description"
-        p4.quantity = 0
+        p4.quantity = 1
         p4.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
 
         
@@ -47,7 +47,7 @@ class ProductService {
         p5.name = "Lipstick 4"
         p5.price = 12.10
         p5.desc = "description"
-        p5.quantity = 0
+        p5.quantity = 1
         p5.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
 
 
@@ -56,7 +56,7 @@ class ProductService {
         p6.name = "Lipstick 5"
         p6.price = 12.10
         p6.desc = "description"
-        p6.quantity = 0
+        p6.quantity = 1
         p6.image = NSData(contentsOfFile: "/Users/Thiago/Documents/Swift/DSManage/DSManage/Assets.xcassets/product_lip_colour.imageset/3CE Lip Colour, Dangerous Matte, Matte New to Singapore beauty brands Sephora Korean makeup.png")
 
         

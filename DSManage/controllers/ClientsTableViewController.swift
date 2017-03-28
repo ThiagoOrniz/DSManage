@@ -134,7 +134,7 @@ class ClientsTableViewController: UITableViewController, NSFetchedResultsControl
         }
         
         if isSelectableClient{
-            ShoppingCartService.sharedInstance.updateClient(client: client)
+//            ShoppingCartService.sharedInstance.updateClient(client: <#T##ClientViewModel#>)
             
             clientsTableViewControllerDelegate?.didSelectClient(client)
           _ = self.navigationController?.popViewController(animated: true)

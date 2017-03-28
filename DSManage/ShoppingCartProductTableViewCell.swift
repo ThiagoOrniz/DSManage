@@ -9,6 +9,7 @@
 import UIKit
 
 class ShoppingCartProductTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
@@ -24,11 +25,14 @@ class ShoppingCartProductTableViewCell: UITableViewCell {
         productNameLabel.text = productViewModel?.productText
         productPriceLabel.text = productViewModel?.priceText
         productImageView.image = UIImage(data: productViewModel?.imageData as! Data)
+        quantityLabel.text = productViewModel?.quantityText
+        quantityStepper.value = Double(productViewModel!.quantityText)!
 
     }
     
     @IBAction func stepperTouched(_ sender: UIStepper) {
         quantityLabel.text = "\(sender.value)"
+        productViewModel?.quantityText = "\(sender.value)"
         
     }
 }

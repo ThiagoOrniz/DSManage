@@ -46,9 +46,9 @@ class ProductViewModel {
     func addToShoppingCart() {
         
         if hasSelected {
-            ShoppingCartService.sharedInstance.remove(product: product)
+            ShoppingCartService.sharedInstance.remove(product: self)
         } else {
-            ShoppingCartService.sharedInstance.add(product: product)
+            ShoppingCartService.sharedInstance.add(product: self)
         }
         
         hasSelected = !hasSelected
