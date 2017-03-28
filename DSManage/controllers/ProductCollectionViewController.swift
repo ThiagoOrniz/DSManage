@@ -94,17 +94,17 @@ class ProductCollectionViewController: UICollectionViewController, UITextFieldDe
     
     func openCart(){
         
-        if ShoppingCartService.sharedInstance.isShoppingCartEmpty(){
-            
-            self.showOkAlertMessage(withTitle: "The products list is empty", andBody: "Select at least one product!")
-        }
-        else{
-            
+//        if ShoppingCartService.sharedInstance.isShoppingCartEmpty(){
+//            
+//            self.showOkAlertMessage(withTitle: "The products list is empty", andBody: "Select at least one product!")
+//        }
+//        else{
+        
             let storyBoard : UIStoryboard = UIStoryboard(name: "ShoppingCart", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "shoppingCart") as! ShoppingCartViewController
             
             self.navigationController?.pushViewController(nextViewController, animated: true)
-        }
+//        }
     }
 
 

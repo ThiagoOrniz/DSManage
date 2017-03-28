@@ -15,6 +15,22 @@ class ShoppingCartViewModel{
 
     init() {
         
+//        clientViewModel = ClientViewModel(ShoppingCartService.sharedInstance.getClient())
+        productsViewModel = ShoppingCartService.sharedInstance.getProductsViewModel()
+    }
+    
+    var clientName: String {
+        return clientViewModel?.nameText ?? "Select a client"
+    }
+    
+    
+    func getCount() -> Int {
+        return productsViewModel.count
+    }
+    
+
+    func getProduct(for row: Int) -> ProductViewModel {
+        return productsViewModel[row]
     }
     
     func getProducts() -> [Product] {

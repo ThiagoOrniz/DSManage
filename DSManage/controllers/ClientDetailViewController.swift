@@ -159,7 +159,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         avatarImageView.image = image
         
-        self.avatar = (UIImagePNGRepresentation(image) as? NSData)!
+        self.avatar = (UIImagePNGRepresentation(image)! as Data as NSData)
 
         self.dismiss(animated: true, completion: nil)
 
@@ -168,7 +168,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 
         avatarImageView.image = image
-        self.avatar = (UIImagePNGRepresentation(image) as? NSData)!
+        self.avatar = (UIImagePNGRepresentation(image)! as Data as NSData)
 
         self.dismiss(animated: true, completion: nil)
     }

@@ -403,6 +403,7 @@
 		AFE7A1991E2B1141008D42C0 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				AF6EF7411E2F0D3A00A92A31 /* ShoppingCartTableViewCell.swift */,
 				AF6EF7401E2F0D3A00A92A31 /* SaleTableViewCell.swift */,
 			);
 			name = cells;
@@ -412,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				AF6EF7381E2F0D1C00A92A31 /* ShoppingCartViewController.swift */,
-				AF6EF7411E2F0D3A00A92A31 /* ShoppingCartTableViewCell.swift */,
 				AF2AD61F1E886CD000D46D96 /* ShoppingCartProductTableViewCell.swift */,
 			);
 			name = controllers;

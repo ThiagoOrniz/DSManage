@@ -48,6 +48,17 @@ class ShoppingCartService{
         return products
     }
     
+    func getProductsViewModel() -> [ProductViewModel] {
+    
+        var productsViewModel = [ProductViewModel]()
+        
+        for product in products {
+            productsViewModel.append(ProductViewModel(product: product))
+        }
+    
+        return productsViewModel
+    }
+    
     func clearAll(){
         products = []
         client = nil
