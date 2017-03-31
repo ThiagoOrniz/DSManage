@@ -38,10 +38,11 @@
 		AF2FAE261E8DEEED00893782 /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE201E8DEEED00893782 /* ShoppingCartTableViewCell.swift */; };
 		AF2FAE2A1E8DEF0000893782 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2FAE281E8DEF0000893782 /* Report.storyboard */; };
 		AF2FAE2B1E8DEF0000893782 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE291E8DEF0000893782 /* ReportsViewController.swift */; };
-		AF2FAE2E1E8DEF0F00893782 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE2C1E8DEF0F00893782 /* ForgotPasswordViewController.swift */; };
 		AF2FAE2F1E8DEF0F00893782 /* Rep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE2D1E8DEF0F00893782 /* Rep.swift */; };
 		AF2FAE331E8DEF3200893782 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE311E8DEF3200893782 /* LoginViewController.swift */; };
 		AF2FAE341E8DEF3200893782 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE321E8DEF3200893782 /* LoginViewModel.swift */; };
+		AF2FAE3A1E8DF57B00893782 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE381E8DF57B00893782 /* ForgotPasswordViewController.swift */; };
+		AF2FAE3B1E8DF57B00893782 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE391E8DF57B00893782 /* ForgotPasswordViewModel.swift */; };
 		AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */; };
 		AF76CE5B1E331A0200177F9B /* ProductViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */; };
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
@@ -115,10 +116,11 @@
 		AF2FAE201E8DEEED00893782 /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartTableViewCell.swift; path = Sale/ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
 		AF2FAE281E8DEF0000893782 /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Report.storyboard; path = Report/Report.storyboard; sourceTree = "<group>"; };
 		AF2FAE291E8DEF0000893782 /* ReportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportsViewController.swift; path = Report/ReportsViewController.swift; sourceTree = "<group>"; };
-		AF2FAE2C1E8DEF0F00893782 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		AF2FAE2D1E8DEF0F00893782 /* Rep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rep.swift; sourceTree = "<group>"; };
 		AF2FAE311E8DEF3200893782 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
 		AF2FAE321E8DEF3200893782 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = Login/LoginViewModel.swift; sourceTree = "<group>"; };
+		AF2FAE381E8DF57B00893782 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "Forgot Password/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
+		AF2FAE391E8DF57B00893782 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewModel.swift; path = "Forgot Password/ForgotPasswordViewModel.swift"; sourceTree = "<group>"; };
 		AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ProductCollectionViewController+DelegateFlowLayout.swift"; path = "extensions/ProductCollectionViewController+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModelTests.swift; sourceTree = "<group>"; };
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +241,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		AF2FAE371E8DF56500893782 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				AF2FAE381E8DF57B00893782 /* ForgotPasswordViewController.swift */,
+				AF2FAE391E8DF57B00893782 /* ForgotPasswordViewModel.swift */,
+			);
+			name = "Forgot Password";
+			sourceTree = "<group>";
+		};
 		AF7030001E415D06000D864E /* database */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,17 +284,17 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
-				AF2FAE301E8DEF2800893782 /* Login */,
-				AF2FAE271E8DEEF400893782 /* Report */,
 				AF2FAE1A1E8DEEE000893782 /* Sale */,
 				AF2AD61E1E88610400D46D96 /* Shopping Cart */,
 				AFEB27351E6CA79C00356B79 /* Product */,
 				AFEB27341E6CA6FF00356B79 /* Client */,
+				AF2FAE271E8DEEF400893782 /* Report */,
 				AF7030001E415D06000D864E /* database */,
-				AFAC64F21E230DF000E57C6D /* helpers */,
 				AFAC64EC1E22C3BF00E57C6D /* extensions */,
+				AFAC64F21E230DF000E57C6D /* helpers */,
+				AF2FAE301E8DEF2800893782 /* Login */,
+				AF2FAE371E8DF56500893782 /* Forgot Password */,
 				AFA35B341E180F9A00931A83 /* Main.storyboard */,
-				AF2FAE2C1E8DEF0F00893782 /* ForgotPasswordViewController.swift */,
 				AF2FAE2D1E8DEF0F00893782 /* Rep.swift */,
 				AFA35B5E1E181C6C00931A83 /* supportingFiles */,
 			);
@@ -667,6 +678,7 @@
 				AF2FAE181E8DEE9F00893782 /* ClientTableViewCell.swift in Sources */,
 				AFAD26C51E5BC8CD001C19E9 /* UIView+Shadow.swift in Sources */,
 				AF2FAE171E8DEE9F00893782 /* ClientsTableViewController.swift in Sources */,
+				AF2FAE3A1E8DF57B00893782 /* ForgotPasswordViewController.swift in Sources */,
 				AFAD26BC1E5BC8A6001C19E9 /* CoreDataStack.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
 				AFBC83261E51550E0094C075 /* Calculations.swift in Sources */,
@@ -675,7 +687,6 @@
 				AF2FAE091E8DEE9100893782 /* ProductViewModel.swift in Sources */,
 				AF2FAE151E8DEE9F00893782 /* ClientDetailViewController.swift in Sources */,
 				AF2FAE051E8DEE9000893782 /* ProductDetailViewController.swift in Sources */,
-				AF2FAE2E1E8DEF0F00893782 /* ForgotPasswordViewController.swift in Sources */,
 				AF2FADF71E8DEE7F00893782 /* ShoppingCartService.swift in Sources */,
 				AF2FAE191E8DEE9F00893782 /* ClientViewModel.swift in Sources */,
 				AF2FAE331E8DEF3200893782 /* LoginViewController.swift in Sources */,
@@ -696,6 +707,7 @@
 				AF2FAE141E8DEE9F00893782 /* Client+CoreDataProperties.swift in Sources */,
 				AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */,
 				AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
+				AF2FAE3B1E8DF57B00893782 /* ForgotPasswordViewModel.swift in Sources */,
 				AF2FAE081E8DEE9000893782 /* ProductService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
