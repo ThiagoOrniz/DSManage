@@ -18,13 +18,10 @@
 		AF2FAE031E8DEE9000893782 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FADFB1E8DEE9000893782 /* ProductCollectionViewCell.swift */; };
 		AF2FAE041E8DEE9000893782 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FADFC1E8DEE9000893782 /* ProductCollectionViewController.swift */; };
 		AF2FAE051E8DEE9000893782 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FADFD1E8DEE9000893782 /* ProductDetailViewController.swift */; };
-		AF2FAE061E8DEE9000893782 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FADFE1E8DEE9000893782 /* ProductModel.swift */; };
 		AF2FAE071E8DEE9000893782 /* ProductsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FADFF1E8DEE9000893782 /* ProductsCollectionViewModel.swift */; };
 		AF2FAE081E8DEE9000893782 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE001E8DEE9000893782 /* ProductService.swift */; };
 		AF2FAE091E8DEE9100893782 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE011E8DEE9000893782 /* ProductViewModel.swift */; };
 		AF2FAE121E8DEE9F00893782 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2FAE0A1E8DEE9F00893782 /* Client.storyboard */; };
-		AF2FAE131E8DEE9F00893782 /* Client+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0B1E8DEE9F00893782 /* Client+CoreDataClass.swift */; };
-		AF2FAE141E8DEE9F00893782 /* Client+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0C1E8DEE9F00893782 /* Client+CoreDataProperties.swift */; };
 		AF2FAE151E8DEE9F00893782 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0D1E8DEE9F00893782 /* ClientDetailViewController.swift */; };
 		AF2FAE161E8DEE9F00893782 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0E1E8DEE9F00893782 /* ClientModel.swift */; };
 		AF2FAE171E8DEE9F00893782 /* ClientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0F1E8DEE9F00893782 /* ClientsTableViewController.swift */; };
@@ -96,13 +93,10 @@
 		AF2FADFB1E8DEE9000893782 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCollectionViewCell.swift; path = Product/ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		AF2FADFC1E8DEE9000893782 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCollectionViewController.swift; path = Product/ProductCollectionViewController.swift; sourceTree = "<group>"; };
 		AF2FADFD1E8DEE9000893782 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductDetailViewController.swift; path = Product/ProductDetailViewController.swift; sourceTree = "<group>"; };
-		AF2FADFE1E8DEE9000893782 /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductModel.swift; path = Product/ProductModel.swift; sourceTree = "<group>"; };
 		AF2FADFF1E8DEE9000893782 /* ProductsCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsCollectionViewModel.swift; path = Product/ProductsCollectionViewModel.swift; sourceTree = "<group>"; };
 		AF2FAE001E8DEE9000893782 /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductService.swift; path = Product/ProductService.swift; sourceTree = "<group>"; };
 		AF2FAE011E8DEE9000893782 /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewModel.swift; path = Product/ProductViewModel.swift; sourceTree = "<group>"; };
 		AF2FAE0A1E8DEE9F00893782 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Client.storyboard; path = Client/Client.storyboard; sourceTree = "<group>"; };
-		AF2FAE0B1E8DEE9F00893782 /* Client+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Client+CoreDataClass.swift"; path = "Client/Client+CoreDataClass.swift"; sourceTree = "<group>"; };
-		AF2FAE0C1E8DEE9F00893782 /* Client+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Client+CoreDataProperties.swift"; path = "Client/Client+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AF2FAE0D1E8DEE9F00893782 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientDetailViewController.swift; path = Client/ClientDetailViewController.swift; sourceTree = "<group>"; };
 		AF2FAE0E1E8DEE9F00893782 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientModel.swift; path = Client/ClientModel.swift; sourceTree = "<group>"; };
 		AF2FAE0F1E8DEE9F00893782 /* ClientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsTableViewController.swift; path = Client/ClientsTableViewController.swift; sourceTree = "<group>"; };
@@ -284,9 +278,9 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AFEB27351E6CA79C00356B79 /* Product */,
 				AF2FAE1A1E8DEEE000893782 /* Sale */,
 				AF2AD61E1E88610400D46D96 /* Shopping Cart */,
-				AFEB27351E6CA79C00356B79 /* Product */,
 				AFEB27341E6CA6FF00356B79 /* Client */,
 				AF2FAE271E8DEEF400893782 /* Report */,
 				AF7030001E415D06000D864E /* database */,
@@ -356,8 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				AF2FAE0A1E8DEE9F00893782 /* Client.storyboard */,
-				AF2FAE0B1E8DEE9F00893782 /* Client+CoreDataClass.swift */,
-				AF2FAE0C1E8DEE9F00893782 /* Client+CoreDataProperties.swift */,
 				AF2FAE0D1E8DEE9F00893782 /* ClientDetailViewController.swift */,
 				AF2FAE0E1E8DEE9F00893782 /* ClientModel.swift */,
 				AF2FAE0F1E8DEE9F00893782 /* ClientsTableViewController.swift */,
@@ -374,7 +366,6 @@
 				AF2FADFB1E8DEE9000893782 /* ProductCollectionViewCell.swift */,
 				AF2FADFC1E8DEE9000893782 /* ProductCollectionViewController.swift */,
 				AF2FADFD1E8DEE9000893782 /* ProductDetailViewController.swift */,
-				AF2FADFE1E8DEE9000893782 /* ProductModel.swift */,
 				AF2FADFF1E8DEE9000893782 /* ProductsCollectionViewModel.swift */,
 				AF2FAE001E8DEE9000893782 /* ProductService.swift */,
 				AF2FAE011E8DEE9000893782 /* ProductViewModel.swift */,
@@ -691,20 +682,17 @@
 				AF2FAE191E8DEE9F00893782 /* ClientViewModel.swift in Sources */,
 				AF2FAE331E8DEF3200893782 /* LoginViewController.swift in Sources */,
 				AF2FAE241E8DEEED00893782 /* SalesTableViewController.swift in Sources */,
-				AF2FAE061E8DEE9000893782 /* ProductModel.swift in Sources */,
 				AF2FAE161E8DEE9F00893782 /* ClientModel.swift in Sources */,
 				AF2FAE251E8DEEED00893782 /* SaleTableViewCell.swift in Sources */,
 				AF2FAE071E8DEE9000893782 /* ProductsCollectionViewModel.swift in Sources */,
 				AF2FAE2B1E8DEF0000893782 /* ReportsViewController.swift in Sources */,
 				AFAD26BD1E5BC8A6001C19E9 /* DSManage.xcdatamodeld in Sources */,
-				AF2FAE131E8DEE9F00893782 /* Client+CoreDataClass.swift in Sources */,
 				AF2FAE231E8DEEED00893782 /* SaleDetailViewController.swift in Sources */,
 				AF2FAE261E8DEEED00893782 /* ShoppingCartTableViewCell.swift in Sources */,
 				AF2FADF91E8DEE7F00893782 /* ShoppingCartViewModel.swift in Sources */,
 				AFAC65001E23149C00E57C6D /* UIViewControllerExtensions.swift in Sources */,
 				AF2FAE031E8DEE9000893782 /* ProductCollectionViewCell.swift in Sources */,
 				AF2FAE2F1E8DEF0F00893782 /* Rep.swift in Sources */,
-				AF2FAE141E8DEE9F00893782 /* Client+CoreDataProperties.swift in Sources */,
 				AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */,
 				AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
 				AF2FAE3B1E8DF57B00893782 /* ForgotPasswordViewModel.swift in Sources */,

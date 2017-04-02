@@ -70,6 +70,6 @@ class ClientViewModel: NSObject{
     }
     
     func saveClient(){
-        Client.saveClient(client)
+      //  Client.saveClient(client)
     }
 }

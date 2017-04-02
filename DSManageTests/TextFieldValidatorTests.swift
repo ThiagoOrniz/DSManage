@@ -20,7 +20,7 @@ class TextFieldValidatorTests: XCTestCase {
     }
     
     func testValidEmail() {
-        
+
         var email = "email@test.com"
         XCTAssert(TextfieldValidator.validateEmail(email))
         

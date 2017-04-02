@@ -37,7 +37,7 @@ class SaleDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     private func populateView(){
         self.clientLabel.text = sale?.client?.name
         
-        self.products = sale?.products?.allObjects as! [Product]
+       // self.products = sale?.products?.allObjects as! [Product]
         
         
         if let photo = self.sale?.client?.avatar {

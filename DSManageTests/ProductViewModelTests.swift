@@ -23,15 +23,10 @@ class ProductViewModelTests: XCTestCase {
     
     // compares if model is equivalent with its view model
     func testValidateProduct() {
-        let product = Product(id: "01", product: "name", price: 13.3, category: "cat", desc: "desc", photoURL: "photo")
         
-        let productVIewModel = ProductViewModel(product: product)
-        
-        XCTAssert(productVIewModel.productText == product.product)
-        XCTAssert(productVIewModel.priceText == "13.30")
-        XCTAssert(productVIewModel.categoryText == product.category)
-        XCTAssert(productVIewModel.descText == product.desc)
-//        XCTAssert(productVIewModel.photoText == product.photoURL)
+        let product = Product(context: CoreDataStack.getContext())
+        product.name = "name"
+        product.price = 18.00
         
     }
     

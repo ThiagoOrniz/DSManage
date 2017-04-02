@@ -127,7 +127,7 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         
         clientModel.avatar = avatar
         
-        Client.saveClient(clientModel)
+        //Client.saveClient(clientModel)
         
        _ = self.navigationController?.popViewController(animated: true)
     }

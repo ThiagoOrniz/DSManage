@@ -32,10 +32,10 @@ class ProductViewModel {
 
     var quantityText: String {
         get{
-            return "\(product.quantity)"
+            return ""
         }
         set{
-            product.quantity = Int16(newValue)!
+            
         }
     }
     
