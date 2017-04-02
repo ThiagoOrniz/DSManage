@@ -14,10 +14,6 @@ class ProductViewModel {
     
     var hasSelected: Bool = false
     
-    init(product: Product) {
-        self.product = product
-    }
-    
     var productText: String {
         return product.name ?? "Product"
     }
@@ -37,6 +33,10 @@ class ProductViewModel {
         set{
             
         }
+    }
+    
+    init(product: Product) {
+        self.product = product
     }
     
     var imageData: NSData {

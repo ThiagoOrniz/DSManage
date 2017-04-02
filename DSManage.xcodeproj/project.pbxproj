@@ -42,6 +42,8 @@
 		AF2FAE3B1E8DF57B00893782 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE391E8DF57B00893782 /* ForgotPasswordViewModel.swift */; };
 		AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */; };
 		AF76CE5B1E331A0200177F9B /* ProductViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */; };
+		AF8391271E91A6FB0082375C /* ItemSaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8391261E91A6FB0082375C /* ItemSaleViewModel.swift */; };
+		AF8391291E91A74E0082375C /* ItemSaleViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8391281E91A74E0082375C /* ItemSaleViewModelTests.swift */; };
 		AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B301E180F9A00931A83 /* AppDelegate.swift */; };
 		AFA35B361E180F9A00931A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B341E180F9A00931A83 /* Main.storyboard */; };
 		AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B371E180F9A00931A83 /* Assets.xcassets */; };
@@ -117,6 +119,8 @@
 		AF2FAE391E8DF57B00893782 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewModel.swift; path = "Forgot Password/ForgotPasswordViewModel.swift"; sourceTree = "<group>"; };
 		AF6EF7301E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ProductCollectionViewController+DelegateFlowLayout.swift"; path = "extensions/ProductCollectionViewController+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModelTests.swift; sourceTree = "<group>"; };
+		AF8391261E91A6FB0082375C /* ItemSaleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemSaleViewModel.swift; path = "Item Sale/ItemSaleViewModel.swift"; sourceTree = "<group>"; };
+		AF8391281E91A74E0082375C /* ItemSaleViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSaleViewModelTests.swift; sourceTree = "<group>"; };
 		AFA35B2D1E180F9A00931A83 /* DSManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B301E180F9A00931A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFA35B351E180F9A00931A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -253,6 +257,14 @@
 			name = database;
 			sourceTree = "<group>";
 		};
+		AF8391231E91A6B00082375C /* Item Sale */ = {
+			isa = PBXGroup;
+			children = (
+				AF8391261E91A6FB0082375C /* ItemSaleViewModel.swift */,
+			);
+			name = "Item Sale";
+			sourceTree = "<group>";
+		};
 		AFA35B241E180F9A00931A83 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +290,7 @@
 		AFA35B2F1E180F9A00931A83 /* DSManage */ = {
 			isa = PBXGroup;
 			children = (
+				AF8391231E91A6B00082375C /* Item Sale */,
 				AFEB27351E6CA79C00356B79 /* Product */,
 				AF2FAE1A1E8DEEE000893782 /* Sale */,
 				AF2AD61E1E88610400D46D96 /* Shopping Cart */,
@@ -301,6 +314,7 @@
 				AFA35B471E180F9B00931A83 /* Info.plist */,
 				AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */,
 				AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */,
+				AF8391281E91A74E0082375C /* ItemSaleViewModelTests.swift */,
 			);
 			path = DSManageTests;
 			sourceTree = "<group>";
@@ -688,6 +702,7 @@
 				AF2FAE2B1E8DEF0000893782 /* ReportsViewController.swift in Sources */,
 				AFAD26BD1E5BC8A6001C19E9 /* DSManage.xcdatamodeld in Sources */,
 				AF2FAE231E8DEEED00893782 /* SaleDetailViewController.swift in Sources */,
+				AF8391271E91A6FB0082375C /* ItemSaleViewModel.swift in Sources */,
 				AF2FAE261E8DEEED00893782 /* ShoppingCartTableViewCell.swift in Sources */,
 				AF2FADF91E8DEE7F00893782 /* ShoppingCartViewModel.swift in Sources */,
 				AFAC65001E23149C00E57C6D /* UIViewControllerExtensions.swift in Sources */,
@@ -704,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8391291E91A74E0082375C /* ItemSaleViewModelTests.swift in Sources */,
 				AF76CE5B1E331A0200177F9B /* ProductViewModelTests.swift in Sources */,
 				AFAC65161E23271200E57C6D /* TextFieldValidatorTests.swift in Sources */,
 			);
