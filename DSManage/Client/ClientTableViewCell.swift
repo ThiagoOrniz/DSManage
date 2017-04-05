@@ -35,7 +35,7 @@ class ClientTableViewCell: UITableViewCell {
         
         clientNameLabel.text = clientViewModel.nameText
         emailLabel.text = clientViewModel.emailText
-        avatarImageView.image = UIImage(named: clientViewModel.photoText)
+       // avatarImageView.image = UIImage(named: clientViewModel.avatar)
         
     }
 

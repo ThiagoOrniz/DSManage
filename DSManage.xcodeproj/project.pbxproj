@@ -49,6 +49,10 @@
 		AFA35B381E180F9A00931A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B371E180F9A00931A83 /* Assets.xcassets */; };
 		AFA35B3B1E180F9A00931A83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA35B391E180F9A00931A83 /* LaunchScreen.storyboard */; };
 		AFA35B511E180F9B00931A83 /* DSManageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35B501E180F9B00931A83 /* DSManageUITests.swift */; };
+		AFA5968D1E947528005AF4FE /* ClientTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5968C1E947528005AF4FE /* ClientTableViewModel.swift */; };
+		AFA5968F1E9475BB005AF4FE /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5968E1E9475BB005AF4FE /* ClientTests.swift */; };
+		AFA596931E9477C7005AF4FE /* ClientDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA596921E9477C7005AF4FE /* ClientDAO.swift */; };
+		AFA596971E948343005AF4FE /* ClientTableViewModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA596961E948343005AF4FE /* ClientTableViewModelDataSource.swift */; };
 		AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */; };
 		AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */; };
 		AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */; };
@@ -132,6 +136,10 @@
 		AFA35B4C1E180F9B00931A83 /* DSManageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSManageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA35B501E180F9B00931A83 /* DSManageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSManageUITests.swift; sourceTree = "<group>"; };
 		AFA35B521E180F9B00931A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFA5968C1E947528005AF4FE /* ClientTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientTableViewModel.swift; path = Client/ClientTableViewModel.swift; sourceTree = "<group>"; };
+		AFA5968E1E9475BB005AF4FE /* ClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
+		AFA596921E9477C7005AF4FE /* ClientDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientDAO.swift; path = Client/ClientDAO.swift; sourceTree = "<group>"; };
+		AFA596961E948343005AF4FE /* ClientTableViewModelDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientTableViewModelDataSource.swift; path = Client/ClientTableViewModelDataSource.swift; sourceTree = "<group>"; };
 		AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldValidator.swift; path = helpers/TextFieldValidator.swift; sourceTree = "<group>"; };
 		AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+KeyboardNotification.swift"; path = "extensions/UIScrollView+KeyboardNotification.swift"; sourceTree = "<group>"; };
 		AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+Accessory.swift"; path = "extensions/UITextField+Accessory.swift"; sourceTree = "<group>"; };
@@ -315,6 +323,7 @@
 				AFAC65151E23271200E57C6D /* TextFieldValidatorTests.swift */,
 				AF76CE5A1E331A0200177F9B /* ProductViewModelTests.swift */,
 				AF8391281E91A74E0082375C /* ItemSaleViewModelTests.swift */,
+				AFA5968E1E9475BB005AF4FE /* ClientTests.swift */,
 			);
 			path = DSManageTests;
 			sourceTree = "<group>";
@@ -363,12 +372,15 @@
 		AFEB27341E6CA6FF00356B79 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				AFA596961E948343005AF4FE /* ClientTableViewModelDataSource.swift */,
 				AF2FAE0A1E8DEE9F00893782 /* Client.storyboard */,
 				AF2FAE0D1E8DEE9F00893782 /* ClientDetailViewController.swift */,
 				AF2FAE0E1E8DEE9F00893782 /* ClientModel.swift */,
 				AF2FAE0F1E8DEE9F00893782 /* ClientsTableViewController.swift */,
 				AF2FAE101E8DEE9F00893782 /* ClientTableViewCell.swift */,
+				AFA5968C1E947528005AF4FE /* ClientTableViewModel.swift */,
 				AF2FAE111E8DEE9F00893782 /* ClientViewModel.swift */,
+				AFA596921E9477C7005AF4FE /* ClientDAO.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -691,8 +703,10 @@
 				AF2FAE041E8DEE9000893782 /* ProductCollectionViewController.swift in Sources */,
 				AF2FAE091E8DEE9100893782 /* ProductViewModel.swift in Sources */,
 				AF2FAE151E8DEE9F00893782 /* ClientDetailViewController.swift in Sources */,
+				AFA596931E9477C7005AF4FE /* ClientDAO.swift in Sources */,
 				AF2FAE051E8DEE9000893782 /* ProductDetailViewController.swift in Sources */,
 				AF2FADF71E8DEE7F00893782 /* ShoppingCartService.swift in Sources */,
+				AFA596971E948343005AF4FE /* ClientTableViewModelDataSource.swift in Sources */,
 				AF2FAE191E8DEE9F00893782 /* ClientViewModel.swift in Sources */,
 				AF2FAE331E8DEF3200893782 /* LoginViewController.swift in Sources */,
 				AF2FAE241E8DEEED00893782 /* SalesTableViewController.swift in Sources */,
@@ -711,6 +725,7 @@
 				AF6EF7311E2F0CE900A92A31 /* ProductCollectionViewController+DelegateFlowLayout.swift in Sources */,
 				AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */,
 				AF2FAE3B1E8DF57B00893782 /* ForgotPasswordViewModel.swift in Sources */,
+				AFA5968D1E947528005AF4FE /* ClientTableViewModel.swift in Sources */,
 				AF2FAE081E8DEE9000893782 /* ProductService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,6 +736,7 @@
 			files = (
 				AF8391291E91A74E0082375C /* ItemSaleViewModelTests.swift in Sources */,
 				AF76CE5B1E331A0200177F9B /* ProductViewModelTests.swift in Sources */,
+				AFA5968F1E9475BB005AF4FE /* ClientTests.swift in Sources */,
 				AFAC65161E23271200E57C6D /* TextFieldValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

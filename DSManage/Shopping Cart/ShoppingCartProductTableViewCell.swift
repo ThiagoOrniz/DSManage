@@ -25,14 +25,14 @@ class ShoppingCartProductTableViewCell: UITableViewCell {
         productNameLabel.text = productViewModel?.productText
         productPriceLabel.text = productViewModel?.priceText
         productImageView.image = UIImage(data: productViewModel?.imageData as! Data)
-        quantityLabel.text = productViewModel?.quantityText
-        quantityStepper.value = Double(productViewModel!.quantityText)!
+//        quantityLabel.text = productViewModel?.quantityText
+//        quantityStepper.value = Double(productViewModel!.quantityText)!
 
     }
     
     @IBAction func stepperTouched(_ sender: UIStepper) {
         quantityLabel.text = "\(sender.value)"
-        productViewModel?.quantityText = "\(sender.value)"
+//        productViewModel?.quantityText = "\(sender.value)"
         
     }
 }

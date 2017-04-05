@@ -69,13 +69,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8K-D1-CuF">
-                                                    <rect key="frame" x="129" y="172" width="32" height="32"/>
+                                                    <rect key="frame" x="65" y="172" width="96" height="32"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="ZE0-9y-oYl"/>
                                                         <constraint firstAttribute="height" constant="32" id="lP7-E2-3B6"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" image="ic_shopping_cart"/>
+                                                    <state key="normal" title="ADD TO CART">
+                                                        <color key="titleColor" red="0.51372549020000002" green="0.70196078429999997" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="addProductButtonTouched" destination="9J8-ek-sB8" eventType="touchUpInside" id="jsC-nZ-acE"/>
                                                     </connections>
@@ -233,7 +235,6 @@
     </scenes>
     <resources>
         <image name="ic_label" width="24" height="24"/>
-        <image name="ic_shopping_cart" width="32" height="32"/>
         <image name="product_brush" width="640" height="484"/>
     </resources>
 </document>

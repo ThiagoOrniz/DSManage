@@ -13,15 +13,15 @@ protocol FetchClients: class {
     func didFetchClienta(_ clients:[ClientViewModel])
 }
 
-class ClientViewModel: NSObject{
+class ClientViewModel {
     
-    private var client = ClientModel()
+    private var client = Client()
     
     var fetchClients:FetchClients?
     
     var nameText: String {
         get{
-            return client.name
+            return client.name ?? ""
         }
         set{
             client.name = newValue
@@ -30,7 +30,7 @@ class ClientViewModel: NSObject{
     
     var emailText: String {
         get{
-            return client.email
+            return client.email ?? ""
         }
         set{
             client.email = newValue
@@ -39,7 +39,7 @@ class ClientViewModel: NSObject{
     
     var addressText: String {
         get{
-            return client.address
+            return client.address ?? ""
         }
         set{
             client.address = newValue
@@ -48,24 +48,19 @@ class ClientViewModel: NSObject{
     
     var phoneText: String {
         get{
-            return client.phone
+            return client.phone ?? ""
         }
         set{
             client.phone = newValue
         }
     }
     
-    var photoText: String {
-        return client.photoURL
+    var avatar: Data {
+        return client.avatar as Data? ?? Data()
     }
     
-    override init(){
-        super.init()
-        
-        self.client = ClientModel()
-    }
 
-    init(client:ClientModel){
+    init(client: Client){
         self.client = client
     }
     

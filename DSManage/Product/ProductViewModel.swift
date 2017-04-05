@@ -12,6 +12,10 @@ class ProductViewModel {
     
     private var product: Product
     
+    init(product: Product) {
+        self.product = product
+    }
+    
     var hasSelected: Bool = false
     
     var productText: String {
@@ -24,19 +28,6 @@ class ProductViewModel {
 
     var descText: String {
         return product.desc ?? ""
-    }
-
-    var quantityText: String {
-        get{
-            return ""
-        }
-        set{
-            
-        }
-    }
-    
-    init(product: Product) {
-        self.product = product
     }
     
     var imageData: NSData {

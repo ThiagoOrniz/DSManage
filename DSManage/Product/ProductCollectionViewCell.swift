@@ -41,9 +41,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private func updateCart() {
         
         if productViewModel!.hasSelected {
-            addProductButton.setBackgroundImage(#imageLiteral(resourceName: "ic_shopping_cart_full"), for: .normal)
+            addProductButton.titleLabel?.text = "REMOVE FROM CART"
+//            addProductButton.setBackgroundImage(#imageLiteral(resourceName: "ic_shopping_cart_full"), for: .normal)
         } else {
-            addProductButton.setBackgroundImage(#imageLiteral(resourceName: "ic_shopping_cart"), for: .normal)
+            addProductButton.titleLabel?.text = "ADD TO CART"
+
+//            addProductButton.setBackgroundImage(#imageLiteral(resourceName: "ic_shopping_cart"), for: .normal)
         }
       
     }
