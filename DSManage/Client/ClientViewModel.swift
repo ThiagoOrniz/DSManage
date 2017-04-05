@@ -9,15 +9,11 @@
 import Foundation
 import CoreData
 
-protocol FetchClients: class {
-    func didFetchClienta(_ clients:[ClientViewModel])
-}
+
 
 class ClientViewModel {
     
     private var client = Client()
-    
-    var fetchClients:FetchClients?
     
     var nameText: String {
         get{
@@ -56,15 +52,28 @@ class ClientViewModel {
     }
     
     var avatar: Data {
-        return client.avatar as Data? ?? Data()
+        get {
+            return client.avatar as Data? ?? Data()
+        }
+        set {
+            client.avatar = newValue as NSData?
+        }
     }
     
 
+    init(){
+        client = Client(context: CoreDataStack.getContext())
+    }
+    
     init(client: Client){
         self.client = client
     }
     
     func saveClient(){
-      //  Client.saveClient(client)
+        ClientDAO.saveObject()
+    }
+    
+    func removeClient() {
+        ClientDAO.removeObject(client)
     }
 }

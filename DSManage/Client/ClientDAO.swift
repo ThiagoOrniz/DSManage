@@ -45,4 +45,10 @@ class ClientDAO: NSObject {
         CoreDataStack.saveContext()
     }
     
+    class func saveObject() {
+        
+        CoreDataStack.saveContext()
+    
+    }
+    
 }

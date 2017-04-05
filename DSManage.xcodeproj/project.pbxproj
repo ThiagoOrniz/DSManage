@@ -23,7 +23,6 @@
 		AF2FAE091E8DEE9100893782 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE011E8DEE9000893782 /* ProductViewModel.swift */; };
 		AF2FAE121E8DEE9F00893782 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2FAE0A1E8DEE9F00893782 /* Client.storyboard */; };
 		AF2FAE151E8DEE9F00893782 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0D1E8DEE9F00893782 /* ClientDetailViewController.swift */; };
-		AF2FAE161E8DEE9F00893782 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0E1E8DEE9F00893782 /* ClientModel.swift */; };
 		AF2FAE171E8DEE9F00893782 /* ClientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE0F1E8DEE9F00893782 /* ClientsTableViewController.swift */; };
 		AF2FAE181E8DEE9F00893782 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE101E8DEE9F00893782 /* ClientTableViewCell.swift */; };
 		AF2FAE191E8DEE9F00893782 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FAE111E8DEE9F00893782 /* ClientViewModel.swift */; };
@@ -53,6 +52,7 @@
 		AFA5968F1E9475BB005AF4FE /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5968E1E9475BB005AF4FE /* ClientTests.swift */; };
 		AFA596931E9477C7005AF4FE /* ClientDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA596921E9477C7005AF4FE /* ClientDAO.swift */; };
 		AFA596971E948343005AF4FE /* ClientTableViewModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA596961E948343005AF4FE /* ClientTableViewModelDataSource.swift */; };
+		AFA596991E9493AC005AF4FE /* ClientDetailUIImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA596981E9493AC005AF4FE /* ClientDetailUIImagePicker.swift */; };
 		AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */; };
 		AFAC64FE1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */; };
 		AFAC64FF1E23149C00E57C6D /* UITextField+Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */; };
@@ -61,7 +61,6 @@
 		AFAD26BC1E5BC8A6001C19E9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAD26B71E5BC8A6001C19E9 /* CoreDataStack.swift */; };
 		AFAD26BD1E5BC8A6001C19E9 /* DSManage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFAD26B81E5BC8A6001C19E9 /* DSManage.xcdatamodeld */; };
 		AFAD26C51E5BC8CD001C19E9 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAD26C41E5BC8CD001C19E9 /* UIView+Shadow.swift */; };
-		AFBC83261E51550E0094C075 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC83251E51550E0094C075 /* Calculations.swift */; };
 		F0A16747EE2B8986723E96FD /* Pods_DSManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,7 +103,6 @@
 		AF2FAE011E8DEE9000893782 /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewModel.swift; path = Product/ProductViewModel.swift; sourceTree = "<group>"; };
 		AF2FAE0A1E8DEE9F00893782 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Client.storyboard; path = Client/Client.storyboard; sourceTree = "<group>"; };
 		AF2FAE0D1E8DEE9F00893782 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientDetailViewController.swift; path = Client/ClientDetailViewController.swift; sourceTree = "<group>"; };
-		AF2FAE0E1E8DEE9F00893782 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientModel.swift; path = Client/ClientModel.swift; sourceTree = "<group>"; };
 		AF2FAE0F1E8DEE9F00893782 /* ClientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsTableViewController.swift; path = Client/ClientsTableViewController.swift; sourceTree = "<group>"; };
 		AF2FAE101E8DEE9F00893782 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientTableViewCell.swift; path = Client/ClientTableViewCell.swift; sourceTree = "<group>"; };
 		AF2FAE111E8DEE9F00893782 /* ClientViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientViewModel.swift; path = Client/ClientViewModel.swift; sourceTree = "<group>"; };
@@ -140,6 +138,7 @@
 		AFA5968E1E9475BB005AF4FE /* ClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
 		AFA596921E9477C7005AF4FE /* ClientDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientDAO.swift; path = Client/ClientDAO.swift; sourceTree = "<group>"; };
 		AFA596961E948343005AF4FE /* ClientTableViewModelDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientTableViewModelDataSource.swift; path = Client/ClientTableViewModelDataSource.swift; sourceTree = "<group>"; };
+		AFA596981E9493AC005AF4FE /* ClientDetailUIImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientDetailUIImagePicker.swift; path = Client/ClientDetailUIImagePicker.swift; sourceTree = "<group>"; };
 		AFAC64F91E23148F00E57C6D /* TextFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldValidator.swift; path = helpers/TextFieldValidator.swift; sourceTree = "<group>"; };
 		AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+KeyboardNotification.swift"; path = "extensions/UIScrollView+KeyboardNotification.swift"; sourceTree = "<group>"; };
 		AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+Accessory.swift"; path = "extensions/UITextField+Accessory.swift"; sourceTree = "<group>"; };
@@ -148,7 +147,6 @@
 		AFAD26B71E5BC8A6001C19E9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = database/CoreDataStack.swift; sourceTree = "<group>"; };
 		AFAD26B91E5BC8A6001C19E9 /* DSManage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DSManage.xcdatamodel; sourceTree = "<group>"; };
 		AFAD26C41E5BC8CD001C19E9 /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Shadow.swift"; path = "extensions/UIView+Shadow.swift"; sourceTree = "<group>"; };
-		AFBC83251E51550E0094C075 /* Calculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
 		B607F4E84A2B4C07FDF2EE3F /* Pods-DSManageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSManageUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSManageUITests/Pods-DSManageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A68B7F2D6F4BB8386E9A63 /* Pods_DSManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -356,7 +354,6 @@
 				AFAC64FB1E23149C00E57C6D /* UIScrollView+KeyboardNotification.swift */,
 				AFAC64FC1E23149C00E57C6D /* UITextField+Accessory.swift */,
 				AFAC64FD1E23149C00E57C6D /* UIViewControllerExtensions.swift */,
-				AFBC83251E51550E0094C075 /* Calculations.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -375,12 +372,12 @@
 				AFA596961E948343005AF4FE /* ClientTableViewModelDataSource.swift */,
 				AF2FAE0A1E8DEE9F00893782 /* Client.storyboard */,
 				AF2FAE0D1E8DEE9F00893782 /* ClientDetailViewController.swift */,
-				AF2FAE0E1E8DEE9F00893782 /* ClientModel.swift */,
 				AF2FAE0F1E8DEE9F00893782 /* ClientsTableViewController.swift */,
 				AF2FAE101E8DEE9F00893782 /* ClientTableViewCell.swift */,
 				AFA5968C1E947528005AF4FE /* ClientTableViewModel.swift */,
 				AF2FAE111E8DEE9F00893782 /* ClientViewModel.swift */,
 				AFA596921E9477C7005AF4FE /* ClientDAO.swift */,
+				AFA596981E9493AC005AF4FE /* ClientDetailUIImagePicker.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -698,11 +695,11 @@
 				AF2FAE3A1E8DF57B00893782 /* ForgotPasswordViewController.swift in Sources */,
 				AFAD26BC1E5BC8A6001C19E9 /* CoreDataStack.swift in Sources */,
 				AFA35B311E180F9A00931A83 /* AppDelegate.swift in Sources */,
-				AFBC83261E51550E0094C075 /* Calculations.swift in Sources */,
 				AFAC64FA1E23148F00E57C6D /* TextFieldValidator.swift in Sources */,
 				AF2FAE041E8DEE9000893782 /* ProductCollectionViewController.swift in Sources */,
 				AF2FAE091E8DEE9100893782 /* ProductViewModel.swift in Sources */,
 				AF2FAE151E8DEE9F00893782 /* ClientDetailViewController.swift in Sources */,
+				AFA596991E9493AC005AF4FE /* ClientDetailUIImagePicker.swift in Sources */,
 				AFA596931E9477C7005AF4FE /* ClientDAO.swift in Sources */,
 				AF2FAE051E8DEE9000893782 /* ProductDetailViewController.swift in Sources */,
 				AF2FADF71E8DEE7F00893782 /* ShoppingCartService.swift in Sources */,
@@ -710,7 +707,6 @@
 				AF2FAE191E8DEE9F00893782 /* ClientViewModel.swift in Sources */,
 				AF2FAE331E8DEF3200893782 /* LoginViewController.swift in Sources */,
 				AF2FAE241E8DEEED00893782 /* SalesTableViewController.swift in Sources */,
-				AF2FAE161E8DEE9F00893782 /* ClientModel.swift in Sources */,
 				AF2FAE251E8DEEED00893782 /* SaleTableViewCell.swift in Sources */,
 				AF2FAE071E8DEE9000893782 /* ProductsCollectionViewModel.swift in Sources */,
 				AF2FAE2B1E8DEF0000893782 /* ReportsViewController.swift in Sources */,

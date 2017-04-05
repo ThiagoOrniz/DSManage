@@ -81,9 +81,20 @@ class ClientsTableViewController: UITableViewController, ObjectHasUpdated {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        
+        let clientDetailViewController = segue.destination as! ClientDetailViewController
+        
+        if let selectedIndexPath = self.tableView.indexPathsForSelectedRows?.first
+        {
+            clientDetailViewController.setClient(clientTableViewModel.get(at: selectedIndexPath.row), isEditingClient: true)
+        } else {
+            print ("couldnt get selected item")
+        }
         
     }
+
     
     func hasUpdated() {
         tableView.reloadData()

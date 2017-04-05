@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import MessageUI
 
-class ClientDetailViewController: UIViewController,UIImagePickerControllerDelegate,
-UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
+class ClientDetailViewController: UIViewController {
 
     @IBOutlet weak var clientScrollView: UIScrollView!
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -27,10 +25,11 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     private let imagePicker = UIImagePickerController()
     private var isEditingClient = false
-    private var client:Client?
-    private var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
+    private var clientViewModel: ClientViewModel!
+    
+    private var tapRecognizer = UITapGestureRecognizer()
 
-    private var avatar = NSData()
+    var avatar = NSData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,8 +88,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.view.endEditing(true)
     }
     
-    public func setClient(client:Client, isEditingClient:Bool){
-        self.client = client
+    public func setClient(_ client:ClientViewModel, isEditingClient:Bool){
+        self.clientViewModel = client
         self.isEditingClient = isEditingClient
         
     }
@@ -98,36 +97,28 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     private func populateView(){
     
-        self.nameTextField.text = self.client?.name
-        self.emailTextField.text = self.client?.email
-        self.phoneTextField.text = self.client?.phone
-        self.addressTextField.text = self.client?.address
-        
-        if let photo = self.client?.avatar {
-            self.avatarImageView.image = UIImage(data: (photo as NSData) as Data)
-        }
-        
+        self.nameTextField.text = self.clientViewModel.nameText
+        self.emailTextField.text = self.clientViewModel.emailText
+        self.phoneTextField.text = self.clientViewModel.phoneText
+        self.addressTextField.text = self.clientViewModel.addressText
+//        
+        self.avatarImageView.image = UIImage(data: clientViewModel.avatar)
     }
     
     func saveButtonTouched(){
         
-        if(!self.validate()){
-            return
-        }
         if !isEditingClient {
-            self.client = nil
+            clientViewModel = ClientViewModel()
         }
         
-        var clientModel = ClientModel(id: client?.id ?? "",
-                                      name: nameTextField.text!,
-                                      email: emailTextField.text!,
-                                      phone: phoneTextField.text!,
-                                      address: addressTextField.text!,
-                                      photoURL: "")
+        clientViewModel.nameText = nameTextField.text!
+        clientViewModel.emailText = emailTextField.text!
+        clientViewModel.phoneText = phoneTextField.text!
+        clientViewModel.addressText = addressTextField.text!
         
-        clientModel.avatar = avatar
-        
-        //Client.saveClient(clientModel)
+        clientViewModel.avatar = avatar as Data
+                
+        clientViewModel.saveClient()
         
        _ = self.navigationController?.popViewController(animated: true)
     }
@@ -153,32 +144,12 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         self.present(alert,animated: true,completion: nil)
     }
 
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        avatarImageView.image = image
-        
-        self.avatar = (UIImagePNGRepresentation(image)! as Data as NSData)
-
-        self.dismiss(animated: true, completion: nil)
-
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-
-        avatarImageView.image = image
-        self.avatar = (UIImagePNGRepresentation(image)! as Data as NSData)
-
-        self.dismiss(animated: true, completion: nil)
-    }
-
     private func showImage(){
         //todo show image detailed
     }
     
-    private func openCamera(){
-
+    func openCamera(){
+        
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             self.imagePicker.allowsEditing = false
@@ -190,8 +161,8 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         }
     }
     
-    private func openLibrary(){
-
+    func openLibrary(){
+        
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             self.imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             self.imagePicker.allowsEditing = true
@@ -200,17 +171,17 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
         else{
             self.showOkAlertMessage(withTitle: "No Library", andBody: "Sorry, this device couldn't open the library")
         }
-
+        
     }
     
     @IBAction func emailButtonTouched(_ sender: UIButton) {
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewController, animated: true, completion: nil)
-        } else {
-            
-            self.showOkAlertMessage(withTitle: "Could Not Send Email", andBody: "Your device could not send e-mail.  Please check e-mail configuration and try again.")
-        }
+//        let mailComposeViewController = configuredMailComposeViewController()
+//        if MFMailComposeViewController.canSendMail() {
+//            self.present(mailComposeViewController, animated: true, completion: nil)
+//        } else {
+//            
+//            self.showOkAlertMessage(withTitle: "Could Not Send Email", andBody: "Your device could not send e-mail.  Please check e-mail configuration and try again.")
+//        }
     }
     
     @IBAction func deleteButtonTouched(_ sender: UIButton) {
@@ -220,20 +191,17 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
             _ = self.navigationController?.popViewController(animated: true)
         }
         
-        if client != nil{
-            CoreDataStack.getContext().delete(client!)
-            CoreDataStack.saveContext()
-            _ = self.navigationController?.popViewController(animated: true)
+        clientViewModel.removeClient()
+        _ = self.navigationController?.popViewController(animated: true)
 
-        }
         
     }
     
     @IBAction func sellButtonTouched(_ sender: UIButton) {
         
-        if client != nil {
+//        if client != nil {
 //            ShoppingCartService.sharedInstance.updateClient(client: client!)
-        }
+//        }
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Product", bundle:nil)
         
@@ -243,41 +211,41 @@ UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     }
     
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients([self.client?.email ?? ""])
-        mailComposerVC.setMessageBody("", isHTML: false)
-        return mailComposerVC
-    }
-    
-    
-    // MARK: MFMailComposeViewControllerDelegate Method
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    private func validate() -> Bool{
-        if(!TextfieldValidator.validateName(nameTextField.text!)){
-          
-            nameTextField.becomeFirstResponder()
-            self.showOkAlertMessage(withTitle: "Invalid Name", andBody: "Please, type at least 2 characters.")
-        
-            return false
-        }
-        
-        if((emailTextField.text?.characters.count)! > 0){
-           
-            if(!TextfieldValidator.validatePassword(emailTextField.text!)){
-                
-                emailTextField.becomeFirstResponder()
-                self.showOkAlertMessage(withTitle: "Invalid email", andBody: "Please, type a valid email.")
-                
-                return false
-            }
-        }
-        
-        return true
-    }
+//    func configuredMailComposeViewController() -> MFMailComposeViewController {
+//        let mailComposerVC = MFMailComposeViewController()
+//        mailComposerVC.mailComposeDelegate = self
+//        mailComposerVC.setToRecipients([self.client?.email ?? ""])
+//        mailComposerVC.setMessageBody("", isHTML: false)
+//        return mailComposerVC
+//    }
+//    
+//    
+//    // MARK: MFMailComposeViewControllerDelegate Method
+//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        controller.dismiss(animated: true, completion: nil)
+//    }
+//    
+//    private func validate() -> Bool{
+//        if(!TextfieldValidator.validateName(nameTextField.text!)){
+//          
+//            nameTextField.becomeFirstResponder()
+//            self.showOkAlertMessage(withTitle: "Invalid Name", andBody: "Please, type at least 2 characters.")
+//        
+//            return false
+//        }
+//        
+//        if((emailTextField.text?.characters.count)! > 0){
+//           
+//            if(!TextfieldValidator.validatePassword(emailTextField.text!)){
+//                
+//                emailTextField.becomeFirstResponder()
+//                self.showOkAlertMessage(withTitle: "Invalid email", andBody: "Please, type a valid email.")
+//                
+//                return false
+//            }
+//        }
+//        
+//        return true
+//    }
     
 }
